@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+dist/
+
+# Payload CMS
+.payload/
+
+# Build outputs
+build/
+storybook-static/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+coverage/
+.vitest/
+
+# pnpm
+.pnpm-store/
+
+# Turbo
+.turbo/
+
+# Vercel
+.vercel/
+
+# Serena (local dev tool, not project code)
+.serena/
+
+# Claude Code local settings (permissions, local overrides)
+.claude/settings.local.json
