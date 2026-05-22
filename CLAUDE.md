@@ -4,6 +4,10 @@
 
 Career platform for the non-profit, international cooperation, and impact sectors across Asia and Pacific. Full architecture in [`docs/TECHNICAL_BLUEPRINT.md`](docs/TECHNICAL_BLUEPRINT.md).
 
+## Design
+
+- **Figma board**: https://www.figma.com/design/xn4TcxYjXSZRJun6ao9dQb/Untitled?node-id=0-1&m=dev&t=CaLb6SzqLSfKywmf-1
+
 ## Stack
 
 - **Next.js App Router** + **Payload CMS v3** — single project, single deployment
@@ -55,6 +59,7 @@ packages/
   domain/               shared Valibot schemas + TypeScript types
 docs/
   TECHNICAL_BLUEPRINT.md
+  decisions/            architecture decision records
   specs/                feature specifications
   plans/                implementation plans
 ```
@@ -70,6 +75,13 @@ pnpm test               # Vitest
 pnpm storybook          # Storybook dev server
 pnpm payload generate:types  # regenerate types from Payload collections
 ```
+
+## Superpowers skill paths
+
+Override the superpowers defaults — save docs here instead:
+
+- **Specs** (brainstorming skill): `docs/specs/YYYY-MM-DD-<topic>-design.md`
+- **Plans** (writing-plans skill): `docs/plans/YYYY-MM-DD-<feature-name>.md`
 
 ## Key decisions — do not reverse without discussion
 
