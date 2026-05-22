@@ -116,10 +116,22 @@ CSS variables and Tailwind classes work in Storybook automatically once `globals
 
 ---
 
+## Logo Assets
+
+Logos are stored in Google Drive: https://drive.google.com/drive/folders/1RtSWSDPKsXnQxAEz3J0-tMDoNYoEnkuY
+
+Structure:
+- `Light/` — logo variants for use on light backgrounds (SVG + PNG)
+- `Dark/` — logo variants for use on dark backgrounds (SVG + PNG)
+
+Logo placement and usage rules are handled as part of component design work, not this spec.
+
+---
+
 ## Out of Scope
 
 - Dark mode (deferred to post-MVP)
-- Spacing / padding system (not specified in brand book)
+- Spacing / padding system (handled during component design work)
 - Border radius, shadow/elevation system (not specified in brand book)
-- Logo usage rules (visual-only in brand book, not extractable as tokens)
+- Logo usage rules and placement (handled during component design work)
 - Component-level specs (buttons, inputs, cards) — separate design work
