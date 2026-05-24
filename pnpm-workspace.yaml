@@ -5,4 +5,6 @@ packages:
 onlyBuiltDependencies:
   - esbuild
 
-minimumReleaseAge: '10080 minutes'
+# minimumReleaseAge: '10080 minutes'
+# Disabled: pnpm 11.3.0 crashes with "Invalid time value" on deps that have
+# null timestamps in the npm registry. Re-enable when upstream is fixed.
