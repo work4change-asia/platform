@@ -6,6 +6,12 @@ const DevConfig = v.object({
   PAYLOAD_SECRET: v.string(),
 })
 
+const TestConfig = v.object({
+  NODE_ENV: v.literal('test'),
+  DATABASE_URL: v.string(),
+  PAYLOAD_SECRET: v.string(),
+})
+
 const ProdConfig = v.object({
   NODE_ENV: v.literal('production'),
   DATABASE_URL: v.pipe(v.string(), v.url()),
@@ -13,6 +19,6 @@ const ProdConfig = v.object({
 })
 
 export const env = v.parse(
-  v.union([DevConfig, ProdConfig]),
+  v.union([DevConfig, TestConfig, ProdConfig]),
   process.env,
 )
