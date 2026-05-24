@@ -2,8 +2,9 @@ packages:
   - 'apps/*'
   - 'packages/*'
 
-onlyBuiltDependencies:
-  - esbuild
+allowBuilds:
+  esbuild: true
+  sharp: true
 
 # minimumReleaseAge: '10080 minutes'
 # Disabled: pnpm 11.3.0 crashes with "Invalid time value" on deps that have
