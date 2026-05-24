@@ -23,6 +23,7 @@ storybook-static/
 .env.production.local
 .env*.local
 !.env.example
+!.env.local.example
 
 # Logs
 logs/
