@@ -33,6 +33,7 @@ Event-specific fields: `event_date`, `event_format`, `registration_url`
 ## Alternatives rejected
 
 **Single `opportunities` table with a `type` discriminator**
+
 - Simpler initial setup
 - Becomes a wide table with many nullable columns as content types diverge
 - Filter queries become complex (type-conditional field availability)
@@ -40,6 +41,7 @@ Event-specific fields: `event_date`, `event_format`, `registration_url`
 - Rejected
 
 **Single table + JSONB for type-specific metadata**
+
 - Flexible but loses type safety on the variable fields
 - Harder to query and index efficiently
 - Rejected

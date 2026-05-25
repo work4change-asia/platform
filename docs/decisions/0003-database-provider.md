@@ -24,26 +24,31 @@ Requirements: free or cheap to start, reliable, global availability convenient f
 ## Alternatives rejected
 
 **Vercel Postgres** (Neon under the hood)
+
 - More convenient dashboard integration with Vercel
 - Free tier is more restrictive than going to Neon directly (256MB vs 512MB)
 - Adds Vercel as an intermediary with no benefit
 - Rejected
 
 **Supabase**
+
 - Free tier: 500MB, but **free projects are paused after 1 week of inactivity** — a real risk for a new platform with low early traffic
 - Includes auth, storage, realtime — features not needed since Payload handles content and auth
 - Paid tier starts at $25/month
 - Rejected for free tier pausing behaviour
 
 **Railway**
+
 - No meaningful free tier (trial credit only, then usage-based)
 - Rejected
 
 **Render PostgreSQL**
+
 - Free tier databases are **deleted after 90 days**
 - Rejected
 
 **Self-hosted on Unraid**
+
 - Free, full control
 - Ties production database reliability to home server uptime
 - Suitable for local development and staging only

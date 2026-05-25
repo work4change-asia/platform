@@ -25,6 +25,7 @@ A GitHub organisation was created (free tier) rather than using a personal accou
 ## Alternatives considered
 
 **GitLab.com**
+
 - Vercel has first-class GitLab integration (same as GitHub)
 - Stronger CI/CD pipeline features
 - Not GitHub/Microsoft
@@ -32,6 +33,7 @@ A GitHub organisation was created (free tier) rather than using a personal accou
 - Rejected for now on pragmatism grounds only
 
 **Self-hosted Gitea (on Unraid)**
+
 - Already running, full control
 - Vercel has no native Gitea integration — deployments would require Gitea Actions + Vercel CLI
 - Loss of: automatic Vercel preview deployments, commit-linked dashboard, one-click rollback

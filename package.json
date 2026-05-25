@@ -1,0 +1,17 @@
+{
+  "name": "w4change",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "typecheck": "tsc -b apps/web packages/domain",
+    "lint": "oxlint .",
+    "format": "oxfmt --write .",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "oxfmt": "0.50.0",
+    "oxlint": "1.64.0",
+    "typescript": "6.0.3",
+    "vitest": "4.1.6"
+  }
+}

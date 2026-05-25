@@ -16,18 +16,19 @@
 
 ## File Map
 
-| Action | File | Responsibility |
-|---|---|---|
-| Modify | `apps/web/app/globals.css` | Defines all brand token CSS custom properties on `:root` |
-| Modify | `apps/web/tailwind.config.ts` | Extends Tailwind theme with brand color aliases and font stack |
-| Modify | `apps/web/app/layout.tsx` | Loads Manrope via `next/font/google`, injects `--font-manrope` CSS var |
-| Create | `apps/web/app/globals.test.css.ts` | Vitest: verifies Tailwind config exports expected brand keys |
+| Action | File                               | Responsibility                                                         |
+| ------ | ---------------------------------- | ---------------------------------------------------------------------- |
+| Modify | `apps/web/app/globals.css`         | Defines all brand token CSS custom properties on `:root`               |
+| Modify | `apps/web/tailwind.config.ts`      | Extends Tailwind theme with brand color aliases and font stack         |
+| Modify | `apps/web/app/layout.tsx`          | Loads Manrope via `next/font/google`, injects `--font-manrope` CSS var |
+| Create | `apps/web/app/globals.test.css.ts` | Vitest: verifies Tailwind config exports expected brand keys           |
 
 ---
 
 ## Task 1: Add CSS custom property tokens to `globals.css`
 
 **Files:**
+
 - Modify: `apps/web/app/globals.css`
 
 - [ ] **Step 1: Add brand tokens to `:root`**
@@ -38,17 +39,17 @@ Open `apps/web/app/globals.css`. Inside the existing `:root` block (or create on
 @layer base {
   :root {
     /* Primary palette */
-    --color-teal-deep:     #0A3B44; /* nav, headers, structural elements */
-    --color-orange-warm:   #FF8A42; /* CTAs, primary actions */
-    --color-teal-bright:   #2AB5C8; /* icons, links, secondary emphasis */
-    --color-white-soft:    #F4F1EC; /* content backgrounds, large light areas */
+    --color-teal-deep: #0a3b44; /* nav, headers, structural elements */
+    --color-orange-warm: #ff8a42; /* CTAs, primary actions */
+    --color-teal-bright: #2ab5c8; /* icons, links, secondary emphasis */
+    --color-white-soft: #f4f1ec; /* content backgrounds, large light areas */
 
     /* Secondary palette */
-    --color-black:         #000000; /* body text, high-contrast — use sparingly */
-    --color-rust:          #C45A23; /* secondary highlights, data viz */
-    --color-gray-charcoal: #3B3B3B; /* secondary text, icons, UI elements */
-    --color-brown-warm:    #D68A55; /* earthy accents, illustrations */
-    --color-blue-pale:     #A7BFC8; /* cards, tables, section backgrounds */
+    --color-black: #000000; /* body text, high-contrast — use sparingly */
+    --color-rust: #c45a23; /* secondary highlights, data viz */
+    --color-gray-charcoal: #3b3b3b; /* secondary text, icons, UI elements */
+    --color-brown-warm: #d68a55; /* earthy accents, illustrations */
+    --color-blue-pale: #a7bfc8; /* cards, tables, section backgrounds */
   }
 }
 ```
@@ -67,6 +68,7 @@ git commit -m "feat: add brand color tokens as CSS custom properties"
 ## Task 2: Extend Tailwind config with brand color aliases and font stack
 
 **Files:**
+
 - Modify: `apps/web/tailwind.config.ts`
 - Create: `apps/web/tailwind.config.test.ts`
 
@@ -75,35 +77,35 @@ git commit -m "feat: add brand color tokens as CSS custom properties"
 Create `apps/web/tailwind.config.test.ts`:
 
 ```ts
-import { describe, it, expect } from 'vitest'
-import config from './tailwind.config'
+import { describe, it, expect } from "vitest";
+import config from "./tailwind.config";
 
-describe('tailwind brand tokens', () => {
-  const colors = config.theme?.extend?.colors as Record<string, Record<string, string>>
+describe("tailwind brand tokens", () => {
+  const colors = config.theme?.extend?.colors as Record<string, Record<string, string>>;
 
-  it('exports all primary brand color keys', () => {
+  it("exports all primary brand color keys", () => {
     expect(colors.brand).toMatchObject({
-      teal:         'var(--color-teal-deep)',
-      orange:       'var(--color-orange-warm)',
-      'teal-light': 'var(--color-teal-bright)',
-      'white-soft': 'var(--color-white-soft)',
-    })
-  })
+      teal: "var(--color-teal-deep)",
+      orange: "var(--color-orange-warm)",
+      "teal-light": "var(--color-teal-bright)",
+      "white-soft": "var(--color-white-soft)",
+    });
+  });
 
-  it('exports all secondary brand color keys', () => {
+  it("exports all secondary brand color keys", () => {
     expect(colors.brand).toMatchObject({
-      rust:        'var(--color-rust)',
-      charcoal:    'var(--color-gray-charcoal)',
-      brown:       'var(--color-brown-warm)',
-      'blue-pale': 'var(--color-blue-pale)',
-    })
-  })
+      rust: "var(--color-rust)",
+      charcoal: "var(--color-gray-charcoal)",
+      brown: "var(--color-brown-warm)",
+      "blue-pale": "var(--color-blue-pale)",
+    });
+  });
 
-  it('sets Manrope as the first sans font', () => {
-    const fontFamily = config.theme?.extend?.fontFamily as Record<string, string[]>
-    expect(fontFamily.sans[0]).toBe('var(--font-manrope)')
-  })
-})
+  it("sets Manrope as the first sans font", () => {
+    const fontFamily = config.theme?.extend?.fontFamily as Record<string, string[]>;
+    expect(fontFamily.sans[0]).toBe("var(--font-manrope)");
+  });
+});
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
@@ -119,37 +121,34 @@ Expected: FAIL — `colors.brand` is undefined or missing keys.
 Open `apps/web/tailwind.config.ts` and update the `theme.extend` section:
 
 ```ts
-import type { Config } from 'tailwindcss'
-import defaultTheme from 'tailwindcss/defaultTheme'
+import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
-  content: [
-    './app/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-  ],
+  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
         brand: {
-          teal:         'var(--color-teal-deep)',
-          orange:       'var(--color-orange-warm)',
-          'teal-light': 'var(--color-teal-bright)',
-          'white-soft': 'var(--color-white-soft)',
-          rust:         'var(--color-rust)',
-          charcoal:     'var(--color-gray-charcoal)',
-          brown:        'var(--color-brown-warm)',
-          'blue-pale':  'var(--color-blue-pale)',
+          teal: "var(--color-teal-deep)",
+          orange: "var(--color-orange-warm)",
+          "teal-light": "var(--color-teal-bright)",
+          "white-soft": "var(--color-white-soft)",
+          rust: "var(--color-rust)",
+          charcoal: "var(--color-gray-charcoal)",
+          brown: "var(--color-brown-warm)",
+          "blue-pale": "var(--color-blue-pale)",
         },
       },
       fontFamily: {
-        sans: ['var(--font-manrope)', ...defaultTheme.fontFamily.sans],
+        sans: ["var(--font-manrope)", ...defaultTheme.fontFamily.sans],
       },
     },
   },
   plugins: [],
-}
+};
 
-export default config
+export default config;
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
@@ -172,6 +171,7 @@ git commit -m "feat: extend Tailwind theme with brand color aliases and Manrope 
 ## Task 3: Load Manrope via `next/font/google` in `layout.tsx`
 
 **Files:**
+
 - Modify: `apps/web/app/layout.tsx`
 - Create: `apps/web/app/layout.test.tsx`
 
@@ -180,21 +180,21 @@ git commit -m "feat: extend Tailwind theme with brand color aliases and Manrope 
 Create `apps/web/app/layout.test.tsx`:
 
 ```tsx
-import { describe, it, expect } from 'vitest'
-import { render } from '@testing-library/react'
-import RootLayout from './layout'
+import { describe, it, expect } from "vitest";
+import { render } from "@testing-library/react";
+import RootLayout from "./layout";
 
-describe('RootLayout', () => {
-  it('applies the Manrope font variable class to <html>', () => {
+describe("RootLayout", () => {
+  it("applies the Manrope font variable class to <html>", () => {
     const { container } = render(
       <RootLayout>
         <div>test</div>
-      </RootLayout>
-    )
-    const html = container.querySelector('html')
-    expect(html?.className).toContain('__variable_')
-  })
-})
+      </RootLayout>,
+    );
+    const html = container.querySelector("html");
+    expect(html?.className).toContain("__variable_");
+  });
+});
 ```
 
 > Note: `next/font/google` generates a hashed class name like `__variable_abc123` for the CSS variable. The test checks the class is present without hardcoding the hash.
@@ -210,31 +210,27 @@ Expected: FAIL — no font variable class on `<html>`.
 - [ ] **Step 3: Update `layout.tsx` to load Manrope**
 
 ```tsx
-import type { Metadata } from 'next'
-import { Manrope } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import { Manrope } from "next/font/google";
+import "./globals.css";
 
 const manrope = Manrope({
-  subsets: ['latin'],
-  weight: ['400', '600'],
-  variable: '--font-manrope',
-})
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-manrope",
+});
 
 export const metadata: Metadata = {
-  title: 'Work4Change Asia',
-  description: 'Career platform for the non-profit and impact sectors across Asia and Pacific.',
-}
+  title: "Work4Change Asia",
+  description: "Career platform for the non-profit and impact sectors across Asia and Pacific.",
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={manrope.variable}>
       <body>{children}</body>
     </html>
-  )
+  );
 }
 ```
 
