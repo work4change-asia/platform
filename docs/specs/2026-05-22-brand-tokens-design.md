@@ -27,17 +27,17 @@ Defined on `:root` in `apps/web/app/globals.css`:
 ```css
 :root {
   /* Primary palette */
-  --color-teal-deep:     #0A3B44;  /* nav, headers, structural elements */
-  --color-orange-warm:   #FF8A42;  /* CTAs, primary actions */
-  --color-teal-bright:   #2AB5C8;  /* icons, links, secondary emphasis */
-  --color-white-soft:    #F4F1EC;  /* content backgrounds, large light areas */
+  --color-teal-deep: #0a3b44; /* nav, headers, structural elements */
+  --color-orange-warm: #ff8a42; /* CTAs, primary actions */
+  --color-teal-bright: #2ab5c8; /* icons, links, secondary emphasis */
+  --color-white-soft: #f4f1ec; /* content backgrounds, large light areas */
 
   /* Secondary palette */
-  --color-black:         #000000;  /* body text, high-contrast — use sparingly */
-  --color-rust:          #C45A23;  /* secondary highlights, data viz */
-  --color-gray-charcoal: #3B3B3B;  /* secondary text, icons, UI elements */
-  --color-brown-warm:    #D68A55;  /* earthy accents, illustrations */
-  --color-blue-pale:     #A7BFC8;  /* cards, tables, section backgrounds */
+  --color-black: #000000; /* body text, high-contrast — use sparingly */
+  --color-rust: #c45a23; /* secondary highlights, data viz */
+  --color-gray-charcoal: #3b3b3b; /* secondary text, icons, UI elements */
+  --color-brown-warm: #d68a55; /* earthy accents, illustrations */
+  --color-blue-pale: #a7bfc8; /* cards, tables, section backgrounds */
 }
 ```
 
@@ -78,20 +78,20 @@ Utility classes: `bg-brand-teal`, `text-brand-orange`, `bg-brand-blue-pale`, etc
 **Typeface:** Manrope (Google Fonts) — loaded via `next/font/google` in `apps/web/app/layout.tsx`.
 
 ```tsx
-import { Manrope } from 'next/font/google'
+import { Manrope } from "next/font/google";
 
 const manrope = Manrope({
-  subsets: ['latin'],
-  weight: ['400', '600'],     // regular + semi-bold only
-  variable: '--font-manrope',
-})
+  subsets: ["latin"],
+  weight: ["400", "600"], // regular + semi-bold only
+  variable: "--font-manrope",
+});
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={manrope.variable}>
       <body>{children}</body>
     </html>
-  )
+  );
 }
 ```
 
@@ -101,12 +101,12 @@ Manrope is set as the default `sans` stack — no extra utility class needed any
 
 The brand book's scale maps exactly to Tailwind defaults; no custom sizes required:
 
-| Role | Size | Weight | Tailwind classes |
-|---|---|---|---|
-| H1 | 36px | Semi Bold | `text-4xl font-semibold` |
-| H2 | 24px | Semi Bold | `text-2xl font-semibold` |
-| H3 | 18px | Regular | `text-lg font-normal` |
-| Body | 16px | Regular | `text-base font-normal` |
+| Role | Size | Weight    | Tailwind classes         |
+| ---- | ---- | --------- | ------------------------ |
+| H1   | 36px | Semi Bold | `text-4xl font-semibold` |
+| H2   | 24px | Semi Bold | `text-2xl font-semibold` |
+| H3   | 18px | Regular   | `text-lg font-normal`    |
+| Body | 16px | Regular   | `text-base font-normal`  |
 
 ---
 
@@ -121,6 +121,7 @@ CSS variables and Tailwind classes work in Storybook automatically once `globals
 Logos are stored in Google Drive: https://drive.google.com/drive/folders/1RtSWSDPKsXnQxAEz3J0-tMDoNYoEnkuY
 
 Structure:
+
 - `Light/` — logo variants for use on light backgrounds (SVG + PNG)
 - `Dark/` — logo variants for use on dark backgrounds (SVG + PNG)
 

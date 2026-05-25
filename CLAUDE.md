@@ -21,12 +21,12 @@ Career platform for the non-profit, international cooperation, and impact sector
 
 These are enforced by Oxlint and must never be bypassed:
 
-| Banned | Use instead |
-|---|---|
-| `any` | proper type, Valibot parser, or type guard |
-| `as Foo` type assertions | Valibot `parse`, `instanceof`, or user-defined type guard |
-| `!` non-null assertion | explicit null check or optional chaining |
-| `@ts-ignore` / `@ts-expect-error` | fix the code |
+| Banned                            | Use instead                                               |
+| --------------------------------- | --------------------------------------------------------- |
+| `any`                             | proper type, Valibot parser, or type guard                |
+| `as Foo` type assertions          | Valibot `parse`, `instanceof`, or user-defined type guard |
+| `!` non-null assertion            | explicit null check or optional chaining                  |
+| `@ts-ignore` / `@ts-expect-error` | fix the code                                              |
 
 `as const` and `satisfies` are permitted.
 

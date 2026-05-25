@@ -18,6 +18,7 @@ A designer is delivering Figma screens and a design system (colors, spacing, typ
 Components have two layers: **behavior** (keyboard navigation, ARIA, focus trapping, scroll locking) and **appearance** (colors, spacing, typography). The designer specifies appearance. shadcn/ui (built on Radix UI primitives) handles behavior.
 
 Separating these concerns means:
+
 - Accessibility is solved by Radix, not reinvented
 - Designer's visual spec maps directly onto restyled components
 - Every component is a file in the repo — auditable, modifiable, no upstream surprises
@@ -27,21 +28,25 @@ The Storybook ↔ Figma link creates a tight feedback loop: the designer reviews
 ## Alternatives rejected
 
 **Figma export / code generation (Locofy, Anima, Dev Mode)**
+
 - Exports produce static HTML/CSS with no state, no accessibility, and no interactivity
 - Would require rebuilding all behavior from scratch anyway
 - Rejected
 
 **Fully custom components (no library base)**
+
 - Would require reimplementing modal focus trapping, combobox keyboard nav, dropdown positioning, etc.
 - Each is exactly where homegrown implementations introduce accessibility regressions
 - Rejected
 
 **MUI / Chakra / Mantine**
+
 - Heavy runtime, opinionated theming that fights custom design systems
 - Large dependency surface
 - Rejected
 
 **Emotion / styled-components**
+
 - Runtime CSS generation — extra JS shipped to every page
 - No build-time purging
 - Rejected in favour of Tailwind (build-time, no runtime)

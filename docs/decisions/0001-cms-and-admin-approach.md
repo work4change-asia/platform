@@ -28,21 +28,25 @@ The key insight: opportunities are structured data (CRUD + workflow), not editor
 ## Alternatives rejected
 
 **Wagtail (Django/Python)**
+
 - Page-tree oriented — wrong abstraction for list-based structured data
 - Python stack, user prefers TypeScript throughout
 - Rejected
 
 **Strapi / Directus (headless CMS)**
+
 - Separate service from the frontend — two deployments to manage
 - Less TypeScript-native than Payload v3
 - Rejected on operational simplicity grounds for a solo developer
 
 **Custom admin (Django admin equivalent in Node)**
+
 - Would require building auth, access control, file uploads, and admin UI from scratch
 - Weeks of work before any application-specific feature
 - Rejected
 
 **Fully custom (no CMS)**
+
 - Maximum control, minimum footprint
 - Incompatible with solo-developer timeline
 - Rejected for MVP; documented as the fallback if Payload becomes untenable

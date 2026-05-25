@@ -14,13 +14,15 @@ Adopt the supply chain controls and TypeScript strictness rules from the referen
 ## Supply chain controls
 
 **pnpm-workspace.yaml:**
+
 ```yaml
-minimumReleaseAge: 10080    # block packages published < 7 days ago
+minimumReleaseAge: 10080 # block packages published < 7 days ago
 allowBuilds:
-  esbuild: true             # only package permitted to run postinstall
+  esbuild: true # only package permitted to run postinstall
 ```
 
 **`.npmrc`:**
+
 ```ini
 save-exact=true
 engine-strict=true
@@ -29,23 +31,25 @@ audit-level=high
 ```
 
 **CI gates:**
+
 - `pnpm audit --prod --audit-level=high` on every PR
 - Release-age lockfile diff: queries npm registry for newly-added packages, fails if published inside 7-day window
 - Suppression grep gate (linter cannot self-suppress its own disable directives)
 
 ## TypeScript banned patterns
 
-| Banned | Lint rule |
-|---|---|
-| `any` | `typescript/no-explicit-any` |
-| `!` non-null assertion | `typescript/no-non-null-assertion` |
-| `as Foo` type assertions | `typescript/consistent-type-assertions: never` |
-| `@ts-ignore` / `@ts-expect-error` | `typescript/ban-ts-comment` |
-| `oxlint-disable` / `eslint-disable` | CI grep gate |
+| Banned                              | Lint rule                                      |
+| ----------------------------------- | ---------------------------------------------- |
+| `any`                               | `typescript/no-explicit-any`                   |
+| `!` non-null assertion              | `typescript/no-non-null-assertion`             |
+| `as Foo` type assertions            | `typescript/consistent-type-assertions: never` |
+| `@ts-ignore` / `@ts-expect-error`   | `typescript/ban-ts-comment`                    |
+| `oxlint-disable` / `eslint-disable` | CI grep gate                                   |
 
 Permitted: `as const` and `satisfies`.
 
 Replacement patterns:
+
 1. Valibot parser at an I/O boundary
 2. User-defined type guard (`x is Foo`)
 3. `instanceof` in catch blocks
@@ -61,6 +65,7 @@ Replacement patterns:
 ## Validation at I/O boundaries (Valibot)
 
 Payload CMS handles collection-level field validation internally. Valibot is used everywhere else:
+
 1. **Env vars at startup** — discriminated union `DevConfig | ProdConfig`; misconfiguration is a startup failure with a clear message
 2. **Custom API route bodies** — every handler parses input before use
 3. **Shared domain package** — same Valibot schema imported by both frontend form and backend handler

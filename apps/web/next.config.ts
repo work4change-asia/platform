@@ -1,7 +1,7 @@
-import type { NextConfig } from 'next'
-import { withPayload } from '@payloadcms/next/withPayload'
-import './env'
+import type { NextConfig } from "next";
+import { withPayload } from "@payloadcms/next/withPayload";
+import "./env";
 
-const nextConfig: NextConfig = {}
+const nextConfig: NextConfig = {};
 
-export default withPayload(nextConfig)
+export default withPayload(nextConfig);
