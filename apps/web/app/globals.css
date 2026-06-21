@@ -14,6 +14,16 @@ textarea {
   font-family: var(--font-sans);
 }
 
+/* Figma type scale: all headings use Manrope Medium (500), not browser-default bold */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+
 @theme {
   /* ─── Brand colors ─────────────────────────────────── */
   --color-teal: #0a3b44;
@@ -44,25 +54,6 @@ textarea {
   /* ─── Font family ──────────────────────────────────── */
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 
-  /* ─── Heading type scale ───────────────────────────── */
-  --text-display: 3.5rem; /* 56px */
-  --text-display--line-height: 4rem; /* 64px */
-
-  --text-h1: 3rem; /* 48px */
-  --text-h1--line-height: 3.5rem; /* 56px */
-
-  --text-h3: 2.5rem; /* 40px */
-  --text-h3--line-height: 3rem; /* 48px */
-
-  --text-h4: 2rem; /* 32px */
-  --text-h4--line-height: 2.5rem; /* 40px */
-
-  --text-h5: 2.25rem; /* 36px */
-  --text-h5--line-height: 2.75rem; /* 44px */
-
-  --text-h6: 1.5rem; /* 24px */
-  --text-h6--line-height: 2rem; /* 32px */
-
   /* ─── Border radius ────────────────────────────────── */
   --radius-pill: 9999px;
   --radius-card: 0.625rem; /* 10px */
@@ -71,4 +62,45 @@ textarea {
 
   /* ─── Shadows ──────────────────────────────────────── */
   --shadow-card: 0px 12px 28px rgba(10, 59, 68, 0.16);
+}
+
+/* ─── Heading type scale (Figma: all Medium/500, from @utility so Tailwind generates the class) ─ */
+@utility text-display {
+  font-size: 3.5rem;
+  line-height: 4rem;
+}
+
+@utility text-h1 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+}
+
+@utility text-h2 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+}
+
+@utility text-h3 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+
+@utility text-h4 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+@utility text-h5 {
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+}
+
+@utility text-h6 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+@utility text-tiny {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
