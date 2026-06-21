@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
 
 :root {
   /* Fallback for non-Next.js contexts (e.g. Storybook). next/font overrides this on <html>. */
@@ -71,7 +70,9 @@ h6 {
   --shadow-card: 0px 12px 28px rgba(10, 59, 68, 0.16);
 }
 
-/* ─── Heading type scale (Figma: all Medium/500, from @utility so Tailwind generates the class) ─ */
+/* ─── Heading type scale ─────────────────────────────
+   Sizes only. Weights come from the h1–h6 base reset above (brand book: H1/H2 600, H3+ 400).
+   These are @utility (not @theme --text-*) so Tailwind generates first-class classes. ─ */
 @utility text-display {
   font-size: 3.5rem;
   line-height: 4rem;
@@ -93,13 +94,13 @@ h6 {
 }
 
 @utility text-h4 {
-  font-size: 2rem;
-  line-height: 2.5rem;
+  font-size: 2.25rem;
+  line-height: 2.75rem;
 }
 
 @utility text-h5 {
-  font-size: 2.25rem;
-  line-height: 2.75rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
 }
 
 @utility text-h6 {

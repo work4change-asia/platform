@@ -29,11 +29,11 @@ export const TypeScale: Story = {
         <h3 className="text-h3">Find Opportunities in Asia</h3>
       </div>
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">H4 — 32px / Regular</p>
+        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">H4 — 36px / Regular</p>
         <h4 className="text-h4">Browse the Job Board</h4>
       </div>
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">H5 — 36px / Regular</p>
+        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">H5 — 32px / Regular</p>
         <h5 className="text-h5">Grants &amp; Events</h5>
       </div>
       <div className="flex flex-col gap-2">

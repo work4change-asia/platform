@@ -7,9 +7,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-orange text-cream hover:bg-rust focus-visible:outline-orange disabled:bg-orange-light disabled:text-white",
+          "bg-orange text-cream hover:bg-rust focus-visible:outline-orange disabled:bg-orange-light disabled:text-cream",
         secondary:
-          "bg-teal text-cream hover:bg-black focus-visible:outline-teal disabled:bg-gray-200 disabled:text-white",
+          "bg-teal text-cream hover:bg-black focus-visible:outline-teal disabled:bg-gray-200 disabled:text-cream",
         outline:
           "border-[1.5px] border-teal text-teal bg-transparent hover:bg-gray-200 focus-visible:outline-teal disabled:border-gray-200 disabled:text-gray-200 disabled:bg-transparent",
         ghost:
@@ -55,6 +55,7 @@ export function Button({
 
   return (
     <button
+      type="button"
       className={twMerge(buttonVariants({ variant, size }), iconPadding, className)}
       {...props}
     >

@@ -1,10 +1,11 @@
 import type { Preview } from "@storybook/nextjs-vite";
+import "./fonts.css";
 import "../app/globals.css";
 
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <div style={{ fontFamily: "Manrope, ui-sans-serif, system-ui, sans-serif" }}>
+      <div className="font-sans">
         <Story />
       </div>
     ),

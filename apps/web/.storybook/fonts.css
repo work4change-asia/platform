@@ -1,0 +1,3 @@
+/* Storybook-only: next/font handles Manrope in the real app, but Storybook has no
+   next/font runtime, so load Manrope from Google Fonts here instead of in globals.css. */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
