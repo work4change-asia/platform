@@ -6,19 +6,22 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-orange text-white hover:bg-orange/90 focus-visible:outline-orange",
+        primary:
+          "bg-orange text-cream hover:bg-rust focus-visible:outline-orange",
         secondary:
-          "bg-teal text-white hover:bg-teal/90 focus-visible:outline-teal",
+          "bg-teal text-cream hover:bg-black focus-visible:outline-teal",
         outline:
-          "border border-teal text-teal bg-transparent hover:bg-teal hover:text-white focus-visible:outline-teal",
+          "border-[1.5px] border-teal text-teal bg-transparent hover:bg-gray-100 focus-visible:outline-teal",
         ghost: "text-teal hover:bg-teal/10 focus-visible:outline-teal",
         link: "text-teal-light underline-offset-4 hover:underline focus-visible:outline-teal-light",
+        inverse:
+          "border-[1.5px] border-cream text-cream bg-transparent hover:bg-white/20 focus-visible:outline-cream",
       },
       size: {
-        sm: "h-8 rounded-pill px-4 text-sm",
-        md: "h-11 rounded-pill px-6 text-base",
-        lg: "h-13 rounded-pill px-8 text-lg",
-        icon: "size-9 rounded-pill",
+        sm: "h-11 rounded-pill px-6 text-base",
+        md: "h-12 rounded-pill px-6 text-base",
+        lg: "h-16 rounded-pill px-[38px] text-base",
+        icon: "size-11 rounded-pill",
       },
     },
     defaultVariants: {
