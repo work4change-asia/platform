@@ -14,14 +14,17 @@ textarea {
   font-family: var(--font-sans);
 }
 
-/* Figma type scale: all headings use Manrope Medium (500), not browser-default bold */
+/* Brand book: H1/H2 = SemiBold (600), H3 and below = Regular (400) */
 h1,
-h2,
+h2 {
+  font-weight: 600;
+}
+
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 @theme {

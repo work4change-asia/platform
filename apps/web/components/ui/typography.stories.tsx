@@ -13,32 +13,32 @@ export const TypeScale: Story = {
   render: () => (
     <div className="flex flex-col gap-8 text-teal">
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">Display 01 — 56px / 64px / Medium</p>
-        <p className="text-display font-medium">Work4Change Asia</p>
+        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">Display 01 — 56px / 64px / SemiBold</p>
+        <p className="text-display font-semibold">Work4Change Asia</p>
       </div>
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">Heading 01 — 48px / 56px / Medium</p>
-        <h1 className="text-h1 font-medium">Career Platform for Impact</h1>
+        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">H1 — 48px / SemiBold (brand book)</p>
+        <h1 className="text-h1">Career Platform for Impact</h1>
       </div>
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">Heading 02 — 48px / 56px / Medium</p>
-        <h2 className="text-h2 font-medium">Find Your Next Role</h2>
+        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">H2 — 48px / SemiBold (brand book)</p>
+        <h2 className="text-h2">Find Your Next Role</h2>
       </div>
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">Heading 03 — 40px / 48px / Medium</p>
-        <h3 className="text-h3 font-medium">Find Opportunities in Asia</h3>
+        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">H3 — 40px / Regular (brand book)</p>
+        <h3 className="text-h3">Find Opportunities in Asia</h3>
       </div>
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">Heading 04 — 32px / 40px / Medium</p>
-        <h4 className="text-h4 font-medium">Browse the Job Board</h4>
+        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">H4 — 32px / Regular</p>
+        <h4 className="text-h4">Browse the Job Board</h4>
       </div>
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">Heading 05 — 36px / 44px / Medium</p>
-        <h5 className="text-h5 font-medium">Grants &amp; Events</h5>
+        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">H5 — 36px / Regular</p>
+        <h5 className="text-h5">Grants &amp; Events</h5>
       </div>
       <div className="flex flex-col gap-2">
-        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">Heading 06 — 24px / 32px / Medium</p>
-        <h6 className="text-h6 font-medium">Non-Profit Sector</h6>
+        <p className="text-xs font-medium uppercase tracking-widest text-pale-blue">H6 — 24px / Regular</p>
+        <h6 className="text-h6">Non-Profit Sector</h6>
       </div>
       <hr className="border-gray-100" />
       <div className="flex flex-col gap-4 text-charcoal">
@@ -84,7 +84,7 @@ export const TypeScale: Story = {
 
 export const FontWeights: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 text-teal text-h3">
+    <div className="flex flex-col gap-4 text-teal text-h6">
       <p className="font-light">Manrope Light — 300</p>
       <p className="font-normal">Manrope Regular — 400</p>
       <p className="font-medium">Manrope Medium — 500</p>
