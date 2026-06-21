@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { ArrowRight, Upload } from "lucide-react";
 import { Button } from "./button";
 
 const meta = {
@@ -39,10 +40,6 @@ export const Ghost: Story = {
 
 export const Inverse: Story = {
   args: { variant: "inverse", size: "md", children: "Log In" },
-  parameters: {
-    backgrounds: { default: "teal" },
-    layout: "centered",
-  },
   decorators: [
     (Story) => (
       <div className="bg-teal p-8 rounded-card">
@@ -52,19 +49,37 @@ export const Inverse: Story = {
   ],
 };
 
+export const WithIconRight: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-4 items-center">
+        <Button variant="primary" rightIcon={<ArrowRight size={20} />}>Icon Right</Button>
+        <Button variant="primary" rightIcon={<Upload size={20} />}>Upload</Button>
+      </div>
+      <div className="flex flex-wrap gap-4 items-center">
+        <Button variant="outline" rightIcon={<ArrowRight size={20} />}>Icon Right</Button>
+        <Button variant="outline" rightIcon={<Upload size={20} />}>Upload</Button>
+      </div>
+      <div className="flex flex-wrap gap-4 items-center bg-teal p-6 rounded-card">
+        <Button variant="inverse" rightIcon={<ArrowRight size={20} />}>Icon Right</Button>
+      </div>
+    </div>
+  ),
+};
+
 export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-6">
       <div className="flex flex-wrap gap-4 items-center">
-        <Button variant="primary">Normal</Button>
-        <Button variant="secondary">Normal</Button>
-        <Button variant="outline">Normal</Button>
+        <Button variant="primary">Primary</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="outline">Outline</Button>
         <Button variant="ghost">Ghost</Button>
         <Button variant="link">Link</Button>
       </div>
       <div className="flex flex-wrap gap-4 items-center bg-teal p-6 rounded-card">
-        <Button variant="inverse">Normal</Button>
-        <Button variant="inverse" disabled>Disable</Button>
+        <Button variant="inverse">Inverse</Button>
+        <Button variant="inverse" disabled>Inverse Disabled</Button>
       </div>
     </div>
   ),
@@ -80,17 +95,15 @@ export const AllSizes: Story = {
   ),
 };
 
-export const Disabled: Story = {
-  args: { variant: "primary", size: "md", children: "Apply Now", disabled: true },
-};
-
-export const DisabledVariants: Story = {
+export const DisabledStates: Story = {
   render: () => (
     <div className="flex flex-col gap-6">
+      <p className="text-xs font-semibold uppercase tracking-widest text-pale-blue">Each variant encodes disabled differently per Figma</p>
       <div className="flex flex-wrap gap-4 items-center">
         <Button variant="primary" disabled>Primary</Button>
         <Button variant="secondary" disabled>Secondary</Button>
         <Button variant="outline" disabled>Outline</Button>
+        <Button variant="ghost" disabled>Ghost</Button>
       </div>
       <div className="flex flex-wrap gap-4 items-center bg-teal p-6 rounded-card">
         <Button variant="inverse" disabled>Inverse</Button>

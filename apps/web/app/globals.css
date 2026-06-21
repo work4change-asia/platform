@@ -31,8 +31,10 @@ h6 {
   /* ─── Brand colors ─────────────────────────────────── */
   --color-teal: #0a3b44;
   --color-teal-light: #2ab5c8;
+  --color-teal-dark: #127a88;
+  --color-teal-muted: #c3e3e8;
   --color-orange: #ff8a42;
-  --color-orange-light: #ffe1ce;
+  --color-orange-light: #ffceaf;
   --color-rust: #c45a23;
   --color-cream: #f4f1ec;
   --color-pale-blue: #a7bfc8;
@@ -43,6 +45,7 @@ h6 {
   --color-gray-950: #1a1a1a;
   --color-gray-900: #191f33;
   --color-gray-text: #18191c;
+  --color-gray-200: #d4dce0;
   --color-gray-100: #dfe3eb;
 
   /* ─── Semantic status ──────────────────────────────── */
