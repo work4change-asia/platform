@@ -60,3 +60,5 @@ coverage/
 
 # Claude Code local settings (permissions, local overrides)
 .claude/settings.local.json
+
+*storybook.log
