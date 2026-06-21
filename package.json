@@ -6,7 +6,8 @@
     "typecheck": "tsc -b apps/web packages/domain",
     "lint": "oxlint .",
     "format": "oxfmt --write .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "storybook": "pnpm --filter web storybook"
   },
   "devDependencies": {
     "oxfmt": "0.50.0",
