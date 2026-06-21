@@ -1,6 +1,19 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
 
+:root {
+  /* Fallback for non-Next.js contexts (e.g. Storybook). next/font overrides this on <html>. */
+  --font-manrope: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-sans);
+}
+
 @theme {
   /* ─── Brand colors ─────────────────────────────────── */
   --color-teal: #0a3b44;
