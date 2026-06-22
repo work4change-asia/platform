@@ -29,6 +29,7 @@ Option B: full responsive navigation in one spec. Desktop uses a sticky horizont
 - Focus trap / full WCAG keyboard navigation in the drawer — post-MVP
 - Skip-to-content link — post-MVP
 - Search bar in the top nav — post-MVP
+- Body scroll-lock layout shift fix (scrollbar-width compensation) — post-MVP
 
 ---
 
@@ -40,14 +41,14 @@ Shared primitive for a single nav item. Used in both `Header` and `NavDrawer`.
 
 - Props: `href: string`, `label: string`, `icon?: React.ReactNode`
 - Uses `usePathname()` to derive active state
-- Active match: exact for `/`, prefix for all other routes (so `/job-board/123-slug` keeps "Job Board" active)
+- Active match: `pathname === href` for `/`, `pathname === href || pathname.startsWith(href + "/")` for all other routes (so `/job-board/123-slug` keeps "Job Board" active without false-matching `/about-us` for `/about`)
 - Active style: orange text (`text-brand-orange` or equivalent token)
 - Inactive style: dark teal text
 - Client component (`"use client"`)
 
 ### Header
 
-Sticky horizontal top bar. Client component (needs pathname + drawer open state).
+Sticky horizontal top bar. Client component (needs pathname + drawer open state). **`NavDrawer` is rendered as a child inside `Header`'s JSX** — not as a sibling in `layout.tsx`. This keeps `layout.tsx` a server component.
 
 **Desktop (`md`+):**
 - Logo left
@@ -60,10 +61,10 @@ Sticky horizontal top bar. Client component (needs pathname + drawer open state)
 - Hamburger button right (uses existing `menu.tsx` icon)
 - Nav links and auth buttons hidden
 
-Nav links config (defined inline, not a separate file):
+`NAV_LINKS` is defined once at the top of `header.tsx` and imported by `NavDrawer` from there, so both surfaces share a single source of truth:
 
 ```ts
-const NAV_LINKS = [
+export const NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "/job-board", label: "Job Board" },
   { href: "/opportunities", label: "Opportunities" },
@@ -73,12 +74,17 @@ const NAV_LINKS = [
 
 ### NavDrawer
 
-Mobile slide-in panel. Triggered by the hamburger in `Header`. `isOpen` and `onClose` received as props from `Header`.
+Mobile slide-in panel rendered inside `Header`. Receives `isOpen: boolean` and `onClose: () => void` as props. **Conditionally mounted** (not CSS-hidden) so the scroll-lock `useEffect` does not run on desktop:
+
+```tsx
+{isOpen && <NavDrawer isOpen={isOpen} onClose={onClose} />}
+```
 
 - Slides in from the left: `transform: translateX(-100%)` → `translateX(0)`, 200ms ease
 - Semi-transparent backdrop behind the drawer; click closes it
 - Close button (✕) in the top-right corner of the drawer
-- Content: logo at top, `PageLink` stack in the middle, Login + Sign Up buttons at the bottom
+- Content: logo at top, `PageLink` stack in the middle (uses `NAV_LINKS` from `header.tsx`), Login + Sign Up buttons at the bottom
+- `aria-hidden` is not needed since the drawer is unmounted when closed
 - Body scroll lock when open: `document.body.style.overflow = "hidden"` via `useEffect`, cleaned up on close
 
 ### Footer
@@ -140,7 +146,7 @@ Breakpoint: `md` (768px).
 | Surface    | Below `md`                          | `md`+                              |
 | ---------- | ----------------------------------- | ---------------------------------- |
 | Header     | Logo + hamburger only               | Full bar: logo, links, auth        |
-| NavDrawer  | Opens on hamburger tap              | Hidden, never rendered             |
+| NavDrawer  | Opens on hamburger tap              | Not mounted (conditionally rendered in Header) |
 | Footer     | Columns stacked vertically          | 4-column grid                      |
 
 ---
@@ -156,3 +162,4 @@ Breakpoint: `md` (768px).
 - [ ] `/about` and `/resource-links` routes resolve without 404
 - [ ] `pnpm typecheck` passes with zero errors
 - [ ] `pnpm lint` passes with zero errors
+- [ ] `pnpm test` passes (no new tests required for pure UI, but suite must not regress)
