@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import NextLink from "next/link";
-import { buttonVariants } from "@/components/ui/button";
 import { MenuIcon } from "@/components/ui/icons";
+import { AuthButtons } from "./auth-buttons";
 import { NAV_LINKS } from "./nav-links";
 import { NavDrawer } from "./nav-drawer";
 import { PageLink } from "./page-link";
@@ -30,12 +30,7 @@ export function Header() {
 
           {/* Desktop auth buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <NextLink href="#" className={buttonVariants({ variant: "outline", size: "sm" })}>
-              Login
-            </NextLink>
-            <NextLink href="#" className={buttonVariants({ variant: "primary", size: "sm" })}>
-              Sign Up
-            </NextLink>
+            <AuthButtons size="sm" />
           </div>
 
           {/* Mobile hamburger */}

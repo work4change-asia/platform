@@ -2,8 +2,8 @@
 
 import { useEffect } from "react";
 import NextLink from "next/link";
-import { buttonVariants } from "@/components/ui/button";
 import { CloseIcon } from "@/components/ui/icons";
+import { AuthButtons } from "./auth-buttons";
 import { NAV_LINKS } from "./nav-links";
 import { PageLink } from "./page-link";
 
@@ -13,9 +13,10 @@ interface NavDrawerProps {
 
 export function NavDrawer({ onClose }: NavDrawerProps) {
   useEffect(() => {
+    const prior = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = prior;
     };
   }, []);
 
@@ -55,20 +56,7 @@ export function NavDrawer({ onClose }: NavDrawerProps) {
 
         {/* Auth buttons */}
         <div className="flex flex-col gap-3 border-t border-gray-200 p-4">
-          <NextLink
-            href="#"
-            onClick={onClose}
-            className={buttonVariants({ variant: "outline", size: "md" })}
-          >
-            Login
-          </NextLink>
-          <NextLink
-            href="#"
-            onClick={onClose}
-            className={buttonVariants({ variant: "primary", size: "md" })}
-          >
-            Sign Up
-          </NextLink>
+          <AuthButtons size="md" onClick={onClose} />
         </div>
       </div>
     </>
