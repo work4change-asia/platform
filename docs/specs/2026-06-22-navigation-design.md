@@ -143,11 +143,11 @@ Both return a bare `<main>` with a heading. Enough to confirm routing and active
 
 Breakpoint: `md` (768px).
 
-| Surface    | Below `md`                          | `md`+                              |
-| ---------- | ----------------------------------- | ---------------------------------- |
-| Header     | Logo + hamburger only               | Full bar: logo, links, auth        |
+| Surface    | Below `md`                          | `md`+                                          |
+| ---------- | ----------------------------------- | ---------------------------------------------- |
+| Header     | Logo + hamburger only               | Full bar: logo, links, auth                    |
 | NavDrawer  | Opens on hamburger tap              | Not mounted (conditionally rendered in Header) |
-| Footer     | Columns stacked vertically          | 4-column grid                      |
+| Footer     | Columns stacked vertically          | 4-column grid                                  |
 
 ---
 
