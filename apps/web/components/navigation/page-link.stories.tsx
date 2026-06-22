@@ -5,7 +5,10 @@ import { PageLink } from "./page-link";
 const meta = {
   title: "Navigation/PageLink",
   component: PageLink,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    nextjs: { navigation: { pathname: "/" } },
+  },
   tags: ["autodocs"],
 } satisfies Meta<typeof PageLink>;
 
@@ -14,7 +17,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Inactive: Story = {
   args: { href: "/job-board", label: "Job Board" },
-  parameters: { nextjs: { navigation: { pathname: "/" } } },
 };
 
 export const Active: Story = {
@@ -28,13 +30,14 @@ export const ActiveNested: Story = {
 };
 
 export const WithIcon: Story = {
-  args: { href: "/job-board", label: "Job Board", icon: <BriefcaseIcon /> },
-  parameters: { nextjs: { navigation: { pathname: "/" } } },
+  args: { href: "/job-board", label: "Job Board" },
+  render: () => <PageLink href="/job-board" label="Job Board" icon={<BriefcaseIcon />} />,
 };
 
 export const WithIconActive: Story = {
-  args: { href: "/job-board", label: "Job Board", icon: <BriefcaseIcon /> },
+  args: { href: "/job-board", label: "Job Board" },
   parameters: { nextjs: { navigation: { pathname: "/job-board" } } },
+  render: () => <PageLink href="/job-board" label="Job Board" icon={<BriefcaseIcon />} />,
 };
 
 export const AllStates: Story = {
