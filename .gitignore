@@ -65,3 +65,6 @@ coverage/
 .claude/worktrees
 
 *storybook.log
+
+# Figma design exports (local reference only)
+.figma-exports/
