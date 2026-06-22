@@ -12,7 +12,7 @@ interface PageLinkProps {
 }
 
 export function PageLink({ href, label, icon, onClick }: PageLinkProps) {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "";
   const active = isNavLinkActive(pathname, href);
 
   return (
