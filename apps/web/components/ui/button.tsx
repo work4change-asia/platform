@@ -12,8 +12,7 @@ const buttonVariants = cva(
           "bg-teal text-cream hover:bg-black focus-visible:outline-teal disabled:bg-gray-200 disabled:text-cream",
         outline:
           "border-[1.5px] border-teal text-teal bg-transparent hover:bg-gray-200 focus-visible:outline-teal disabled:border-gray-200 disabled:text-gray-200 disabled:bg-transparent",
-        ghost:
-          "text-teal hover:bg-teal/10 focus-visible:outline-teal disabled:opacity-50",
+        ghost: "text-teal hover:bg-teal/10 focus-visible:outline-teal disabled:opacity-50",
         link: "text-teal-light underline-offset-4 hover:text-teal-dark hover:underline focus-visible:outline-teal-light disabled:text-teal-muted disabled:no-underline",
         inverse:
           "border-[1.5px] border-cream text-cream bg-transparent hover:bg-white/20 focus-visible:outline-cream disabled:opacity-50",
@@ -37,21 +36,10 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
     rightIcon?: React.ReactNode;
   };
 
-export function Button({
-  className,
-  variant,
-  size,
-  rightIcon,
-  children,
-  ...props
-}: ButtonProps) {
+export function Button({ className, variant, size, rightIcon, children, ...props }: ButtonProps) {
   const hasIcon = Boolean(rightIcon);
   const iconPadding =
-    hasIcon && size !== "icon"
-      ? size === "lg"
-        ? "pl-[38px] pr-[28px]"
-        : "pl-6 pr-4"
-      : undefined;
+    hasIcon && size !== "icon" ? (size === "lg" ? "pl-[38px] pr-[28px]" : "pl-6 pr-4") : undefined;
 
   return (
     <button

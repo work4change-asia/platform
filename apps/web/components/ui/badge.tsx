@@ -22,14 +22,8 @@ const badgeVariants = cva(
   },
 );
 
-type BadgeProps = React.HTMLAttributes<HTMLSpanElement> &
-  VariantProps<typeof badgeVariants>;
+type BadgeProps = React.HTMLAttributes<HTMLSpanElement> & VariantProps<typeof badgeVariants>;
 
 export function Badge({ className, variant, ...props }: BadgeProps) {
-  return (
-    <span
-      className={twMerge(badgeVariants({ variant }), className)}
-      {...props}
-    />
-  );
+  return <span className={twMerge(badgeVariants({ variant }), className)} {...props} />;
 }

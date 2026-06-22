@@ -33,9 +33,15 @@ export const AllVariants: Story = {
   args: { href: "#" },
   render: () => (
     <div className="flex flex-col gap-4">
-      <Link href="#" variant="default">Default link</Link>
-      <Link href="#" variant="muted">Muted link</Link>
-      <Link href="#" variant="nav">Nav link</Link>
+      <Link href="#" variant="default">
+        Default link
+      </Link>
+      <Link href="#" variant="muted">
+        Muted link
+      </Link>
+      <Link href="#" variant="nav">
+        Nav link
+      </Link>
     </div>
   ),
 };

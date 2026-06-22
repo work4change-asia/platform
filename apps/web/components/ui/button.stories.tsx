@@ -53,15 +53,25 @@ export const WithIconRight: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap gap-4 items-center">
-        <Button variant="primary" rightIcon={<ArrowRight size={20} />}>Icon Right</Button>
-        <Button variant="primary" rightIcon={<Upload size={20} />}>Upload</Button>
+        <Button variant="primary" rightIcon={<ArrowRight size={20} />}>
+          Icon Right
+        </Button>
+        <Button variant="primary" rightIcon={<Upload size={20} />}>
+          Upload
+        </Button>
       </div>
       <div className="flex flex-wrap gap-4 items-center">
-        <Button variant="outline" rightIcon={<ArrowRight size={20} />}>Icon Right</Button>
-        <Button variant="outline" rightIcon={<Upload size={20} />}>Upload</Button>
+        <Button variant="outline" rightIcon={<ArrowRight size={20} />}>
+          Icon Right
+        </Button>
+        <Button variant="outline" rightIcon={<Upload size={20} />}>
+          Upload
+        </Button>
       </div>
       <div className="flex flex-wrap gap-4 items-center bg-teal p-6 rounded-card">
-        <Button variant="inverse" rightIcon={<ArrowRight size={20} />}>Icon Right</Button>
+        <Button variant="inverse" rightIcon={<ArrowRight size={20} />}>
+          Icon Right
+        </Button>
       </div>
     </div>
   ),
@@ -79,7 +89,9 @@ export const AllVariants: Story = {
       </div>
       <div className="flex flex-wrap gap-4 items-center bg-teal p-6 rounded-card">
         <Button variant="inverse">Inverse</Button>
-        <Button variant="inverse" disabled>Inverse Disabled</Button>
+        <Button variant="inverse" disabled>
+          Inverse Disabled
+        </Button>
       </div>
     </div>
   ),
@@ -98,15 +110,27 @@ export const AllSizes: Story = {
 export const DisabledStates: Story = {
   render: () => (
     <div className="flex flex-col gap-6">
-      <p className="text-xs font-semibold uppercase tracking-widest text-pale-blue">Each variant encodes disabled differently per Figma</p>
+      <p className="text-xs font-semibold uppercase tracking-widest text-pale-blue">
+        Each variant encodes disabled differently per Figma
+      </p>
       <div className="flex flex-wrap gap-4 items-center">
-        <Button variant="primary" disabled>Primary</Button>
-        <Button variant="secondary" disabled>Secondary</Button>
-        <Button variant="outline" disabled>Outline</Button>
-        <Button variant="ghost" disabled>Ghost</Button>
+        <Button variant="primary" disabled>
+          Primary
+        </Button>
+        <Button variant="secondary" disabled>
+          Secondary
+        </Button>
+        <Button variant="outline" disabled>
+          Outline
+        </Button>
+        <Button variant="ghost" disabled>
+          Ghost
+        </Button>
       </div>
       <div className="flex flex-wrap gap-4 items-center bg-teal p-6 rounded-card">
-        <Button variant="inverse" disabled>Inverse</Button>
+        <Button variant="inverse" disabled>
+          Inverse
+        </Button>
       </div>
     </div>
   ),
