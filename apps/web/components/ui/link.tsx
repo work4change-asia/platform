@@ -17,10 +17,5 @@ const variantClasses: Record<LinkVariant, string> = {
 };
 
 export function Link({ className, variant = "default", ...props }: LinkProps) {
-  return (
-    <NextLink
-      className={twMerge(variantClasses[variant], className)}
-      {...props}
-    />
-  );
+  return <NextLink className={twMerge(variantClasses[variant], className)} {...props} />;
 }
