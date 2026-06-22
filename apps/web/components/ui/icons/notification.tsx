@@ -1,0 +1,53 @@
+import { twMerge } from "tailwind-merge";
+import type { IconProps } from "./icon";
+
+export function NotificationIcon({ size = 24, className, ...props }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="887 671 32 32"
+      fill="none"
+      aria-hidden="true"
+      className={twMerge(className)}
+      {...props}
+    >
+      <g id="Notification icon">
+        <g id="Group 1321315706">
+          <path
+            id="Vector_26"
+            d="M894.487 685.155C894.484 684.065 894.696 682.985 895.111 681.978C895.526 680.97 896.136 680.054 896.905 679.282C897.675 678.511 898.589 677.898 899.596 677.48C900.602 677.063 901.682 676.848 902.771 676.848C903.861 676.848 904.94 677.063 905.947 677.48C906.954 677.898 907.868 678.511 908.637 679.282C909.407 680.054 910.017 680.97 910.432 681.978C910.847 682.985 911.059 684.065 911.056 685.155V685.155C911.056 689.287 911.92 691.685 912.682 692.996C912.764 693.136 912.807 693.295 912.808 693.457C912.809 693.62 912.767 693.779 912.687 693.92C912.606 694.061 912.49 694.178 912.35 694.26C912.209 694.342 912.05 694.385 911.888 694.385H893.654C893.492 694.385 893.333 694.342 893.192 694.26C893.052 694.178 892.936 694.061 892.855 693.92C892.775 693.779 892.733 693.62 892.734 693.457C892.735 693.295 892.778 693.136 892.86 692.996C893.622 691.685 894.487 689.287 894.487 685.155H894.487Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            id="Vector_27"
+            d="M899.079 694.385V695.308C899.079 696.287 899.468 697.226 900.16 697.918C900.852 698.611 901.792 699 902.771 699C903.75 699 904.689 698.611 905.381 697.918C906.074 697.226 906.463 696.287 906.463 695.308V694.385"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            id="Vector_28"
+            d="M909.166 675C911.044 676.186 912.558 677.867 913.541 679.859"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            id="Vector_29"
+            d="M892 679.859C892.983 677.867 894.497 676.186 896.375 675"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </g>
+      </g>
+    </svg>
+  );
+}
