@@ -28,8 +28,9 @@
 |---|---|---|
 | `apps/web/components/ui/button.tsx` | Modify | Export `buttonVariants` so nav links can be styled as buttons |
 | `apps/web/components/navigation/nav-links.ts` | Create | Single source of truth for the four nav link definitions |
-| `apps/web/components/navigation/page-link.tsx` | Create | Active-aware nav item primitive; exports `isNavLinkActive` |
-| `apps/web/components/navigation/page-link.test.ts` | Create | Unit tests for `isNavLinkActive` |
+| `apps/web/components/navigation/nav-utils.ts` | Create | Pure `isNavLinkActive` helper — no React/Next.js imports, safe to test in Node |
+| `apps/web/components/navigation/page-link.tsx` | Create | Active-aware nav item primitive; imports `isNavLinkActive` from `nav-utils.ts` |
+| `apps/web/components/navigation/page-link.test.ts` | Create | Unit tests for `isNavLinkActive` (imports from `nav-utils.ts`, not the client component) |
 | `apps/web/components/navigation/nav-drawer.tsx` | Create | Mobile slide-in panel (client) |
 | `apps/web/components/navigation/header.tsx` | Create | Desktop top bar + hamburger; owns drawer state (client) |
 | `apps/web/components/navigation/footer.tsx` | Create | Static 4-column footer (server) |
@@ -53,7 +54,7 @@
 - Produces:
   - `buttonVariants(opts) → string` — exported CVA function for styling links as buttons
   - `NAV_LINKS: Array<{ href: string; label: string }>` — consumed by Task 2 and Task 3
-  - `isNavLinkActive(pathname: string, href: string): boolean` — consumed internally by `PageLink`
+  - `isNavLinkActive(pathname: string, href: string): boolean` — pure function in `nav-utils.ts`, no React/Next.js deps, safe to import in Node/Vitest
   - `PageLink({ href, label, icon?, onClick? }: PageLinkProps)` — consumed by Tasks 2 and 3
 
 - [ ] **Step 1: Write the failing test**
@@ -62,7 +63,7 @@
 
   ```ts
   import { describe, expect, it } from "vitest";
-  import { isNavLinkActive } from "./page-link";
+  import { isNavLinkActive } from "./nav-utils";
 
   describe("isNavLinkActive", () => {
     it("matches root exactly", () => {
@@ -97,7 +98,7 @@
   pnpm test --reporter=verbose
   ```
 
-  Expected: 6 failures — `isNavLinkActive` is not defined yet.
+  Expected: 6 failures — `nav-utils` does not exist yet.
 
 - [ ] **Step 3: Export `buttonVariants` from `button.tsx`**
 
@@ -113,7 +114,18 @@
   export const buttonVariants = cva(
   ```
 
-- [ ] **Step 4: Create `nav-links.ts`**
+- [ ] **Step 4: Create `nav-utils.ts`**
+
+  Create `apps/web/components/navigation/nav-utils.ts`:
+
+  ```ts
+  export function isNavLinkActive(pathname: string, href: string): boolean {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(href + "/");
+  }
+  ```
+
+- [ ] **Step 5: Create `nav-links.ts`**
 
   Create `apps/web/components/navigation/nav-links.ts`:
 
@@ -126,7 +138,7 @@
   ] as const;
   ```
 
-- [ ] **Step 5: Create `page-link.tsx`**
+- [ ] **Step 6: Create `page-link.tsx`**
 
   Create `apps/web/components/navigation/page-link.tsx`:
 
@@ -135,11 +147,7 @@
 
   import NextLink from "next/link";
   import { usePathname } from "next/navigation";
-
-  export function isNavLinkActive(pathname: string, href: string): boolean {
-    if (href === "/") return pathname === "/";
-    return pathname === href || pathname.startsWith(href + "/");
-  }
+  import { isNavLinkActive } from "./nav-utils";
 
   interface PageLinkProps {
     href: string;
@@ -167,7 +175,7 @@
   }
   ```
 
-- [ ] **Step 6: Run tests — expect all 6 to pass**
+- [ ] **Step 7: Run tests — expect all 6 to pass**
 
   ```bash
   pnpm test --reporter=verbose
@@ -175,7 +183,7 @@
 
   Expected: 6 passing tests in `page-link.test.ts`.
 
-- [ ] **Step 7: Type-check**
+- [ ] **Step 8: Type-check**
 
   ```bash
   pnpm typecheck
@@ -183,10 +191,10 @@
 
   Expected: zero errors.
 
-- [ ] **Step 8: Commit**
+- [ ] **Step 9: Commit**
 
   ```bash
-  git add apps/web/components/ui/button.tsx apps/web/components/navigation/nav-links.ts apps/web/components/navigation/page-link.tsx apps/web/components/navigation/page-link.test.ts
+  git add apps/web/components/ui/button.tsx apps/web/components/navigation/nav-utils.ts apps/web/components/navigation/nav-links.ts apps/web/components/navigation/page-link.tsx apps/web/components/navigation/page-link.test.ts
   git commit -m "feat: PageLink primitive + NAV_LINKS config + export buttonVariants"
   ```
 
@@ -589,14 +597,16 @@
 
 - [ ] **Step 2: Create stub pages**
 
+  The layout already wraps `{children}` in `<main>`, so stub pages use `<section>` to avoid invalid nested `<main>` elements.
+
   Create `apps/web/app/(frontend)/about/page.tsx`:
 
   ```tsx
   export default function AboutPage() {
     return (
-      <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold text-teal">About</h1>
-      </main>
+      </section>
     );
   }
   ```
@@ -606,9 +616,9 @@
   ```tsx
   export default function ResourceLinksPage() {
     return (
-      <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold text-teal">Resource Links</h1>
-      </main>
+      </section>
     );
   }
   ```
@@ -618,9 +628,9 @@
   ```tsx
   export default function JobBoardPage() {
     return (
-      <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold text-teal">Job Board</h1>
-      </main>
+      </section>
     );
   }
   ```
@@ -630,9 +640,9 @@
   ```tsx
   export default function OpportunitiesPage() {
     return (
-      <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold text-teal">Opportunities</h1>
-      </main>
+      </section>
     );
   }
   ```
