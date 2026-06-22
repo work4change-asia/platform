@@ -112,3 +112,12 @@ h6 {
   font-size: 0.75rem;
   line-height: 1rem;
 }
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
