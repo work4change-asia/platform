@@ -23,11 +23,7 @@ export function NavDrawer({ onClose }: NavDrawerProps) {
   return (
     <>
       {/* Backdrop */}
-      <div
-        className="fixed inset-0 z-40 bg-black/50"
-        onClick={onClose}
-        aria-hidden="true"
-      />
+      <div className="fixed inset-0 z-40 bg-black/50" onClick={onClose} aria-hidden="true" />
 
       {/* Drawer panel */}
       <div className="fixed inset-y-0 left-0 z-50 flex w-72 flex-col bg-white shadow-xl animate-[slide-in-left_200ms_ease_forwards]">

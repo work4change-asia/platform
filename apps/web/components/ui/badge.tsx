@@ -1,14 +1,14 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
-const badgeVariants = cva(
+export const badgeVariants = cva(
   "inline-flex items-center justify-center rounded-pill px-3 py-1 text-xs font-medium whitespace-nowrap",
   {
     variants: {
       variant: {
         "full-time": "bg-badge-teal-bg text-teal-light",
         "part-time": "bg-badge-yellow-bg text-badge-yellow-text",
-        location: "bg-brown/20 text-brown",
+        location: "bg-brown/20 text-brown gap-1",
         filter: "bg-cream text-brown gap-1",
         active: "bg-orange text-cream",
         inactive: "bg-white text-charcoal border border-gray-100",
