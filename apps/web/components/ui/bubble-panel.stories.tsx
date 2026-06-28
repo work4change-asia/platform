@@ -138,15 +138,26 @@ export const ColourDark: Story = {
 export const ContextHero: Story = {
   name: "Context / Hero (desktop)",
   render: () => (
-    <BubblePanel variant="teal" shape="standard" className="px-12 py-16">
-      <h1 className="text-h2 font-semibold text-cream">
-        Your gateway to{" "}
-        <span className="text-orange">purpose-driven careers</span>{" "}
-        across Asia
-      </h1>
-      <p className="mt-4 max-w-lg text-cream/80">
-        Connecting talent with impact organisations across Asia and the Pacific.
-      </p>
+    <BubblePanel
+      variant="teal"
+      shape="large"
+      className="px-16 py-20"
+      media={
+        <img
+          src="/worldmap.svg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-contain object-right opacity-90"
+        />
+      }
+    >
+      <div className="max-w-xl">
+        <h1 className="text-h2 font-semibold text-cream">
+          Your gateway to{" "}
+          <span className="text-orange">purpose-driven careers</span>{" "}
+          across Asia
+        </h1>
+      </div>
     </BubblePanel>
   ),
   args: {},
@@ -155,16 +166,16 @@ export const ContextHero: Story = {
 export const ContextPhotoFrame: Story = {
   name: "Context / Photo frame",
   render: () => (
-    <Frame width={560} height={380}>
+    <Frame width={560} height={480}>
       <BubblePanel
         variant="muted"
-        shape="standard"
+        shape="large"
         className="h-full w-full"
         media={
           <img
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
-            alt="Professional at work"
-            className="h-full w-full object-cover"
+            src="/testimonial-photo.png"
+            alt="Professional reading at a desk"
+            className="absolute inset-0 h-full w-full object-cover [object-position:center_15%]"
           />
         }
       />
