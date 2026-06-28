@@ -59,7 +59,7 @@
   - `isNavLinkActive(pathname: string, href: string): boolean` — pure function in `nav-utils.ts`, no React/Next.js deps, safe to import in Node/Vitest
   - `PageLink({ href, label, icon?, onClick? }: PageLinkProps)` — consumed by Tasks 2 and 3
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
   Create `apps/web/components/navigation/page-link.test.ts`:
 
@@ -94,7 +94,7 @@
   });
   ```
 
-- [ ] **Step 2: Run test to confirm it fails**
+- [x] **Step 2: Run test to confirm it fails**
 
   ```bash
   pnpm test --reporter=verbose
@@ -102,7 +102,7 @@
 
   Expected: 6 failures — `nav-utils` does not exist yet.
 
-- [ ] **Step 3: Export `buttonVariants` from `button.tsx`**
+- [x] **Step 3: Export `buttonVariants` from `button.tsx`**
 
   In `apps/web/components/ui/button.tsx`, line 3, change:
 
@@ -116,7 +116,7 @@
   export const buttonVariants = cva(
   ```
 
-- [ ] **Step 4: Create `nav-utils.ts`**
+- [x] **Step 4: Create `nav-utils.ts`**
 
   Create `apps/web/components/navigation/nav-utils.ts`:
 
@@ -127,7 +127,7 @@
   }
   ```
 
-- [ ] **Step 5: Create `nav-links.ts`**
+- [x] **Step 5: Create `nav-links.ts`**
 
   Create `apps/web/components/navigation/nav-links.ts`:
 
@@ -140,7 +140,7 @@
   ] as const;
   ```
 
-- [ ] **Step 6: Create `page-link.tsx`**
+- [x] **Step 6: Create `page-link.tsx`**
 
   Create `apps/web/components/navigation/page-link.tsx`:
 
@@ -177,7 +177,7 @@
   }
   ```
 
-- [ ] **Step 7: Run tests — expect all 6 to pass**
+- [x] **Step 7: Run tests — expect all 6 to pass**
 
   ```bash
   pnpm test --reporter=verbose
@@ -185,7 +185,7 @@
 
   Expected: 6 passing tests in `page-link.test.ts`.
 
-- [ ] **Step 8: Type-check**
+- [x] **Step 8: Type-check**
 
   ```bash
   pnpm typecheck
@@ -193,7 +193,7 @@
 
   Expected: zero errors.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
   ```bash
   git add apps/web/components/ui/button.tsx apps/web/components/navigation/nav-utils.ts apps/web/components/navigation/nav-links.ts apps/web/components/navigation/page-link.tsx apps/web/components/navigation/page-link.test.ts
@@ -215,7 +215,7 @@
 
 **Note:** `NavDrawer` (Task 3) must be created before this task compiles. Complete Tasks 2 and 3 before running `typecheck`.
 
-- [ ] **Step 1: Create `header.tsx`**
+- [x] **Step 1: Create `header.tsx`**
 
   Create `apps/web/components/navigation/header.tsx`:
 
@@ -278,7 +278,7 @@
   }
   ```
 
-- [ ] **Step 2: Move to Task 3 immediately — do not typecheck yet**
+- [x] **Step 2: Move to Task 3 immediately — do not typecheck yet**
 
   `NavDrawer` is imported above but not yet created. Continue to Task 3 before running any checks.
 
@@ -295,7 +295,7 @@
 - Consumes: `PageLink` from `./page-link`, `NAV_LINKS` from `./nav-links`, `CloseIcon` from `@/components/ui/icons`, `buttonVariants` from `@/components/ui/button`
 - Produces: `NavDrawer({ onClose }: NavDrawerProps)` — consumed by `Header`
 
-- [ ] **Step 1: Add slide-in keyframe to `globals.css`**
+- [x] **Step 1: Add slide-in keyframe to `globals.css`**
 
   In `apps/web/app/globals.css`, append at the end of the file:
 
@@ -310,7 +310,7 @@
   }
   ```
 
-- [ ] **Step 2: Create `nav-drawer.tsx`**
+- [x] **Step 2: Create `nav-drawer.tsx`**
 
   Create `apps/web/components/navigation/nav-drawer.tsx`:
 
@@ -389,7 +389,7 @@
   }
   ```
 
-- [ ] **Step 3: Type-check both Tasks 2 and 3 together**
+- [x] **Step 3: Type-check both Tasks 2 and 3 together**
 
   ```bash
   pnpm typecheck
@@ -397,7 +397,7 @@
 
   Expected: zero errors.
 
-- [ ] **Step 4: Lint**
+- [x] **Step 4: Lint**
 
   ```bash
   pnpm lint
@@ -405,7 +405,7 @@
 
   Expected: zero errors.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
   ```bash
   git add apps/web/app/globals.css apps/web/components/navigation/header.tsx apps/web/components/navigation/nav-drawer.tsx
@@ -425,7 +425,7 @@
 - Consumes: `Link` from `next/link` (no icon dependencies)
 - Produces: `Footer()` — consumed by layout in Task 5
 
-- [ ] **Step 1: Create `footer.tsx`**
+- [x] **Step 1: Create `footer.tsx`**
 
   Create `apps/web/components/navigation/footer.tsx`:
 
@@ -519,7 +519,7 @@
   }
   ```
 
-- [ ] **Step 2: Type-check**
+- [x] **Step 2: Type-check**
 
   ```bash
   pnpm typecheck
@@ -527,7 +527,7 @@
 
   Expected: zero errors.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
   ```bash
   git add apps/web/components/navigation/footer.tsx
@@ -550,7 +550,7 @@
 
 - Consumes: `Header` from `@/components/navigation/header`, `Footer` from `@/components/navigation/footer`
 
-- [ ] **Step 1: Update `layout.tsx`**
+- [x] **Step 1: Update `layout.tsx`**
 
   Replace the full contents of `apps/web/app/(frontend)/layout.tsx`:
 
@@ -585,7 +585,7 @@
   }
   ```
 
-- [ ] **Step 2: Create stub pages**
+- [x] **Step 2: Create stub pages**
 
   The layout already wraps `{children}` in `<main>`, so stub pages use `<section>` to avoid invalid nested `<main>` elements.
 
@@ -637,7 +637,7 @@
   }
   ```
 
-- [ ] **Step 3: Type-check**
+- [x] **Step 3: Type-check**
 
   ```bash
   pnpm typecheck
@@ -645,7 +645,7 @@
 
   Expected: zero errors.
 
-- [ ] **Step 4: Lint**
+- [x] **Step 4: Lint**
 
   ```bash
   pnpm lint
@@ -653,7 +653,7 @@
 
   Expected: zero errors.
 
-- [ ] **Step 5: Run tests**
+- [x] **Step 5: Run tests**
 
   ```bash
   pnpm test
@@ -661,22 +661,22 @@
 
   Expected: all tests pass (including the 6 `isNavLinkActive` tests from Task 1).
 
-- [ ] **Step 6: Start dev server and verify manually**
+- [x] **Step 6: Start dev server and verify manually**
 
   ```bash
   pnpm dev
   ```
 
   Open `http://localhost:3000` and check:
-  - [ ] Desktop (≥768px): sticky header shows logo, 4 nav links, Login + Sign Up buttons. No hamburger visible.
-  - [ ] Mobile (<768px): sticky header shows logo and hamburger only. Tap hamburger → drawer slides in from left. Backdrop present. Close button (✕) closes drawer. Tapping a nav link closes drawer and navigates.
-  - [ ] "Job Board" link is orange at `/job-board`. "Opportunities" is orange at `/opportunities`. `/about` activates "About". `/resource-library` activates "Resource Library".
-  - [ ] `/job-board/anything` keeps "Job Board" orange (prefix match).
-  - [ ] Footer is teal background on all pages, stacks to single column on mobile.
-  - [ ] `/about` and `/resource-library` resolve (no 404). `/job-board` and `/opportunities` resolve.
-  - [ ] Login and Sign Up buttons are inert (point to `#`).
+  - [x] Desktop (≥768px): sticky header shows logo, 4 nav links, Login + Sign Up buttons. No hamburger visible.
+  - [x] Mobile (<768px): sticky header shows logo and hamburger only. Tap hamburger → drawer slides in from left. Backdrop present. Close button (✕) closes drawer. Tapping a nav link closes drawer and navigates.
+  - [x] "Job Board" link is orange at `/job-board`. "Opportunities" is orange at `/opportunities`. `/about` activates "About". `/resource-library` activates "Resource Library".
+  - [x] `/job-board/anything` keeps "Job Board" orange (prefix match).
+  - [x] Footer is teal background on all pages, stacks to single column on mobile.
+  - [x] `/about` and `/resource-library` resolve (no 404). `/job-board` and `/opportunities` resolve.
+  - [x] Login and Sign Up buttons are inert (point to `#`).
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
   ```bash
   git add apps/web/app/\(frontend\)/layout.tsx apps/web/app/\(frontend\)/about/page.tsx apps/web/app/\(frontend\)/resource-library/page.tsx apps/web/app/\(frontend\)/job-board/page.tsx apps/web/app/\(frontend\)/opportunities/page.tsx
