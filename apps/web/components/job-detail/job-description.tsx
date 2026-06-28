@@ -9,7 +9,7 @@ export function JobDescription({ descriptionBody, responsibilities }: JobDescrip
   return (
     <div>
       <section className="mb-8">
-        <h2 className="mb-4 text-lg font-semibold text-gray-text">Job Description</h2>
+        <h3 className="mb-4 text-lg font-semibold text-gray-text">Job Description</h3>
         <div className="space-y-4">
           {paragraphs.map((para, i) => (
             <p key={i} className="text-sm leading-relaxed text-pale-blue">
@@ -20,7 +20,7 @@ export function JobDescription({ descriptionBody, responsibilities }: JobDescrip
       </section>
 
       <section className="mb-8">
-        <h3 className="mb-4 text-base font-semibold text-gray-text">Responsibilities</h3>
+        <h4 className="mb-4 text-base font-semibold text-gray-text">Responsibilities</h4>
         <ul className="space-y-2">
           {responsibilities.map((item, i) => (
             <li key={i} className="flex items-start gap-2 text-sm text-pale-blue">

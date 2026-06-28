@@ -48,7 +48,7 @@ export function JobOverviewCard({
 }: JobOverviewCardProps) {
   return (
     <div className="rounded-card bg-white p-6 shadow-card">
-      <h2 className="mb-6 text-base font-semibold text-gray-text">Job Overview</h2>
+      <h3 className="mb-6 text-base font-semibold text-gray-text">Job Overview</h3>
       <div className="grid grid-cols-2 gap-x-4 gap-y-6">
         <Cell icon={<LocationIcon size={20} />} label="Location" value={location} />
         <Cell icon={<GlobeIcon size={20} />} label="Work Mode" value={workMode} />
