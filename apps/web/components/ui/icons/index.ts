@@ -11,6 +11,7 @@ export { ArrowUpRightIcon } from "./arrow-up-right";
 export { ArtIcon } from "./art";
 export { BorderIcon } from "./border";
 export { BriefcaseIcon } from "./briefcase";
+export { BuyMeACoffeeIcon } from "./buy-me-a-coffee";
 export { BuildingIcon } from "./building";
 export { CalendarIcon } from "./calendar";
 export { CaseIcon } from "./case";

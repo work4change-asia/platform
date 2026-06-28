@@ -12,8 +12,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: "Work4Change",
-  description:
-    "Career platform for the non-profit and impact sectors across Asia and Pacific.",
+  description: "Career platform for the non-profit and impact sectors across Asia and Pacific.",
 };
 
 export default function FrontendLayout({ children }: { children: React.ReactNode }) {

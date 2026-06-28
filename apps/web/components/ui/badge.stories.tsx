@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Badge } from "./badge";
+import { LocationIcon } from "./icons";
 
 const meta = {
   title: "UI/Badge",
@@ -35,7 +36,9 @@ export const PartTime: Story = {
 };
 
 export const Location: Story = {
-  args: { variant: "location", children: "Afghanistan" },
+  render: () => (
+    <Badge variant="location"><LocationIcon size={11} />Bangkok, Thailand</Badge>
+  ),
 };
 
 export const Active: Story = {
@@ -47,7 +50,7 @@ export const AllVariants: Story = {
     <div className="flex flex-wrap gap-3 items-center">
       <Badge variant="full-time">Full Time</Badge>
       <Badge variant="part-time">Part Time</Badge>
-      <Badge variant="location">Bangkok</Badge>
+      <Badge variant="location"><LocationIcon size={11} />Bangkok</Badge>
       <Badge variant="filter">Remote ✕</Badge>
       <Badge variant="active">Active</Badge>
       <Badge variant="inactive">Inactive</Badge>

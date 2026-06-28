@@ -1,86 +1,103 @@
+import Image from "next/image";
 import NextLink from "next/link";
+import { BuyMeACoffeeIcon } from "@/components/ui/icons";
 
 export function Footer() {
   return (
-    <footer className="bg-teal text-cream">
+    <footer className="bg-black text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          {/* Col 1: Logo + social */}
-          <div>
-            {/* TODO: replace with <Logo variant="light" /> once SVG assets are in the repo */}
-            <p className="font-bold text-cream">Work4Change Asia</p>
-            <div className="mt-4 flex gap-3">
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
+
+          {/* Logo + social: same row on mobile, stacked on lg+ */}
+          <div className="flex items-center justify-between lg:flex-col lg:items-start lg:gap-10">
+            <Image
+              src="/logos/dark/Dark logo vector.svg"
+              alt="Work4Change Asia"
+              width={120}
+              height={60}
+              className="h-10 w-auto"
+            />
+
+            {/* Social icons */}
+            <div className="flex items-center gap-5">
+              <NextLink
+                href="#"
+                aria-label="Buy Me a Coffee"
+                className="text-gray-400 transition-colors hover:text-white"
+              >
+                <BuyMeACoffeeIcon size={40} />
+              </NextLink>
               <NextLink
                 href="#"
                 aria-label="LinkedIn"
-                className="text-pale-blue transition-colors hover:text-cream"
+                className="text-2xl font-bold text-gray-400 transition-colors hover:text-white"
               >
                 in
               </NextLink>
             </div>
           </div>
 
-          {/* Col 2: About */}
-          <div>
-            <h3 className="mb-3 font-semibold text-cream">About</h3>
-            <ul className="space-y-2 text-sm text-pale-blue">
-              <li>
-                <NextLink href="/about" className="transition-colors hover:text-cream">
-                  About Work4Change
-                </NextLink>
-              </li>
-              <li>
-                <NextLink href="#" className="transition-colors hover:text-cream">
-                  FAQs
-                </NextLink>
-              </li>
-            </ul>
-          </div>
+          {/* Nav columns */}
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-16">
+            <div>
+              <h3 className="mb-4 text-xl font-semibold text-white sm:text-sm">About</h3>
+              <ul className="space-y-4 text-base text-gray-400 sm:space-y-3 sm:text-sm">
+                <li>
+                  <NextLink href="/about" className="transition-colors hover:text-white">
+                    More about Work4Change Asia
+                  </NextLink>
+                </li>
+                <li>
+                  <NextLink href="#" className="transition-colors hover:text-white">
+                    FAQs
+                  </NextLink>
+                </li>
+              </ul>
+            </div>
 
-          {/* Col 3: Explore All Jobs */}
-          <div>
-            <h3 className="mb-3 font-semibold text-cream">Explore All Jobs</h3>
-            <ul className="space-y-2 text-sm text-pale-blue">
-              <li>
-                <NextLink href="#" className="transition-colors hover:text-cream">
-                  Post or Tag a Job Opening
-                </NextLink>
-              </li>
-              <li>
-                <NextLink href="/opportunities" className="transition-colors hover:text-cream">
-                  Other Opportunities
-                </NextLink>
-              </li>
-              <li>
-                <NextLink href="#" className="transition-colors hover:text-cream">
-                  Find Jobs by Country
-                </NextLink>
-              </li>
-              <li>
-                <NextLink href="#" className="transition-colors hover:text-cream">
-                  Create an Account
-                </NextLink>
-              </li>
-            </ul>
-          </div>
+            <div>
+              <h3 className="mb-4 text-xl font-semibold text-white sm:text-sm">Explore All jobs</h3>
+              <ul className="space-y-4 text-base text-gray-400 sm:space-y-3 sm:text-sm">
+                <li>
+                  <NextLink href="#" className="transition-colors hover:text-white">
+                    Post or flag a job opening
+                  </NextLink>
+                </li>
+                <li>
+                  <NextLink href="/opportunities" className="transition-colors hover:text-white">
+                    Other opportunities
+                  </NextLink>
+                </li>
+                <li>
+                  <NextLink href="#" className="transition-colors hover:text-white">
+                    Create an account
+                  </NextLink>
+                </li>
+              </ul>
+            </div>
 
-          {/* Col 4: Information */}
-          <div>
-            <h3 className="mb-3 font-semibold text-cream">Information</h3>
-            <ul className="space-y-2 text-sm text-pale-blue">
-              <li>
-                <NextLink href="#" className="transition-colors hover:text-cream">
-                  Privacy
-                </NextLink>
-              </li>
-              <li>
-                <NextLink href="#" className="transition-colors hover:text-cream">
-                  Terms of Use
-                </NextLink>
-              </li>
-            </ul>
+            <div>
+              <h3 className="mb-4 text-xl font-semibold text-white sm:text-sm">Information</h3>
+              <ul className="space-y-4 text-base text-gray-400 sm:space-y-3 sm:text-sm">
+                <li>
+                  <NextLink href="#" className="transition-colors hover:text-white">
+                    Privacy
+                  </NextLink>
+                </li>
+                <li>
+                  <NextLink href="#" className="transition-colors hover:text-white">
+                    Terms of Use
+                  </NextLink>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* Copyright bar */}
+      <div className="py-4 text-center text-xs text-gray-500">
+        &copy; Work4Change Asia. 2026
       </div>
     </footer>
   );
