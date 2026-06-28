@@ -1,3 +1,4 @@
+import Image from "next/image";
 import NextLink from "next/link";
 
 export function Footer() {
@@ -8,17 +9,13 @@ export function Footer() {
 
           {/* Left: logo + social */}
           <div className="flex flex-col gap-10">
-            {/* Logo placeholder — replace with <Logo /> once SVG is in repo */}
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-orange/20 text-orange text-xs font-bold">
-                W
-              </div>
-              <div className="text-[11px] font-bold uppercase leading-tight tracking-wider">
-                <div>Work</div>
-                <div>4Change</div>
-                <div>Asia</div>
-              </div>
-            </div>
+            <Image
+              src="/logos/dark/Dark logo vector.svg"
+              alt="Work4Change Asia"
+              width={120}
+              height={60}
+              className="h-10 w-auto"
+            />
 
             {/* Social icons */}
             <div className="flex items-center gap-4">

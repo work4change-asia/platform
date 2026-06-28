@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import NextLink from "next/link";
 import { MenuIcon } from "@/components/ui/icons";
 import { AuthButtons } from "./auth-buttons";
@@ -16,9 +17,15 @@ export function Header() {
       <header className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <NextLink href="/" className="flex-shrink-0 font-bold text-teal">
-            {/* TODO: replace with <Logo /> once SVG assets are in the repo */}
-            Work4Change Asia
+          <NextLink href="/" className="flex-shrink-0">
+            <Image
+              src="/logos/light/Light logo vector.svg"
+              alt="Work4Change Asia"
+              width={120}
+              height={60}
+              className="h-9 w-auto"
+              priority
+            />
           </NextLink>
 
           {/* Desktop nav links */}
