@@ -15,13 +15,9 @@ export function Stats({ stats }: StatsProps) {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
           {/* CTA card */}
           <BubblePanel variant="orange" shape="large" className="px-8 py-10">
-            <h2 className="mb-3 text-h5 font-semibold text-cream">
-              Join our community of opportunity seekers and providers
+            <h2 className="mb-8 text-h5 font-semibold text-teal">
+              Join our community of opportunity seekers &amp; providers!
             </h2>
-            <p className="mb-6 text-sm text-cream/80">
-              Discover curated jobs, training programmes, and career development
-              opportunities across Asia.
-            </p>
             <NextLink
               href="/job-board"
               className={buttonVariants({ variant: "secondary", size: "md" })}

@@ -190,14 +190,10 @@ export const ContextCtaCard: Story = {
   render: () => (
     <div className="max-w-md">
       <BubblePanel variant="orange" shape="standard" className="px-8 py-10">
-        <h2 className="mb-3 text-h5 font-semibold">
-          Join our community of opportunity seekers and providers
+        <h2 className="mb-8 text-h5 font-semibold text-teal">
+          Join our community of opportunity seekers &amp; providers!
         </h2>
-        <p className="mb-6 text-sm opacity-80">
-          Discover curated jobs, training programmes, and career development
-          opportunities across Asia.
-        </p>
-        <button className="rounded-pill bg-cream px-6 py-2.5 text-sm font-semibold text-teal">
+        <button className="rounded-pill bg-teal px-8 py-3 text-sm font-semibold text-cream">
           Create An Account
         </button>
       </BubblePanel>
