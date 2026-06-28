@@ -18,9 +18,10 @@ export function Testimonial({ data }: TestimonialProps) {
             className="h-[480px] w-full lg:h-[560px]"
             media={
               <Image
-                src="/testimonial-photo.png"
+                src="/images/testimonial-photo.png"
                 alt="Professional reading at a desk"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover [object-position:center_15%]"
               />
             }

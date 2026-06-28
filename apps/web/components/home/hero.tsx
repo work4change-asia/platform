@@ -11,19 +11,20 @@ export function Hero() {
       <BubblePanel
         variant="teal"
         shape="large"
-        className="px-12 py-12 sm:px-14 sm:py-16 lg:px-16 lg:py-20"
+        className="min-h-[520px] px-6 py-12 sm:min-h-0 sm:px-14 sm:py-16 lg:px-16 lg:py-20"
         media={
           <Image
-            src="/worldmap.svg"
+            src="/images/worldmap.svg"
             alt=""
             aria-hidden="true"
             fill
-            className="object-contain object-right opacity-90"
+            priority
+            className="object-contain object-top sm:object-right opacity-90"
           />
         }
       >
-        <div className="max-w-xl">
-          <h1 className="text-h2 font-semibold text-cream">
+        <div className="max-w-xl pt-52 sm:pt-0">
+          <h1 className="text-h5 font-semibold text-cream sm:text-h2">
             Your gateway to{" "}
             <span className="text-orange">purpose-driven careers</span>{" "}
             across Asia
@@ -33,13 +34,13 @@ export function Hero() {
               href="/job-board"
               className={buttonVariants({ variant: "primary", size: "sm" })}
             >
-              Explore Jobs
+              Jobs
             </NextLink>
             <NextLink
               href="/opportunities"
               className={buttonVariants({ variant: "inverse", size: "sm" })}
             >
-              Explore Opportunities
+              Opportunities
             </NextLink>
           </div>
         </div>

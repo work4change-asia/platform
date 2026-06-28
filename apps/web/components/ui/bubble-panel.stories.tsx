@@ -144,7 +144,7 @@ export const ContextHero: Story = {
       className="px-16 py-20"
       media={
         <img
-          src="/worldmap.svg"
+          src="/images/worldmap.svg"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-contain object-right opacity-90"
@@ -173,7 +173,7 @@ export const ContextPhotoFrame: Story = {
         className="h-full w-full"
         media={
           <img
-            src="/testimonial-photo.png"
+            src="/images/testimonial-photo.png"
             alt="Professional reading at a desk"
             className="absolute inset-0 h-full w-full object-cover [object-position:center_15%]"
           />
