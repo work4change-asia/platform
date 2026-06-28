@@ -15,10 +15,13 @@ export function NavDrawer({ onClose }: NavDrawerProps) {
   useEffect(() => {
     const prior = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prior;
+      document.removeEventListener("keydown", onKey);
     };
-  }, []);
+  }, [onClose]);
 
   return (
     <>
@@ -26,7 +29,12 @@ export function NavDrawer({ onClose }: NavDrawerProps) {
       <div className="fixed inset-0 z-40 bg-black/50" onClick={onClose} aria-hidden="true" />
 
       {/* Drawer panel */}
-      <div className="fixed inset-y-0 left-0 z-50 flex w-72 flex-col bg-white shadow-xl animate-[slide-in-left_200ms_ease_forwards]">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+        className="fixed inset-y-0 left-0 z-50 flex w-72 flex-col bg-white shadow-xl animate-[slide-in-left_200ms_ease_forwards]"
+      >
         {/* Drawer header */}
         <div className="flex items-center justify-between border-b border-gray-200 px-4 py-4">
           <NextLink href="/" onClick={onClose} className="font-bold text-teal">

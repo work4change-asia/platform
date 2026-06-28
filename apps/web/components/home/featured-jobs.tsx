@@ -82,7 +82,7 @@ export function FeaturedJobs({ jobs }: FeaturedJobsProps) {
             style={{ transform: `translateX(-${current * stepPx}px)`, gap: GAP_PX }}
           >
             {jobs.map((job) => (
-              <div key={job.id} style={{ minWidth: cardWidth || "calc(100% - 32px)" }}>
+              <div key={job.id} style={{ minWidth: containerWidth > 0 ? cardWidth : "calc(100% - 32px)" }}>
                 <JobCard {...job} />
               </div>
             ))}

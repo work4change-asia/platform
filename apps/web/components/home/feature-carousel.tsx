@@ -79,7 +79,7 @@ export function FeatureCarousel({ items }: { items: FeatureItem[] }) {
           {items.map((item, i) => (
             <div
               key={i}
-              style={{ minWidth: cardWidth || "calc(100% - 56px)" }}
+              style={{ minWidth: containerWidth > 0 ? cardWidth : "calc(100% - 56px)" }}
               className="flex items-start gap-4 rounded-2xl bg-cream p-5"
             >
               <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center overflow-hidden rounded-full bg-orange text-cream">

@@ -97,7 +97,7 @@ export function Footer() {
 
       {/* Copyright bar */}
       <div className="py-4 text-center text-xs text-gray-500">
-        @Work4Change Asia. 2026
+        &copy; Work4Change Asia. 2026
       </div>
     </footer>
   );

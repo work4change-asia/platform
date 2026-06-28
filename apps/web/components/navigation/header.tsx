@@ -46,6 +46,8 @@ export function Header() {
             className="md:hidden p-2 text-teal"
             onClick={() => setDrawerOpen(true)}
             aria-label="Open navigation menu"
+            aria-expanded={drawerOpen}
+            aria-controls="nav-drawer"
           >
             <MenuIcon />
           </button>
