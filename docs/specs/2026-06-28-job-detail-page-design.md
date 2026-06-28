@@ -207,4 +207,4 @@ For each component: **story first, then component, then verify in Storybook** be
 5. `JobDescription` + story
 6. Route page — assemble components
 7. Storybook smoke check on all new stories
-8. Browser check: click a job card from the homepage carousel, confirm the detail page renders
+8. Browser check via Chrome DevTools: click a job card from the homepage carousel, confirm the detail page renders
