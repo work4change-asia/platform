@@ -4,7 +4,7 @@ const LOGO_COUNT = 8;
 
 export function PartnerLogos() {
   return (
-    <section className="py-8 lg:py-10">
+    <section className="py-8 lg:py-10 hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-6 overflow-x-auto">
           {Array.from({ length: LOGO_COUNT }).map((_, i) => (
