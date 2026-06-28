@@ -24,33 +24,35 @@
 
 ## File Map
 
-| File | Action | Responsibility |
-|---|---|---|
-| `apps/web/components/ui/button.tsx` | Modify | Export `buttonVariants` so nav links can be styled as buttons |
-| `apps/web/components/navigation/nav-links.ts` | Create | Single source of truth for the four nav link definitions |
-| `apps/web/components/navigation/nav-utils.ts` | Create | Pure `isNavLinkActive` helper — no React/Next.js imports, safe to test in Node |
-| `apps/web/components/navigation/page-link.tsx` | Create | Active-aware nav item primitive; imports `isNavLinkActive` from `nav-utils.ts` |
+| File                                               | Action | Responsibility                                                                           |
+| -------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------- |
+| `apps/web/components/ui/button.tsx`                | Modify | Export `buttonVariants` so nav links can be styled as buttons                            |
+| `apps/web/components/navigation/nav-links.ts`      | Create | Single source of truth for the four nav link definitions                                 |
+| `apps/web/components/navigation/nav-utils.ts`      | Create | Pure `isNavLinkActive` helper — no React/Next.js imports, safe to test in Node           |
+| `apps/web/components/navigation/page-link.tsx`     | Create | Active-aware nav item primitive; imports `isNavLinkActive` from `nav-utils.ts`           |
 | `apps/web/components/navigation/page-link.test.ts` | Create | Unit tests for `isNavLinkActive` (imports from `nav-utils.ts`, not the client component) |
-| `apps/web/components/navigation/nav-drawer.tsx` | Create | Mobile slide-in panel (client) |
-| `apps/web/components/navigation/header.tsx` | Create | Desktop top bar + hamburger; owns drawer state (client) |
-| `apps/web/components/navigation/footer.tsx` | Create | Static 4-column footer (server) |
-| `apps/web/app/(frontend)/layout.tsx` | Modify | Wire `<Header />` and `<Footer />` around `{children}` |
-| `apps/web/app/(frontend)/about/page.tsx` | Create | Stub page |
-| `apps/web/app/(frontend)/resource-links/page.tsx` | Create | Stub page |
-| `apps/web/app/(frontend)/job-board/page.tsx` | Create | Stub page |
-| `apps/web/app/(frontend)/opportunities/page.tsx` | Create | Stub page |
+| `apps/web/components/navigation/nav-drawer.tsx`    | Create | Mobile slide-in panel (client)                                                           |
+| `apps/web/components/navigation/header.tsx`        | Create | Desktop top bar + hamburger; owns drawer state (client)                                  |
+| `apps/web/components/navigation/footer.tsx`        | Create | Static 4-column footer (server)                                                          |
+| `apps/web/app/(frontend)/layout.tsx`               | Modify | Wire `<Header />` and `<Footer />` around `{children}`                                   |
+| `apps/web/app/(frontend)/about/page.tsx`           | Create | Stub page                                                                                |
+| `apps/web/app/(frontend)/resource-library/page.tsx`  | Create | Stub page                                                                                |
+| `apps/web/app/(frontend)/job-board/page.tsx`       | Create | Stub page                                                                                |
+| `apps/web/app/(frontend)/opportunities/page.tsx`   | Create | Stub page                                                                                |
 
 ---
 
 ## Task 1: Export `buttonVariants` + NAV_LINKS config + PageLink primitive
 
 **Files:**
+
 - Modify: `apps/web/components/ui/button.tsx` (line 3 — add `export`)
 - Create: `apps/web/components/navigation/nav-links.ts`
 - Create: `apps/web/components/navigation/page-link.tsx`
 - Create: `apps/web/components/navigation/page-link.test.ts`
 
 **Interfaces:**
+
 - Produces:
   - `buttonVariants(opts) → string` — exported CVA function for styling links as buttons
   - `NAV_LINKS: Array<{ href: string; label: string }>` — consumed by Task 2 and Task 3
@@ -134,7 +136,7 @@
     { href: "/about", label: "About" },
     { href: "/job-board", label: "Job Board" },
     { href: "/opportunities", label: "Opportunities" },
-    { href: "/resource-links", label: "Resource Links" },
+    { href: "/resource-library", label: "Resource Library" },
   ] as const;
   ```
 
@@ -203,9 +205,11 @@
 ## Task 2: Header
 
 **Files:**
+
 - Create: `apps/web/components/navigation/header.tsx`
 
 **Interfaces:**
+
 - Consumes: `PageLink` from `./page-link`, `NAV_LINKS` from `./nav-links`, `NavDrawer` from `./nav-drawer`, `MenuIcon` from `@/components/ui/icons`, `buttonVariants` from `@/components/ui/button`
 - Produces: `Header()` — default export consumed by layout in Task 5
 
@@ -268,9 +272,7 @@
           </div>
         </header>
 
-        {drawerOpen && (
-          <NavDrawer onClose={() => setDrawerOpen(false)} />
-        )}
+        {drawerOpen && <NavDrawer onClose={() => setDrawerOpen(false)} />}
       </>
     );
   }
@@ -285,9 +287,11 @@
 ## Task 3: NavDrawer
 
 **Files:**
+
 - Create: `apps/web/components/navigation/nav-drawer.tsx`
 
 **Interfaces:**
+
 - Consumes: `PageLink` from `./page-link`, `NAV_LINKS` from `./nav-links`, `CloseIcon` from `@/components/ui/icons`, `buttonVariants` from `@/components/ui/button`
 - Produces: `NavDrawer({ onClose }: NavDrawerProps)` — consumed by `Header`
 
@@ -335,21 +339,13 @@
     return (
       <>
         {/* Backdrop */}
-        <div
-          className="fixed inset-0 z-40 bg-black/50"
-          onClick={onClose}
-          aria-hidden="true"
-        />
+        <div className="fixed inset-0 z-40 bg-black/50" onClick={onClose} aria-hidden="true" />
 
         {/* Drawer panel */}
         <div className="fixed inset-y-0 left-0 z-50 flex w-72 flex-col bg-white shadow-xl animate-[slide-in-left_200ms_ease_forwards]">
           {/* Drawer header */}
           <div className="flex items-center justify-between border-b border-gray-200 px-4 py-4">
-            <NextLink
-              href="/"
-              onClick={onClose}
-              className="font-bold text-teal"
-            >
+            <NextLink href="/" onClick={onClose} className="font-bold text-teal">
               {/* TODO: replace with <Logo /> once SVG assets are in the repo */}
               Work4Change Asia
             </NextLink>
@@ -366,12 +362,7 @@
           {/* Nav links */}
           <nav className="flex flex-1 flex-col gap-1 px-4 py-6" aria-label="Mobile navigation">
             {NAV_LINKS.map((link) => (
-              <PageLink
-                key={link.href}
-                href={link.href}
-                label={link.label}
-                onClick={onClose}
-              />
+              <PageLink key={link.href} href={link.href} label={link.label} onClick={onClose} />
             ))}
           </nav>
 
@@ -426,9 +417,11 @@
 ## Task 4: Footer
 
 **Files:**
+
 - Create: `apps/web/components/navigation/footer.tsx`
 
 **Interfaces:**
+
 - Consumes: `Link` from `next/link` (no icon dependencies)
 - Produces: `Footer()` — consumed by layout in Task 5
 
@@ -546,13 +539,15 @@
 ## Task 5: Layout wiring + stub pages
 
 **Files:**
+
 - Modify: `apps/web/app/(frontend)/layout.tsx`
 - Create: `apps/web/app/(frontend)/about/page.tsx`
-- Create: `apps/web/app/(frontend)/resource-links/page.tsx`
+- Create: `apps/web/app/(frontend)/resource-library/page.tsx`
 - Create: `apps/web/app/(frontend)/job-board/page.tsx`
 - Create: `apps/web/app/(frontend)/opportunities/page.tsx`
 
 **Interfaces:**
+
 - Consumes: `Header` from `@/components/navigation/header`, `Footer` from `@/components/navigation/footer`
 
 - [ ] **Step 1: Update `layout.tsx`**
@@ -574,15 +569,10 @@
 
   export const metadata: Metadata = {
     title: "Work4Change",
-    description:
-      "Career platform for the non-profit and impact sectors across Asia and Pacific.",
+    description: "Career platform for the non-profit and impact sectors across Asia and Pacific.",
   };
 
-  export default function FrontendLayout({
-    children,
-  }: {
-    children: React.ReactNode;
-  }) {
+  export default function FrontendLayout({ children }: { children: React.ReactNode }) {
     return (
       <html lang="en" className={manrope.variable}>
         <body className="font-sans">
@@ -611,13 +601,13 @@
   }
   ```
 
-  Create `apps/web/app/(frontend)/resource-links/page.tsx`:
+  Create `apps/web/app/(frontend)/resource-library/page.tsx`:
 
   ```tsx
   export default function ResourceLinksPage() {
     return (
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-teal">Resource Links</h1>
+        <h1 className="text-4xl font-bold text-teal">Resource Library</h1>
       </section>
     );
   }
@@ -678,18 +668,17 @@
   ```
 
   Open `http://localhost:3000` and check:
-
   - [ ] Desktop (≥768px): sticky header shows logo, 4 nav links, Login + Sign Up buttons. No hamburger visible.
   - [ ] Mobile (<768px): sticky header shows logo and hamburger only. Tap hamburger → drawer slides in from left. Backdrop present. Close button (✕) closes drawer. Tapping a nav link closes drawer and navigates.
-  - [ ] "Job Board" link is orange at `/job-board`. "Opportunities" is orange at `/opportunities`. `/about` activates "About". `/resource-links` activates "Resource Links".
+  - [ ] "Job Board" link is orange at `/job-board`. "Opportunities" is orange at `/opportunities`. `/about` activates "About". `/resource-library` activates "Resource Library".
   - [ ] `/job-board/anything` keeps "Job Board" orange (prefix match).
   - [ ] Footer is teal background on all pages, stacks to single column on mobile.
-  - [ ] `/about` and `/resource-links` resolve (no 404). `/job-board` and `/opportunities` resolve.
+  - [ ] `/about` and `/resource-library` resolve (no 404). `/job-board` and `/opportunities` resolve.
   - [ ] Login and Sign Up buttons are inert (point to `#`).
 
 - [ ] **Step 7: Commit**
 
   ```bash
-  git add apps/web/app/\(frontend\)/layout.tsx apps/web/app/\(frontend\)/about/page.tsx apps/web/app/\(frontend\)/resource-links/page.tsx apps/web/app/\(frontend\)/job-board/page.tsx apps/web/app/\(frontend\)/opportunities/page.tsx
+  git add apps/web/app/\(frontend\)/layout.tsx apps/web/app/\(frontend\)/about/page.tsx apps/web/app/\(frontend\)/resource-library/page.tsx apps/web/app/\(frontend\)/job-board/page.tsx apps/web/app/\(frontend\)/opportunities/page.tsx
   git commit -m "feat: wire navigation into frontend layout + add stub pages"
   ```

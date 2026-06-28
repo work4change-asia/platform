@@ -20,7 +20,7 @@ Option B: full responsive navigation in one spec. Desktop uses a sticky horizont
 - `NavDrawer` — mobile slide-in panel (client component)
 - `Footer` — 4-column desktop / stacked mobile (server component)
 - Wiring into `app/(frontend)/layout.tsx`
-- Stub pages for `/about` and `/resource-links`
+- Stub pages for `/about` and `/resource-library`
 
 **Excluded:**
 
@@ -51,12 +51,14 @@ Shared primitive for a single nav item. Used in both `Header` and `NavDrawer`.
 Sticky horizontal top bar. Client component (needs pathname + drawer open state). **`NavDrawer` is rendered as a child inside `Header`'s JSX** — not as a sibling in `layout.tsx`. This keeps `layout.tsx` a server component.
 
 **Desktop (`md`+):**
+
 - Logo left
-- `PageLink` row center-right: About | Job Board | Opportunities | Resource Links
+- `PageLink` row center-right: About | Job Board | Opportunities | Resource Library
 - Auth buttons right: Login (outline) + Sign Up (orange filled)
 - Nav links and auth buttons hidden below `md`
 
 **Mobile (below `md`):**
+
 - Logo left
 - Hamburger button right (uses existing `menu.tsx` icon)
 - Nav links and auth buttons hidden
@@ -68,8 +70,8 @@ export const NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "/job-board", label: "Job Board" },
   { href: "/opportunities", label: "Opportunities" },
-  { href: "/resource-links", label: "Resource Links" },
-]
+  { href: "/resource-library", label: "Resource Library" },
+];
 ```
 
 ### NavDrawer
@@ -77,7 +79,9 @@ export const NAV_LINKS = [
 Mobile slide-in panel rendered inside `Header`. Receives `isOpen: boolean` and `onClose: () => void` as props. **Conditionally mounted** (not CSS-hidden) so the scroll-lock `useEffect` does not run on desktop:
 
 ```tsx
-{isOpen && <NavDrawer isOpen={isOpen} onClose={onClose} />}
+{
+  isOpen && <NavDrawer isOpen={isOpen} onClose={onClose} />;
+}
 ```
 
 - Slides in from the left: `transform: translateX(-100%)` → `translateX(0)`, 200ms ease
@@ -92,6 +96,7 @@ Mobile slide-in panel rendered inside `Header`. Receives `isOpen: boolean` and `
 Server component. No interactivity.
 
 **Desktop (4 columns):**
+
 1. Logo + social links (LinkedIn, etc.)
 2. About (About Work4Change, FAQs)
 3. Explore All Jobs (Post or Tag a Job Opening, Other Opportunities, Find Jobs by Country, Create an Account)
@@ -133,7 +138,7 @@ apps/web/components/
 Both return a bare `<main>` with a heading. Enough to confirm routing and active nav state work.
 
 - `app/(frontend)/about/page.tsx`
-- `app/(frontend)/resource-links/page.tsx`
+- `app/(frontend)/resource-library/page.tsx`
 
 `/job-board` and `/opportunities` stubs are added here if not yet created.
 
@@ -143,11 +148,11 @@ Both return a bare `<main>` with a heading. Enough to confirm routing and active
 
 Breakpoint: `md` (768px).
 
-| Surface    | Below `md`                          | `md`+                                          |
-| ---------- | ----------------------------------- | ---------------------------------------------- |
-| Header     | Logo + hamburger only               | Full bar: logo, links, auth                    |
-| NavDrawer  | Opens on hamburger tap              | Not mounted (conditionally rendered in Header) |
-| Footer     | Columns stacked vertically          | 4-column grid                                  |
+| Surface   | Below `md`                 | `md`+                                          |
+| --------- | -------------------------- | ---------------------------------------------- |
+| Header    | Logo + hamburger only      | Full bar: logo, links, auth                    |
+| NavDrawer | Opens on hamburger tap     | Not mounted (conditionally rendered in Header) |
+| Footer    | Columns stacked vertically | 4-column grid                                  |
 
 ---
 
@@ -159,7 +164,7 @@ Breakpoint: `md` (768px).
 - [ ] Drawer closes on backdrop click, close button, or nav link tap
 - [ ] Body scroll is locked while drawer is open and restored on close
 - [ ] Footer renders correctly at both breakpoints
-- [ ] `/about` and `/resource-links` routes resolve without 404
+- [ ] `/about` and `/resource-library` routes resolve without 404
 - [ ] `pnpm typecheck` passes with zero errors
 - [ ] `pnpm lint` passes with zero errors
 - [ ] `pnpm test` passes (no new tests required for pure UI, but suite must not regress)
