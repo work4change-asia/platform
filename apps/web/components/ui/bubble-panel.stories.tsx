@@ -135,30 +135,58 @@ export const ColourDark: Story = {
 
 // ─── Usage contexts ───────────────────────────────────────────────────────────
 
+export const ContextPageBanner: Story = {
+  name: "Context / Page banner",
+  render: () => (
+    <Frame width={1179} height={366}>
+      <BubblePanel
+        variant="teal"
+        shape="standard"
+        className="flex h-full items-center justify-center"
+      >
+        <h1 className="text-h3 font-semibold text-cream">Job Details</h1>
+      </BubblePanel>
+    </Frame>
+  ),
+  args: {},
+};
+
 export const ContextHero: Story = {
   name: "Context / Hero (desktop)",
   render: () => (
-    <BubblePanel
-      variant="teal"
-      shape="large"
-      className="px-16 py-20"
-      media={
-        <img
-          src="/images/worldmap.svg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-contain object-right opacity-90"
-        />
-      }
-    >
-      <div className="max-w-xl">
-        <h1 className="text-h2 font-semibold text-cream">
-          Your gateway to{" "}
-          <span className="text-orange">purpose-driven careers</span>{" "}
-          across Asia
-        </h1>
-      </div>
-    </BubblePanel>
+    <div style={{ width: 1440, padding: "0 40px" }}>
+      <Frame width={1360} height={750}>
+        <BubblePanel
+          variant="teal"
+          shape="large"
+          className="flex h-full items-center px-20"
+          media={
+            <img
+              src="/images/worldmap.svg"
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full object-contain object-right"
+            />
+          }
+        >
+          <div className="max-w-[480px]">
+            <h1 className="mb-10 text-h2 font-semibold text-cream">
+              Your gateway to{" "}
+              <span className="text-orange">purpose-driven careers</span>{" "}
+              across Asia
+            </h1>
+            <div className="flex gap-4">
+              <button className="rounded-full bg-orange px-8 py-4 text-sm font-semibold text-cream">
+                Explore Jobs
+              </button>
+              <button className="rounded-full border border-cream px-8 py-4 text-sm font-semibold text-cream">
+                Explore Opportunities
+              </button>
+            </div>
+          </div>
+        </BubblePanel>
+      </Frame>
+    </div>
   ),
   args: {},
 };
@@ -202,18 +230,3 @@ export const ContextCtaCard: Story = {
   args: {},
 };
 
-export const ContextLargePanel: Story = {
-  name: "Context / Large panel (9700 shape)",
-  render: () => (
-    <BubblePanel variant="teal" shape="large" className="px-16 py-20">
-      <h2 className="mb-4 text-h3 font-semibold">
-        Leading with purpose across Asia
-      </h2>
-      <p className="max-w-lg opacity-80">
-        The region's home for careers in non-profit, international cooperation,
-        and social impact.
-      </p>
-    </BubblePanel>
-  ),
-  args: {},
-};

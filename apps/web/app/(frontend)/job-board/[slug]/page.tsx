@@ -18,21 +18,15 @@ export default async function JobDetailPage({ params }: Props) {
 
   return (
     <>
-      <BubblePanel
-        variant="teal"
-        shape="standard"
-        className="flex items-center justify-center py-16"
-        media={
-          <img
-            src="/images/worldmap.svg"
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-contain object-right opacity-60"
-          />
-        }
-      >
-        <h1 className="text-h3 font-semibold text-cream">Job Details</h1>
-      </BubblePanel>
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <BubblePanel
+          variant="teal"
+          shape="standard"
+          className="flex h-[366px] items-center justify-center"
+        >
+          <h1 className="text-h3 font-semibold text-cream">Job Details</h1>
+        </BubblePanel>
+      </div>
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <nav aria-label="Breadcrumb" className="mb-8 text-sm">

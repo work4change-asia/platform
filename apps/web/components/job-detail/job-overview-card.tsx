@@ -1,12 +1,12 @@
 import {
   LocationIcon,
-  GlobeIcon,
+  ModalityIcon,
   ExperienceIcon,
   LanguageIcon,
-  BriefcaseIcon,
+  CvIcon,
   TimeCommitmentIcon,
-  AreaIcon,
-  BuildingIcon,
+  AdIcon,
+  NotificationIcon,
 } from "@/components/ui/icons";
 
 export type JobOverviewCardProps = {
@@ -28,10 +28,10 @@ type CellProps = {
 
 function Cell({ icon, label, value }: CellProps) {
   return (
-    <div className="flex flex-col items-center gap-1 text-center">
-      <span className="text-teal">{icon}</span>
+    <div className="flex flex-col items-start gap-1">
+      <span className="text-orange">{icon}</span>
       <span className="text-xs text-pale-blue">{label}</span>
-      <span className="text-sm font-medium text-gray-text">{value}</span>
+      <span className="text-sm font-medium text-gray-600">{value}</span>
     </div>
   );
 }
@@ -47,20 +47,20 @@ export function JobOverviewCard({
   isInternationalContract,
 }: JobOverviewCardProps) {
   return (
-    <div className="rounded-card bg-white p-6 shadow-card">
+    <div className="rounded-card border border-gray-200 bg-white p-6">
       <h3 className="mb-6 text-base font-semibold text-gray-text">Job Overview</h3>
       <div className="grid grid-cols-2 gap-x-4 gap-y-6">
-        <Cell icon={<LocationIcon size={20} />} label="Location" value={location} />
-        <Cell icon={<GlobeIcon size={20} />} label="Work Mode" value={workMode} />
-        <Cell icon={<ExperienceIcon size={20} />} label="Experience" value={experience} />
-        <Cell icon={<LanguageIcon size={20} />} label="Language" value={language} />
-        <Cell icon={<BriefcaseIcon size={20} />} label="Contract Type" value={contractLabel} />
-        <Cell icon={<TimeCommitmentIcon size={20} />} label="Time Commitment" value={timeCommitment} />
-        <Cell icon={<AreaIcon size={20} />} label="Sector" value={sector} />
+        <Cell icon={<LocationIcon size={32} />} label="Location" value={location} />
+        <Cell icon={<ModalityIcon size={32} />} label="Work Modality" value={workMode} />
+        <Cell icon={<ExperienceIcon size={32} />} label="Experience" value={experience} />
+        <Cell icon={<LanguageIcon size={32} />} label="Language" value={language} />
+        <Cell icon={<CvIcon size={32} />} label="Type of Contract" value={contractLabel} />
+        <Cell icon={<TimeCommitmentIcon size={32} />} label="Time Commitment" value={timeCommitment} />
+        <Cell icon={<AdIcon size={32} />} label="Area of Work" value={sector} />
         <Cell
-          icon={<BuildingIcon size={20} />}
-          label="International Contract"
-          value={isInternationalContract ? "Yes" : "No"}
+          icon={<NotificationIcon size={32} />}
+          label="Eligibility"
+          value={isInternationalContract ? "International Contract" : "Local Contract"}
         />
       </div>
     </div>

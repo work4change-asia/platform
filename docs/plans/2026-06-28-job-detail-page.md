@@ -1,6 +1,6 @@
 # Job Detail Page Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Build the `/job-board/[slug]` route with four new reusable components and mock data so UX can be reviewed end-to-end.
 
@@ -48,7 +48,7 @@
   - `type JobDetail` — extended type used by all four components and the page
   - `jobDetailsBySlug: Record<string, JobDetail>` — keyed by full slug string (e.g. `"1-product-designer-google"`)
 
-- [ ] **Step 1: Create the data file**
+- [x] **Step 1: Create the data file**
 
 ```ts
 // apps/web/lib/job-detail-data.ts
@@ -149,7 +149,7 @@ export const jobDetailsBySlug: Record<string, JobDetail> = Object.fromEntries(
 );
 ```
 
-- [ ] **Step 2: Typecheck**
+- [x] **Step 2: Typecheck**
 
 ```bash
 pnpm typecheck
@@ -157,7 +157,7 @@ pnpm typecheck
 
 Expected: no errors.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add apps/web/lib/job-detail-data.ts
@@ -189,7 +189,7 @@ git commit -m "feat(job-detail): add mock data layer"
   export function JobOverviewCard(props: JobOverviewCardProps): JSX.Element
   ```
 
-- [ ] **Step 1: Write the story first**
+- [x] **Step 1: Write the story first**
 
 ```tsx
 // apps/web/components/job-detail/job-overview-card.stories.tsx
@@ -232,7 +232,7 @@ export const LocalContract: Story = {
 };
 ```
 
-- [ ] **Step 2: Implement the component**
+- [x] **Step 2: Implement the component**
 
 ```tsx
 // apps/web/components/job-detail/job-overview-card.tsx
@@ -306,7 +306,7 @@ export function JobOverviewCard({
 }
 ```
 
-- [ ] **Step 3: Typecheck**
+- [x] **Step 3: Typecheck**
 
 ```bash
 pnpm typecheck
@@ -314,7 +314,7 @@ pnpm typecheck
 
 Expected: no errors.
 
-- [ ] **Step 4: Verify in Storybook**
+- [x] **Step 4: Verify in Storybook**
 
 ```bash
 pnpm storybook
@@ -324,7 +324,7 @@ Open `http://localhost:6006` and navigate to **JobDetail / JobOverviewCard**. Ch
 - Default story: 8 cells render in a 2-column grid, icons are teal, labels are muted, values are bold
 - LocalContract story: International Contract cell shows "No"
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add apps/web/components/job-detail/job-overview-card.tsx apps/web/components/job-detail/job-overview-card.stories.tsx
@@ -355,7 +355,7 @@ git commit -m "feat(job-detail): add JobOverviewCard component and story"
   export function CompanyInfoCard(props: CompanyInfoCardProps): JSX.Element
   ```
 
-- [ ] **Step 1: Write the story first**
+- [x] **Step 1: Write the story first**
 
 ```tsx
 // apps/web/components/job-detail/company-info-card.stories.tsx
@@ -396,7 +396,7 @@ export const LongName: Story = {
 };
 ```
 
-- [ ] **Step 2: Implement the component**
+- [x] **Step 2: Implement the component**
 
 ```tsx
 // apps/web/components/job-detail/company-info-card.tsx
@@ -468,7 +468,7 @@ export function CompanyInfoCard({
 }
 ```
 
-- [ ] **Step 3: Typecheck**
+- [x] **Step 3: Typecheck**
 
 ```bash
 pnpm typecheck
@@ -476,13 +476,13 @@ pnpm typecheck
 
 Expected: no errors.
 
-- [ ] **Step 4: Verify in Storybook**
+- [x] **Step 4: Verify in Storybook**
 
 Navigate to **JobDetail / CompanyInfoCard**. Check:
 - Default story: logo circle shows "G", four info rows render with correct label/value alignment, website is a clickable link
 - LongName story: long org name wraps cleanly inside the card
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add apps/web/components/job-detail/company-info-card.tsx apps/web/components/job-detail/company-info-card.stories.tsx
@@ -509,7 +509,7 @@ git commit -m "feat(job-detail): add CompanyInfoCard component and story"
   export function CompanyHeader(props: CompanyHeaderProps): JSX.Element
   ```
 
-- [ ] **Step 1: Write the story first**
+- [x] **Step 1: Write the story first**
 
 ```tsx
 // apps/web/components/job-detail/company-header.stories.tsx
@@ -542,7 +542,7 @@ export const LongTitle: Story = {
 };
 ```
 
-- [ ] **Step 2: Implement the component**
+- [x] **Step 2: Implement the component**
 
 ```tsx
 // apps/web/components/job-detail/company-header.tsx
@@ -587,7 +587,7 @@ export function CompanyHeader({ orgName, orgInitial, jobTitle }: CompanyHeaderPr
 }
 ```
 
-- [ ] **Step 3: Typecheck**
+- [x] **Step 3: Typecheck**
 
 ```bash
 pnpm typecheck
@@ -595,13 +595,13 @@ pnpm typecheck
 
 Expected: no errors.
 
-- [ ] **Step 4: Verify in Storybook**
+- [x] **Step 4: Verify in Storybook**
 
 Navigate to **JobDetail / CompanyHeader**. Check:
 - Default story: logo circle, org name (muted), job title (bold), bookmark icon, disabled orange Apply Now button with arrow icon
 - LongTitle story: long job title wraps cleanly; actions stay right-aligned on desktop, stack below on narrow viewports
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add apps/web/components/job-detail/company-header.tsx apps/web/components/job-detail/company-header.stories.tsx
@@ -627,7 +627,7 @@ git commit -m "feat(job-detail): add CompanyHeader component and story"
   export function JobDescription(props: JobDescriptionProps): JSX.Element
   ```
 
-- [ ] **Step 1: Write the story first**
+- [x] **Step 1: Write the story first**
 
 ```tsx
 // apps/web/components/job-detail/job-description.stories.tsx
@@ -666,7 +666,7 @@ export const ManyResponsibilities: Story = {
 };
 ```
 
-- [ ] **Step 2: Implement the component**
+- [x] **Step 2: Implement the component**
 
 ```tsx
 // apps/web/components/job-detail/job-description.tsx
@@ -729,7 +729,7 @@ export function JobDescription({ descriptionBody, responsibilities }: JobDescrip
 }
 ```
 
-- [ ] **Step 3: Typecheck**
+- [x] **Step 3: Typecheck**
 
 ```bash
 pnpm typecheck
@@ -737,13 +737,13 @@ pnpm typecheck
 
 Expected: no errors.
 
-- [ ] **Step 4: Verify in Storybook**
+- [x] **Step 4: Verify in Storybook**
 
 Navigate to **JobDetail / JobDescription**. Check:
 - Default story: description paragraphs render with spacing, responsibilities show teal bullet dots, social share labels appear but are non-interactive
 - ManyResponsibilities story: long list renders cleanly with no overflow
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add apps/web/components/job-detail/job-description.tsx apps/web/components/job-detail/job-description.stories.tsx
@@ -768,7 +768,7 @@ git commit -m "feat(job-detail): add JobDescription component and story"
   - `CompanyInfoCard` from `@/components/job-detail/company-info-card`
 - Produces: the rendered `/job-board/[slug]` page
 
-- [ ] **Step 1: Create the route page**
+- [x] **Step 1: Create the route page**
 
 ```tsx
 // apps/web/app/(frontend)/job-board/[slug]/page.tsx
@@ -862,7 +862,7 @@ export default async function JobDetailPage({ params }: Props) {
 }
 ```
 
-- [ ] **Step 2: Typecheck**
+- [x] **Step 2: Typecheck**
 
 ```bash
 pnpm typecheck
@@ -870,13 +870,13 @@ pnpm typecheck
 
 Expected: no errors.
 
-- [ ] **Step 3: Start the dev server**
+- [x] **Step 3: Start the dev server**
 
 ```bash
 pnpm dev
 ```
 
-- [ ] **Step 4: Browser check via Chrome DevTools**
+- [x] **Step 4: Browser check via Chrome DevTools**
 
 Navigate to `http://localhost:3000`. Click a job card from the Featured Jobs carousel (e.g. "Product Designer" → Google Inc). Confirm:
 - The URL changes to `/job-board/1-product-designer-google`
@@ -890,7 +890,7 @@ Also navigate directly to `http://localhost:3000/job-board/9-programme-officer-u
 
 Navigate to `http://localhost:3000/job-board/nonexistent-slug` and confirm a 404 page is shown.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add apps/web/app/(frontend)/job-board/[slug]/page.tsx
