@@ -1,0 +1,19 @@
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      NODE_ENV: production
+    networks:
+      - default
+      - squeemnet
+    labels:
+      - caddy_ingress_network=squeemnet
+
+networks:
+  squeemnet:
+    external: true
