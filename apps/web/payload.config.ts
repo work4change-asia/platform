@@ -18,9 +18,7 @@ export default buildConfig({
   collections: [Users],
   db: postgresAdapter({
     pool: { connectionString: env.DATABASE_URL },
-    // Vercel sets NODE_ENV=production for every deployment (preview or prod),
-    // so use VERCEL_ENV to tell an actual production deploy from a staging preview.
-    push: (process.env.VERCEL_ENV ?? env.NODE_ENV) !== "production",
+    push: false,
     migrationDir: path.resolve(__dirname, "migrations"),
   }),
   editor: lexicalEditor(),
