@@ -108,7 +108,7 @@ Media uploads → Cloudflare R2 (S3-compatible)
 | Database  | Neon or Supabase | Managed PostgreSQL; branching (Neon) or extras (Supabase)              |
 | Media     | Cloudflare R2    | S3-compatible; Cloudflare CDN covers Singapore, Tokyo, HK, Sydney PoPs |
 | DNS / CDN | Cloudflare       | Free CDN, DDoS protection, Asian PoPs in front of Vercel domain        |
-| Staging   | Unraid (Coolify) | Dev/staging environment; Coolify-managed container, deployed via GitHub Actions webhook |
+| Staging   | Vercel preview deployments | Every push gets a preview URL via Vercel's native GitHub integration; no self-hosted infra |
 
 ### Deliberate trade-off: Payload's dependency footprint
 
