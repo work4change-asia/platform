@@ -218,7 +218,5 @@ export const homeTestimonial: TestimonialData = {
 
 export const homeStats: StatData[] = [
   { value: "200+", label: "new jobs posts every week" },
-  { value: "160", label: "active companies and counting" },
-  { value: "200+", label: "subscribers" },
-  { value: "2000+", label: "monthly visits" },
+  { value: "160", label: "active companies and counting" }
 ];
