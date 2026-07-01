@@ -15,7 +15,24 @@ export type JobCardData = {
   href: string;
 };
 
-export type OpportunityData = JobCardData;
+export type OpportunityType =
+  | "Event"
+  | "Grant"
+  | "News"
+  | "Mobility"
+  | "Publication"
+  | "Research & Academia"
+  | "Networking & Exchanges"
+  | "Training";
+
+export type OpportunityData = {
+  id: string;
+  title: string;
+  organization: string;
+  excerpt: string;
+  tags: OpportunityType[];
+  href: string;
+};
 
 export type FeatureItem = {
   icon: string;
@@ -172,33 +189,24 @@ export const featuredOpportunities: OpportunityData[] = [
     id: "1",
     title: "Digital Marketer",
     organization: "Instagram",
-    contractType: "full-time",
-    contractLabel: "Full Time",
-    location: "Remote",
-    description: "We are looking for a digital marketer to join our team and lead our digital outreach efforts. Apply today.",
-    postedAt: "3h ago",
+    excerpt: "We are looking for a digital marketer to join our team and lead our digital outreach efforts. Apply today.",
+    tags: ["Mobility"],
     href: "/opportunities/1-digital-marketer-instagram",
   },
   {
     id: "2",
     title: "Digital Marketer",
     organization: "Slack",
-    contractType: "part-time",
-    contractLabel: "Part Time",
-    location: "Remote",
-    description: "We are seeking a Digital Marketing Specialist to lead our internal outreach efforts and grow our brand presence across Asia.",
-    postedAt: "4h ago",
+    excerpt: "We are seeking a Digital Marketing Specialist to lead our internal outreach efforts and grow our brand presence across Asia.",
+    tags: ["Training"],
     href: "/opportunities/2-digital-marketer-slack",
   },
   {
     id: "3",
     title: "CFIs Call for Proposals: Empowering Civil Society in 2025",
     organization: "Asia Foundation",
-    contractType: "active",
-    contractLabel: "Grant",
-    location: "Asia-Pacific",
-    description: "The Asia Foundation invites civil society organizations across Asia to submit proposals for capacity-building grants supporting democracy, governance, and social development.",
-    postedAt: "1d ago",
+    excerpt: "The Asia Foundation invites civil society organizations across Asia to submit proposals for capacity-building grants supporting democracy, governance, and social development.",
+    tags: ["Grant"],
     href: "/opportunities/3-cfi-proposals-asia-foundation",
   },
 ];
