@@ -31,7 +31,7 @@ export function JobCard({
   return (
     <NextLink
       href={href}
-      className="group flex flex-col rounded-card bg-white shadow-card p-5 border border-transparent transition-colors hover:border-teal-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-light"
+      className="group flex flex-col rounded-card bg-white p-5 border border-transparent transition-[box-shadow,border-color] hover:border-teal-light hover:shadow-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-light focus-visible:shadow-card"
     >
       {/* Top: location + contract type badges */}
       <div className="mb-3 flex flex-wrap items-center gap-2">

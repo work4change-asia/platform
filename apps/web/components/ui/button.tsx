@@ -18,9 +18,9 @@ export const buttonVariants = cva(
           "border-[1.5px] border-cream text-cream bg-transparent hover:bg-white/20 focus-visible:outline-cream disabled:opacity-50",
       },
       size: {
-        sm: "h-11 rounded-pill px-6 text-base",
-        md: "h-12 rounded-pill px-6 text-base",
-        lg: "h-16 rounded-pill px-[38px] text-base",
+        sm: "h-11 rounded-pill px-6 text-sm",
+        md: "h-12 rounded-pill px-6 text-sm",
+        lg: "h-16 rounded-pill px-[38px] text-sm",
         icon: "size-11 rounded-pill",
       },
     },

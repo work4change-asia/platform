@@ -40,9 +40,6 @@ export function FeaturedJobs({ jobs }: FeaturedJobsProps) {
     <section className="bg-cream py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
-          <p className="mb-2 text-tiny font-semibold uppercase tracking-widest text-teal-light">
-            What we offer
-          </p>
           <h2 className="text-h4 font-semibold text-teal">Fresh from the Field</h2>
         </div>
 
@@ -94,15 +91,6 @@ export function FeaturedJobs({ jobs }: FeaturedJobsProps) {
           {jobs.map((job) => (
             <JobCard key={job.id} {...job} />
           ))}
-        </div>
-
-        <div className="mt-10 flex justify-center">
-          <NextLink
-            href="/job-board"
-            className={buttonVariants({ variant: "outline", size: "md" })}
-          >
-            More Jobs
-          </NextLink>
         </div>
       </div>
     </section>

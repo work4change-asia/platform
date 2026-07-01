@@ -75,38 +75,38 @@ h6 {
    Sizes only. Weights come from the h1–h6 base reset above (brand book: H1/H2 600, H3+ 400).
    These are @utility (not @theme --text-*) so Tailwind generates first-class classes. ─ */
 @utility text-display {
-  font-size: 3.5rem;
-  line-height: 4rem;
+  font-size: 3rem;
+  line-height: 3.5rem;
 }
 
 @utility text-h1 {
-  font-size: 3rem;
-  line-height: 3.5rem;
-}
-
-@utility text-h2 {
-  font-size: 3rem;
-  line-height: 3.5rem;
-}
-
-@utility text-h3 {
   font-size: 2.5rem;
   line-height: 3rem;
 }
 
-@utility text-h4 {
-  font-size: 2.25rem;
-  line-height: 2.75rem;
+@utility text-h2 {
+  font-size: 2.5rem;
+  line-height: 3rem;
 }
 
-@utility text-h5 {
+@utility text-h3 {
   font-size: 2rem;
   line-height: 2.5rem;
 }
 
-@utility text-h6 {
+@utility text-h4 {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+}
+
+@utility text-h5 {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+@utility text-h6 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 @utility text-tiny {
