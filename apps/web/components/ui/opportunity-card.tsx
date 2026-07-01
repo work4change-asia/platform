@@ -1,12 +1,13 @@
 import NextLink from "next/link";
 import { ArrowRightIcon } from "@/components/ui/icons";
+import type { OpportunityType } from "@/lib/home-data";
 
 export type OpportunityCardProps = {
   id: string;
   title: string;
   organization: string;
   excerpt: string;
-  tags: string[];
+  tags: OpportunityType[];
   href: string;
 };
 
