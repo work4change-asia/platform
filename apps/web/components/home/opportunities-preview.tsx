@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { JobCard } from "@/components/ui/job-card";
+import { OpportunityCard } from "@/components/ui/opportunity-card";
 import { buttonVariants } from "@/components/ui/button";
 import type { OpportunityData } from "@/lib/home-data";
 
@@ -17,7 +17,7 @@ export function OpportunitiesPreview({ opportunities }: OpportunitiesPreviewProp
 
         <div className="grid grid-cols-1 gap-5">
           {opportunities.map((opp) => (
-            <JobCard key={opp.id} {...opp} />
+            <OpportunityCard key={opp.id} {...opp} />
           ))}
         </div>
 
