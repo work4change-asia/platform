@@ -35,7 +35,7 @@ jobs:
         run: pnpm vitest run --reporter=verbose --project=unit
 
   deploy:
-    name: Deploy to Coolify (dev)
+    name: Deploy to Coolify (staging)
     needs: test
     runs-on: ubuntu-latest
 
