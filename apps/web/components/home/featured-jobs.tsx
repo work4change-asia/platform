@@ -44,9 +44,6 @@ export function FeaturedJobs({ jobs }: FeaturedJobsProps) {
         </div>
 
         <div className="mb-8 flex justify-center gap-3">
-          <NextLink href="/job-board" className={buttonVariants({ variant: "secondary", size: "sm" })}>
-            See All Jobs
-          </NextLink>
           <NextLink href="#" className={buttonVariants({ variant: "outline", size: "sm" })}>
             Share An Opening
           </NextLink>
@@ -91,6 +88,12 @@ export function FeaturedJobs({ jobs }: FeaturedJobsProps) {
           {jobs.map((job) => (
             <JobCard key={job.id} {...job} />
           ))}
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <NextLink href="/job-board" className={buttonVariants({ variant: "secondary", size: "sm" })}>
+            See All Jobs
+          </NextLink>
         </div>
       </div>
     </section>

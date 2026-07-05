@@ -50,7 +50,7 @@ export function JobCard({
       </p>
 
       {/* More Details — visual label only, whole card is the link */}
-      <span className="mb-4 flex items-center gap-1 text-sm font-medium text-teal">
+      <span className="mb-4 flex items-center gap-1 text-sm font-medium text-teal-light">
         More Details
         <ArrowUpRightIcon size={14} />
       </span>

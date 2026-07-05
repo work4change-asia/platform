@@ -39,7 +39,7 @@ export function OpportunityCard({
         href={href}
         className="inline-flex items-center gap-1 text-sm font-medium text-teal-light underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-light"
       >
-        View more
+        More Details
         <ArrowRightIcon size={16} />
       </NextLink>
     </div>
