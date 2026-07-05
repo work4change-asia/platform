@@ -40,6 +40,9 @@ export function FeaturedJobs({ jobs }: FeaturedJobsProps) {
     <section className="bg-cream py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
+          <p className="mb-2 text-tiny font-semibold uppercase tracking-widest text-orange">
+            Start Here, Find Purpose
+          </p>
           <h2 className="text-h4 font-semibold text-teal">Fresh from the Field</h2>
         </div>
 
