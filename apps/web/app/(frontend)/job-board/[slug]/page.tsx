@@ -28,8 +28,11 @@ export default async function JobDetailPage({ params }: Props) {
         </BubblePanel>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <nav aria-label="Breadcrumb" className="mb-8 text-sm">
+      <div className="bg-cream">
+        <nav
+          aria-label="Breadcrumb"
+          className="mx-auto max-w-7xl px-4 py-5 text-sm sm:px-6 lg:px-8"
+        >
           <ol className="flex items-center gap-2">
             <li>
               <Link href="/" variant="muted">
@@ -50,12 +53,10 @@ export default async function JobDetailPage({ params }: Props) {
             <li className="font-medium text-gray-text">Job Details</li>
           </ol>
         </nav>
+      </div>
 
-        <CompanyHeader
-          orgName={job.organization}
-          orgInitial={orgInitial}
-          jobTitle={job.title}
-        />
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <CompanyHeader orgName={job.organization} orgInitial={orgInitial} jobTitle={job.title} />
 
         <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[3fr_2fr]">
           <JobDescription
