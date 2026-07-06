@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { JobCard } from "@/components/ui/job-card";
+import { OpportunityCard } from "@/components/ui/opportunity-card";
 import { buttonVariants } from "@/components/ui/button";
 import type { OpportunityData } from "@/lib/home-data";
 
@@ -12,15 +12,15 @@ export function OpportunitiesPreview({ opportunities }: OpportunitiesPreviewProp
     <section className="py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
-          <p className="mb-2 text-tiny font-semibold uppercase tracking-widest text-teal-light">
-            What we offer
+          <p className="mb-2 text-tiny font-semibold uppercase tracking-widest text-orange">
+            What We Offer
           </p>
           <h2 className="text-h4 font-semibold text-teal">Opportunities</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-5">
           {opportunities.map((opp) => (
-            <JobCard key={opp.id} {...opp} />
+            <OpportunityCard key={opp.id} {...opp} />
           ))}
         </div>
 

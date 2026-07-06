@@ -15,7 +15,24 @@ export type JobCardData = {
   href: string;
 };
 
-export type OpportunityData = JobCardData;
+export type OpportunityType =
+  | "Event"
+  | "Grant"
+  | "News"
+  | "Mobility"
+  | "Publication"
+  | "Research & Academia"
+  | "Networking & Exchanges"
+  | "Training";
+
+export type OpportunityData = {
+  id: string;
+  title: string;
+  organization: string;
+  excerpt: string;
+  tags: OpportunityType[];
+  href: string;
+};
 
 export type FeatureItem = {
   icon: string;
@@ -61,7 +78,7 @@ export const featuredJobs: JobCardData[] = [
     organization: "GitHub",
     contractType: "full-time",
     contractLabel: "Full Time",
-    location: "Tokyo, Japan",
+    location: "Japan",
     description: "Build and maintain scalable web applications that power the world's leading developer platform.",
     postedAt: "1d ago",
     href: "/job-board/3-fullstack-developer-github",
@@ -83,7 +100,7 @@ export const featuredJobs: JobCardData[] = [
     organization: "Pinterest",
     contractType: "full-time",
     contractLabel: "Full Time",
-    location: "Manila, Philippines",
+    location: "Philippines",
     description: "Craft beautiful, performant user interfaces that inspire people to discover and save ideas they love.",
     postedAt: "2d ago",
     href: "/job-board/5-frontend-developer-pinterest",
@@ -94,7 +111,7 @@ export const featuredJobs: JobCardData[] = [
     organization: "Amazon",
     contractType: "full-time",
     contractLabel: "Full Time",
-    location: "Kuala Lumpur",
+    location: "Malaysia",
     description: "Design and implement cloud architectures that help businesses across Southeast Asia scale with confidence.",
     postedAt: "2d ago",
     href: "/job-board/6-cloud-architect-amazon",
@@ -105,7 +122,7 @@ export const featuredJobs: JobCardData[] = [
     organization: "Grab",
     contractType: "full-time",
     contractLabel: "Full Time",
-    location: "Jakarta, Indonesia",
+    location: "Indonesia",
     description: "Turn data into insights that drive product decisions for Southeast Asia's leading superapp.",
     postedAt: "3d ago",
     href: "/job-board/7-data-analyst-grab",
@@ -116,7 +133,7 @@ export const featuredJobs: JobCardData[] = [
     organization: "Airbnb",
     contractType: "part-time",
     contractLabel: "Part Time",
-    location: "Bangkok, Thailand",
+    location: "Thailand",
     description: "Lead digital marketing campaigns that connect travellers with unique stays and experiences across Asia.",
     postedAt: "3d ago",
     href: "/job-board/8-digital-marketing-airbnb",
@@ -127,7 +144,7 @@ export const featuredJobs: JobCardData[] = [
     organization: "UNDP Asia",
     contractType: "full-time",
     contractLabel: "Full Time",
-    location: "Bangkok, Thailand",
+    location: "Thailand",
     description: "Support sustainable development programmes across Asia, working with governments and civil society to advance the SDGs.",
     postedAt: "4d ago",
     href: "/job-board/9-programme-officer-undp",
@@ -138,7 +155,7 @@ export const featuredJobs: JobCardData[] = [
     organization: "Oxfam",
     contractType: "full-time",
     contractLabel: "Full Time",
-    location: "Phnom Penh, Cambodia",
+    location: "Cambodia",
     description: "Tell the stories of communities overcoming poverty and injustice through compelling communications and advocacy.",
     postedAt: "4d ago",
     href: "/job-board/10-communications-officer-oxfam",
@@ -149,7 +166,7 @@ export const featuredJobs: JobCardData[] = [
     organization: "Asia Foundation",
     contractType: "part-time",
     contractLabel: "Fellowship",
-    location: "Manila, Philippines",
+    location: "Philippines",
     description: "Conduct policy research on governance, development, and civil society across the Asia-Pacific region.",
     postedAt: "5d ago",
     href: "/job-board/11-research-fellow-asia-foundation",
@@ -160,7 +177,7 @@ export const featuredJobs: JobCardData[] = [
     organization: "Save the Children",
     contractType: "full-time",
     contractLabel: "Full Time",
-    location: "Ho Chi Minh City",
+    location: "Vietnam",
     description: "Lead fundraising strategy and donor engagement to support life-changing programmes for children across Vietnam.",
     postedAt: "5d ago",
     href: "/job-board/12-fundraising-manager-save-the-children",
@@ -172,33 +189,24 @@ export const featuredOpportunities: OpportunityData[] = [
     id: "1",
     title: "Digital Marketer",
     organization: "Instagram",
-    contractType: "full-time",
-    contractLabel: "Full Time",
-    location: "Remote",
-    description: "We are looking for a digital marketer to join our team and lead our digital outreach efforts. Apply today.",
-    postedAt: "3h ago",
+    excerpt: "We are looking for a digital marketer to join our team and lead our digital outreach efforts. Apply today.",
+    tags: ["Mobility"],
     href: "/opportunities/1-digital-marketer-instagram",
   },
   {
     id: "2",
     title: "Digital Marketer",
     organization: "Slack",
-    contractType: "part-time",
-    contractLabel: "Part Time",
-    location: "Remote",
-    description: "We are seeking a Digital Marketing Specialist to lead our internal outreach efforts and grow our brand presence across Asia.",
-    postedAt: "4h ago",
+    excerpt: "We are seeking a Digital Marketing Specialist to lead our internal outreach efforts and grow our brand presence across Asia.",
+    tags: ["Training"],
     href: "/opportunities/2-digital-marketer-slack",
   },
   {
     id: "3",
     title: "CFIs Call for Proposals: Empowering Civil Society in 2025",
     organization: "Asia Foundation",
-    contractType: "active",
-    contractLabel: "Grant",
-    location: "Asia-Pacific",
-    description: "The Asia Foundation invites civil society organizations across Asia to submit proposals for capacity-building grants supporting democracy, governance, and social development.",
-    postedAt: "1d ago",
+    excerpt: "The Asia Foundation invites civil society organizations across Asia to submit proposals for capacity-building grants supporting democracy, governance, and social development.",
+    tags: ["Grant"],
     href: "/opportunities/3-cfi-proposals-asia-foundation",
   },
 ];
@@ -218,7 +226,5 @@ export const homeTestimonial: TestimonialData = {
 
 export const homeStats: StatData[] = [
   { value: "200+", label: "new jobs posts every week" },
-  { value: "160", label: "active companies and counting" },
-  { value: "200+", label: "subscribers" },
-  { value: "2000+", label: "monthly visits" },
+  { value: "160", label: "active companies and counting" }
 ];

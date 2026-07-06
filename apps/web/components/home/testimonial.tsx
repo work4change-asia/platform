@@ -29,7 +29,7 @@ export function Testimonial({ data }: TestimonialProps) {
 
           {/* Text side */}
           <div className="flex flex-col gap-6">
-            <p className="text-tiny font-semibold uppercase tracking-widest text-teal-light">
+            <p className="text-tiny font-semibold uppercase tracking-widest text-orange">
               What we do
             </p>
             <blockquote className="text-h6 font-medium text-teal">

@@ -18,7 +18,7 @@ export const Default: Story = {
     organization: "Instagram",
     excerpt:
       "Are you an Email Marketing Specialist? We are looking for a digital marketer to join our team. Join our digital outreach efforts.",
-    tags: ["New", "Full Time"],
+    tags: ["Mobility"],
     href: "/opportunities/1-digital-marketer-instagram",
   },
   decorators: [(Story) => <div className="w-[640px]"><Story /></div>],
@@ -31,7 +31,7 @@ export const Grant: Story = {
     organization: "Asia Foundation",
     excerpt:
       "The Asia Foundation invites civil society organizations across Asia to submit proposals for capacity-building grants supporting democracy, governance, and social development initiatives.",
-    tags: ["Grant", "Open"],
+    tags: ["Grant"],
     href: "/opportunities/2-cfi-proposals-asia-foundation",
   },
   decorators: [(Story) => <div className="w-[640px]"><Story /></div>],
@@ -46,7 +46,7 @@ export const Stack: Story = {
         title="Digital Marketer"
         organization="Instagram"
         excerpt="Are you an Email Marketing Specialist? We are looking for a digital marketer to join our team. Join our digital outreach efforts. We use talent for all our customer outreach."
-        tags={["New", "Full Time"]}
+        tags={["Event", "Networking & Exchanges"]}
         href="#"
       />
       <OpportunityCard
@@ -54,7 +54,7 @@ export const Stack: Story = {
         title="Digital Marketer"
         organization="Slack"
         excerpt="Are you an Email Marketing Specialist and are looking to join a team as an Email Marketing Specialist and lead our digital marketing."
-        tags={["New", "Part Time"]}
+        tags={["Training"]}
         href="#"
       />
     </div>
