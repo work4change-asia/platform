@@ -1,3 +1,5 @@
+import { FacebookIcon, PinterestIcon, TwitterIcon } from "@/components/ui/icons";
+
 export type JobDescriptionProps = {
   descriptionBody: string;
   responsibilities: string[];
@@ -32,16 +34,28 @@ export function JobDescription({ descriptionBody, responsibilities }: JobDescrip
       </section>
 
       <div className="flex items-center gap-4">
-        <span className="text-sm text-pale-blue">Share this:</span>
-        <span aria-hidden="true" className="cursor-default text-sm font-medium text-[#1877F2]">
+        <span className="text-sm text-pale-blue">Share this job:</span>
+        <button
+          type="button"
+          className="flex items-center gap-2 rounded-lg border border-pale-blue/40 px-4 py-2 text-sm font-medium text-[#1877F2] transition-colors hover:bg-pale-blue/10"
+        >
+          <FacebookIcon size={16} />
           Facebook
-        </span>
-        <span aria-hidden="true" className="cursor-default text-sm font-medium text-[#1DA1F2]">
+        </button>
+        <button
+          type="button"
+          className="flex items-center gap-2 rounded-lg border border-pale-blue/40 px-4 py-2 text-sm font-medium text-[#1DA1F2] transition-colors hover:bg-pale-blue/10"
+        >
+          <TwitterIcon size={16} />
           Twitter
-        </span>
-        <span aria-hidden="true" className="cursor-default text-sm font-medium text-[#E60023]">
+        </button>
+        <button
+          type="button"
+          className="flex items-center gap-2 rounded-lg border border-pale-blue/40 px-4 py-2 text-sm font-medium text-[#E60023] transition-colors hover:bg-pale-blue/10"
+        >
+          <PinterestIcon size={16} />
           Pinterest
-        </span>
+        </button>
       </div>
     </div>
   );
