@@ -30,7 +30,7 @@ function Frame({
   );
 }
 
-// ─── Figma shape variants (at source canvas dimensions) ───────────────────────
+// ─── Shapes (at source canvas dimensions) ──────────────────────────────────────
 
 /** Rectangle 9692 — standard shape, 710 × 309 */
 export const ShapeStandard9692: Story = {
@@ -42,7 +42,7 @@ export const ShapeStandard9692: Story = {
       </BubblePanel>
     </Frame>
   ),
-  args: {},
+  args: { variant: "orange" },
 };
 
 /** Rectangle 9694 — standard shape, 875 × 320 */
@@ -71,7 +71,7 @@ export const ShapeLarge9700: Story = {
   args: {},
 };
 
-// ─── Colour variants (standard shape at realistic card proportions) ───────────
+// ─── Colours (standard shape at realistic card proportions) ───────────────────
 
 export const ColourTeal: Story = {
   name: "Colour / Teal",
@@ -133,40 +133,52 @@ export const ColourDark: Story = {
   args: {},
 };
 
-// ─── Usage contexts ───────────────────────────────────────────────────────────
+// ─── Usage contexts — desktop, props mirrored 1:1 from the real component ─────
 
+/** Matches components/home/hero.tsx */
 export const ContextHero: Story = {
-  name: "Context / Hero (desktop)",
+  name: "Context / Hero (home)",
   render: () => (
-    <BubblePanel
-      variant="teal"
-      shape="large"
-      className="px-16 py-20"
-      media={
-        <img
-          src="/images/worldmap.svg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-contain object-right opacity-90"
-        />
-      }
-    >
-      <div className="max-w-xl">
-        <h1 className="text-h2 font-semibold text-cream">
-          Your gateway to{" "}
-          <span className="text-orange">purpose-driven careers</span>{" "}
-          across Asia
-        </h1>
-      </div>
-    </BubblePanel>
+    <div style={{ width: 1440, padding: "0 10.5%" }}>
+      <BubblePanel
+        variant="teal"
+        shape="large"
+        className="flex min-h-[520px] items-center px-16 py-20"
+        media={
+          <img
+            src="/images/worldmap.svg"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-contain object-right opacity-90"
+          />
+        }
+      >
+        <div className="max-w-xl">
+          <h1 className="mb-5 text-h2 font-semibold text-cream">
+            Your gateway to{" "}
+            <span className="text-orange">purpose-driven careers</span>{" "}
+            across Asia
+          </h1>
+          <div className="flex flex-wrap gap-3">
+            <button className="rounded-pill bg-orange px-6 py-3 text-sm font-semibold text-cream">
+              Jobs
+            </button>
+            <button className="rounded-pill border border-cream px-6 py-3 text-sm font-semibold text-cream">
+              Opportunities
+            </button>
+          </div>
+        </div>
+      </BubblePanel>
+    </div>
   ),
   args: {},
 };
 
-export const ContextPhotoFrame: Story = {
-  name: "Context / Photo frame",
+/** Matches components/home/testimonial.tsx */
+export const ContextTestimonial: Story = {
+  name: "Context / Testimonial photo (home)",
   render: () => (
-    <Frame width={560} height={480}>
+    <Frame width={560} height={560}>
       <BubblePanel
         variant="muted"
         shape="large"
@@ -184,12 +196,12 @@ export const ContextPhotoFrame: Story = {
   args: {},
 };
 
-
-export const ContextCtaCard: Story = {
-  name: "Context / CTA card",
+/** Matches components/home/stats.tsx */
+export const ContextStatsCta: Story = {
+  name: "Context / Stats CTA (home)",
   render: () => (
-    <div className="max-w-md">
-      <BubblePanel variant="orange" shape="standard" className="px-8 py-10">
+    <div style={{ maxWidth: 560 }}>
+      <BubblePanel variant="orange" shape="large" className="px-8 py-10">
         <h2 className="mb-8 text-h5 font-semibold text-teal">
           Join our community of opportunity seekers &amp; providers!
         </h2>
@@ -202,18 +214,72 @@ export const ContextCtaCard: Story = {
   args: {},
 };
 
-export const ContextLargePanel: Story = {
-  name: "Context / Large panel (9700 shape)",
+/** Matches app/(frontend)/job-board/[slug]/page.tsx */
+export const ContextPageBanner: Story = {
+  name: "Context / Job Details banner (job board)",
+  render: (args) => (
+    <Frame width={1179} height={366}>
+      <BubblePanel
+        {...args}
+        className="flex h-full items-center justify-center"
+        media={
+          <img
+            src="/images/worldmap-dots-job-details.svg"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover object-bottom opacity-40"
+          />
+        }
+      >
+        <h1 className="text-h3 font-normal text-cream">Job Details</h1>
+      </BubblePanel>
+    </Frame>
+  ),
+  args: {
+    variant: "teal",
+    shape: "standard",
+  },
+};
+
+/** Matches components/job-detail/join-us-cta.tsx */
+export const ContextJoinUsCta: Story = {
+  name: "Context / Join Us CTA (job detail)",
   render: () => (
-    <BubblePanel variant="teal" shape="large" className="px-16 py-20">
-      <h2 className="mb-4 text-h3 font-semibold">
-        Leading with purpose across Asia
-      </h2>
-      <p className="max-w-lg opacity-80">
-        The region's home for careers in non-profit, international cooperation,
-        and social impact.
-      </p>
-    </BubblePanel>
+    <Frame width={1179} height={280}>
+      <BubblePanel
+        variant="orange"
+        shape="standard"
+        className="flex h-full items-center px-10 py-10 sm:px-16"
+        media={
+          <img
+            src="/images/worldmap-dots-job-details.svg"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover object-bottom opacity-40"
+          />
+        }
+      >
+        <div className="flex w-full items-center justify-between gap-8">
+          <div className="max-w-md">
+            <h2 className="mb-2 text-h4 font-semibold text-teal">Join Us</h2>
+            <p className="text-sm text-teal">
+              Curious about this content? Join our community and create your profile to explore
+              more opportunities!
+            </p>
+          </div>
+          <div className="flex w-full max-w-md gap-3 lg:shrink-0">
+            <input
+              type="email"
+              placeholder="Email Address"
+              className="h-12 flex-1 rounded-pill bg-white px-5 text-sm text-charcoal placeholder:text-pale-blue focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream"
+            />
+            <button className="rounded-pill bg-teal px-6 py-3 text-sm font-semibold text-cream">
+              Submit
+            </button>
+          </div>
+        </div>
+      </BubblePanel>
+    </Frame>
   ),
   args: {},
 };

@@ -5,7 +5,7 @@ export function AdIcon({ size = 24, className, ...props }: IconProps) {
     <svg
       width={size}
       height={size}
-      viewBox="474 409 64 64"
+      viewBox="492 424 30 34"
       fill="none"
       aria-hidden="true"
       className={className}
