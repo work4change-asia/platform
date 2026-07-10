@@ -102,12 +102,14 @@ function buildPath(w: number, h: number, shape: ShapeConfig): string {
 
 export type BubbleVariant = "teal" | "orange" | "muted" | "cream" | "dark";
 
-const fillClass: Record<BubbleVariant, string> = {
-  teal:   "fill-teal",
-  orange: "fill-orange",
-  muted:  "fill-teal-muted",
-  cream:  "fill-cream",
-  dark:   "fill-gray-950",
+// Applied to the wrapper itself so the panel has a correct background before
+// hydration measures the bubble shape; `clipPath` then refines it in place.
+const bgClass: Record<BubbleVariant, string> = {
+  teal:   "bg-teal",
+  orange: "bg-orange",
+  muted:  "bg-teal-muted",
+  cream:  "bg-cream",
+  dark:   "bg-gray-950",
 };
 
 const textClass: Record<BubbleVariant, string> = {
@@ -166,19 +168,14 @@ export function BubblePanel({
     <div
       ref={wrapperRef}
       style={shapePath ? { clipPath: `path("${shapePath}")` } : undefined}
-      className={twMerge("relative", textClass[variant], className)}
+      className={twMerge(
+        "relative overflow-hidden rounded-[36px]",
+        bgClass[variant],
+        textClass[variant],
+        className,
+      )}
       {...props}
     >
-      {size && shapePath && (
-        <svg
-          viewBox={`0 0 ${size.w} ${size.h}`}
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full"
-        >
-          <path d={shapePath} className={fillClass[variant]} />
-        </svg>
-      )}
-
       {media && <div className="absolute inset-0 z-[1]">{media}</div>}
 
       <div className="relative z-10">{children}</div>
