@@ -15,16 +15,16 @@ import {
 import type { FeatureItem } from "@/lib/home-data";
 
 const ICON_MAP: Record<string, React.ReactNode> = {
-  lock:         <LockIcon size={90} className="shrink-0" />,
-  marketing:    <MarketingIcon size={90} className="shrink-0" />,
+  lock: <LockIcon size={90} className="shrink-0" />,
+  marketing: <MarketingIcon size={90} className="shrink-0" />,
   "non-profit": <NonProfitIcon size={90} className="shrink-0" />,
-  member:       <MemberIcon size={90} className="shrink-0" />,
-  education:    <EducationIcon size={90} className="shrink-0" />,
-  globe:        <GlobeIcon size={90} className="shrink-0" />,
+  member: <MemberIcon size={90} className="shrink-0" />,
+  education: <EducationIcon size={90} className="shrink-0" />,
+  globe: <GlobeIcon size={90} className="shrink-0" />,
 };
 
 const PEEK_PX = 56;
-const GAP_PX  = 16;
+const GAP_PX = 16;
 
 export function FeatureCarousel({ items }: { items: FeatureItem[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -43,7 +43,7 @@ export function FeatureCarousel({ items }: { items: FeatureItem[] }) {
   }, []);
 
   const cardWidth = containerWidth - PEEK_PX;
-  const stepPx    = cardWidth + GAP_PX;
+  const stepPx = cardWidth + GAP_PX;
 
   const prev = () => setCurrent((i) => Math.max(0, i - 1));
   const next = () => setCurrent((i) => Math.min(items.length - 1, i + 1));

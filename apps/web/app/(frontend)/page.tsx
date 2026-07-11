@@ -4,12 +4,7 @@ import { FeaturedJobs } from "@/components/home/featured-jobs";
 import { OpportunitiesPreview } from "@/components/home/opportunities-preview";
 import { Testimonial } from "@/components/home/testimonial";
 import { Stats } from "@/components/home/stats";
-import {
-  featuredJobs,
-  featuredOpportunities,
-  homeTestimonial,
-  homeStats,
-} from "@/lib/home-data";
+import { featuredJobs, featuredOpportunities, homeTestimonial, homeStats } from "@/lib/home-data";
 
 export default function HomePage() {
   return (

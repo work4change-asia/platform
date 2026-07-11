@@ -1,5 +1,10 @@
 import NextLink from "next/link";
-import { ArrowUpRightIcon, BuildingIcon, LocationIcon, TimeCommitmentIcon } from "@/components/ui/icons";
+import {
+  ArrowUpRightIcon,
+  BuildingIcon,
+  LocationIcon,
+  TimeCommitmentIcon,
+} from "@/components/ui/icons";
 import { Badge } from "./badge";
 import type { VariantProps } from "class-variance-authority";
 import type { badgeVariants } from "./badge";
@@ -35,19 +40,18 @@ export function JobCard({
     >
       {/* Top: location + contract type badges */}
       <div className="mb-3 flex flex-wrap items-center gap-2">
-        <Badge variant="location"><LocationIcon size={11} />{location}</Badge>
+        <Badge variant="location">
+          <LocationIcon size={11} />
+          {location}
+        </Badge>
         <Badge variant={contractType}>{contractLabel}</Badge>
       </div>
 
       {/* Title */}
-      <h3 className="mb-2 text-base font-semibold text-gray-text line-clamp-2">
-        {title}
-      </h3>
+      <h3 className="mb-2 text-base font-semibold text-gray-text line-clamp-2">{title}</h3>
 
       {/* Description */}
-      <p className="mb-3 text-sm text-pale-blue line-clamp-3 leading-relaxed">
-        {description}
-      </p>
+      <p className="mb-3 text-sm text-pale-blue line-clamp-3 leading-relaxed">{description}</p>
 
       {/* More Details — visual label only, whole card is the link */}
       <span className="mb-4 flex items-center gap-1 text-sm font-medium text-teal-light">

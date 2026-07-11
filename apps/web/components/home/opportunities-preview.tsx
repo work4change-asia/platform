@@ -27,7 +27,10 @@ export function OpportunitiesPreview({ opportunities }: OpportunitiesPreviewProp
         <div className="mt-8 text-center">
           <NextLink
             href="/opportunities"
-            className={buttonVariants({ variant: "ghost", size: "sm" }) + " text-teal-light hover:bg-teal-light/10 focus-visible:outline-teal-light"}
+            className={
+              buttonVariants({ variant: "ghost", size: "sm" }) +
+              " text-teal-light hover:bg-teal-light/10 focus-visible:outline-teal-light"
+            }
           >
             More Opportunities
           </NextLink>

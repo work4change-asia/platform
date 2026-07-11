@@ -7,7 +7,6 @@ export function Footer() {
     <footer className="bg-black text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
-
           {/* Logo + social: same row on mobile, stacked on lg+ */}
           <div className="flex items-center justify-between lg:flex-col lg:items-start lg:gap-10">
             <Image
@@ -96,9 +95,7 @@ export function Footer() {
       </div>
 
       {/* Copyright bar */}
-      <div className="py-4 text-center text-xs text-gray-500">
-        &copy; Work4Change Asia. 2026
-      </div>
+      <div className="py-4 text-center text-xs text-gray-500">&copy; Work4Change Asia. 2026</div>
     </footer>
   );
 }

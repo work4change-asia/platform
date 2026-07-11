@@ -27,7 +27,10 @@ export function CompanyCard({ name, location, logo, href }: CompanyCardProps) {
       </div>
       <NextLink
         href={href}
-        className={twMerge(buttonVariants({ variant: "outline", size: "sm" }), "w-full hover:bg-teal hover:text-cream")}
+        className={twMerge(
+          buttonVariants({ variant: "outline", size: "sm" }),
+          "w-full hover:bg-teal hover:text-cream",
+        )}
       >
         Open Positions
       </NextLink>
