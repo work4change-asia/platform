@@ -45,6 +45,7 @@ export { NonProfitIcon } from "./non-profit";
 export { NotifiIcon } from "./notifi";
 export { NotificationIcon } from "./notification";
 export { PinterestIcon } from "./pinterest";
+export { SearchIcon } from "./search";
 export { TechIcon } from "./tech";
 export { TimeCommitmentIcon } from "./time-commitment";
 export { TipIcon } from "./tip";
