@@ -28,6 +28,9 @@ export const ManyResponsibilities: Story = {
   args: {
     descriptionBody:
       "A longer description to verify the layout holds when both sections are tall.\n\nSecond paragraph here.",
-    responsibilities: Array.from({ length: 9 }, (_, i) => `Responsibility item ${i + 1} — a longer line of text to check wrapping behaviour.`),
+    responsibilities: Array.from(
+      { length: 9 },
+      (_, i) => `Responsibility item ${i + 1} — a longer line of text to check wrapping behaviour.`,
+    ),
   },
 };

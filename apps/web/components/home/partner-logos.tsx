@@ -8,11 +8,7 @@ export function PartnerLogos() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-6 overflow-x-auto">
           {Array.from({ length: LOGO_COUNT }).map((_, i) => (
-            <div
-              key={i}
-              className="h-7 w-24 shrink-0 rounded bg-gray-200/70"
-              aria-hidden="true"
-            />
+            <div key={i} className="h-7 w-24 shrink-0 rounded bg-gray-200/70" aria-hidden="true" />
           ))}
         </div>
       </div>

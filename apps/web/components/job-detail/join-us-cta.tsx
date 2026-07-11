@@ -22,8 +22,8 @@ export function JoinUsCta() {
           <div className="max-w-md">
             <h2 className="mb-2 text-h4 font-semibold text-teal">Join Us</h2>
             <p className="text-sm text-teal">
-              Curious about this content? Join our community and create your profile to explore
-              more opportunities!
+              Curious about this content? Join our community and create your profile to explore more
+              opportunities!
             </p>
           </div>
           <div className="flex w-full max-w-md gap-3 lg:shrink-0">

@@ -23,7 +23,13 @@ export const Pinterest: Story = {
       </div>
     ),
   },
-  decorators: [(Story) => <div className="w-64"><Story /></div>],
+  decorators: [
+    (Story) => (
+      <div className="w-64">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const InitialFallback: Story = {
@@ -37,7 +43,13 @@ export const InitialFallback: Story = {
       </div>
     ),
   },
-  decorators: [(Story) => <div className="w-64"><Story /></div>],
+  decorators: [
+    (Story) => (
+      <div className="w-64">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const Grid: Story = {

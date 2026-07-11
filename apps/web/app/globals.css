@@ -114,7 +114,6 @@ h6 {
   line-height: 1rem;
 }
 
-
 @keyframes slide-in-left {
   from {
     transform: translateX(-100%);
