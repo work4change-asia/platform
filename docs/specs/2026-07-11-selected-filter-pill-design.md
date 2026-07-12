@@ -17,7 +17,7 @@ Exports `XMarkIcon`, following the existing `IconProps` pattern used by other ic
 ### New component: `apps/web/components/ui/selected-filter-pill.tsx`
 
 ```tsx
-type SelectedFilterPillProps = {
+export type SelectedFilterPillProps = {
   label: string;
   onRemove: () => void;
   className?: string;
@@ -31,7 +31,7 @@ export function SelectedFilterPill({ label, onRemove, className }: SelectedFilte
         type="button"
         onClick={onRemove}
         aria-label={`Remove ${label} filter`}
-        className="text-brown/70 hover:text-brown"
+        className="-m-1 rounded-full p-1 text-brown/70 hover:text-brown focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brown"
       >
         <XMarkIcon size={10} />
       </button>
@@ -42,11 +42,14 @@ export function SelectedFilterPill({ label, onRemove, className }: SelectedFilte
 
 Reuses `badgeVariants({ variant: "filter" })` (cream background, brown text, `gap-1`) from `badge.tsx` so it stays visually in sync with the unselected filter-option badges already used in `job-search-filters.tsx`. Only the ✕ button is an interactive click target — the label itself is inert text, not part of the button.
 
+`SelectedFilterPillProps` is exported so a future "row of selected filters" component (the `job-search-filters.tsx` integration, out of scope here) can type its list of filters against it.
+
+The button uses `-m-1 p-1` to grow the hit area to roughly 24×24px without enlarging the visible 10px icon, and `focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brown` to match the focus-ring convention already used in `button.tsx`.
+
 ### Storybook story: `apps/web/components/ui/selected-filter-pill.stories.tsx`
 
 - `Default` — single pill.
-- `SelectedFilters` — a row of pills matching the mockup's example labels ("Bangalore", "Strategy & Organisational Development", "Fully Remote (local)", "Freelance/Consultancy").
-- `Interactive` — `useState`-backed story where clicking ✕ actually removes the pill from the list, to demo real behavior.
+- `SelectedFilters` — a `useState`-backed row of pills matching the mockup's example labels ("Bangalore", "Strategy & Organisational Development", "Fully Remote (local)", "Freelance/Consultancy"), where clicking ✕ actually removes the pill from the list.
 
 ## Testing
 
