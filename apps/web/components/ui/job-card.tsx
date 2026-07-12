@@ -59,7 +59,7 @@ export function JobCard({
         <ArrowUpRightIcon size={14} />
       </span>
 
-      {/* Bottom: company + timestamp */}
+      {/* Bottom: organisation + timestamp */}
       <div className="mt-auto flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gray-100">

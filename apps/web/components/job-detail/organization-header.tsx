@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { HeartIcon, ArrowUpRightIcon } from "@/components/ui/icons";
 
-export type CompanyHeaderProps = {
+export type OrganizationHeaderProps = {
   orgName: string;
   orgInitial: string;
   jobTitle: string;
 };
 
-export function CompanyHeader({ orgName, orgInitial, jobTitle }: CompanyHeaderProps) {
+export function OrganizationHeader({ orgName, orgInitial, jobTitle }: OrganizationHeaderProps) {
   return (
     <div className="flex flex-wrap items-start justify-between gap-4">
       <div className="flex items-center gap-4">

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { CompanyCard } from "./company-card";
+import { OrganizationCard } from "./organization-card";
 import { PinterestIcon } from "@/components/ui/icons";
 
 const meta = {
-  title: "UI/CompanyCard",
-  component: CompanyCard,
+  title: "UI/OrganizationCard",
+  component: OrganizationCard,
   parameters: { layout: "centered" },
   tags: ["autodocs"],
-} satisfies Meta<typeof CompanyCard>;
+} satisfies Meta<typeof OrganizationCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -65,18 +65,18 @@ export const Grid: Story = {
         { name: "Telegram", location: "Seoul, South Korea", bg: "#26A5E4", initial: "T" },
         { name: "Freepik", location: "Seoul, South Korea", bg: "#1273EB", initial: "F" },
         { name: "App Store", location: "Kuala Lumpur, Malaysia", bg: "#0D96F6", initial: "A" },
-      ].map((company) => (
-        <CompanyCard
-          key={company.name}
-          name={company.name}
-          location={company.location}
+      ].map((organization) => (
+        <OrganizationCard
+          key={organization.name}
+          name={organization.name}
+          location={organization.location}
           href="#"
           logo={
             <div
               className="flex h-full w-full items-center justify-center text-base font-bold text-white"
-              style={{ backgroundColor: company.bg }}
+              style={{ backgroundColor: organization.bg }}
             >
-              {company.initial}
+              {organization.initial}
             </div>
           }
         />

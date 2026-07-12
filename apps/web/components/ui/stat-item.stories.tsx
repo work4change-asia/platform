@@ -30,7 +30,7 @@ export const AllStats: Story = {
   render: () => (
     <div className="bg-teal p-10 rounded-card grid grid-cols-2 gap-10">
       <StatItem value="200+" label="new jobs posts every week" />
-      <StatItem value="160" label="active companies and counting" />
+      <StatItem value="160" label="active organisations and counting" />
       <StatItem value="200+" label="subscribers" />
       <StatItem value="2000+" label="monthly visits" />
     </div>

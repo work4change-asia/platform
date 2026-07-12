@@ -3,13 +3,13 @@ import { jobDetailsBySlug } from "@/lib/job-detail-data";
 import { featuredJobs } from "@/lib/home-data";
 import { BubblePanel } from "@/components/ui/bubble-panel";
 import { Link } from "@/components/ui/link";
-import { CompanyHeader } from "@/components/job-detail/company-header";
+import { OrganizationHeader } from "@/components/job-detail/organization-header";
 import { JobDescription } from "@/components/job-detail/job-description";
 import { JobOverviewCard } from "@/components/job-detail/job-overview-card";
-import { CompanyInfoCard } from "@/components/job-detail/company-info-card";
+import { OrganizationInfoCard } from "@/components/job-detail/organization-info-card";
 import { SimilarJobs } from "@/components/job-detail/similar-jobs";
 import { JoinUsCta } from "@/components/job-detail/join-us-cta";
-import { TopCompanies } from "@/components/job-detail/top-companies";
+import { TopOrganizations } from "@/components/job-detail/top-organizations";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -68,7 +68,11 @@ export default async function JobDetailPage({ params }: Props) {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <CompanyHeader orgName={job.organization} orgInitial={orgInitial} jobTitle={job.title} />
+        <OrganizationHeader
+          orgName={job.organization}
+          orgInitial={orgInitial}
+          jobTitle={job.title}
+        />
 
         <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[3fr_2fr]">
           <JobDescription
@@ -86,13 +90,13 @@ export default async function JobDetailPage({ params }: Props) {
               sector={job.sector}
               isInternationalContract={job.isInternationalContract}
             />
-            <CompanyInfoCard
+            <OrganizationInfoCard
               orgName={job.organization}
               orgInitial={orgInitial}
               orgTagline={job.orgTagline}
               founded={job.founded}
               orgType={job.orgType}
-              companySize={job.companySize}
+              orgSize={job.orgSize}
               website={job.website}
             />
           </div>
@@ -103,7 +107,7 @@ export default async function JobDetailPage({ params }: Props) {
 
       <JoinUsCta />
 
-      <TopCompanies />
+      <TopOrganizations />
     </>
   );
 }
