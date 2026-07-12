@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 import { badgeVariants } from "./badge";
-import { XMarkIcon } from "./icons";
+import { CloseIcon } from "./icons";
 
 export type SelectedFilterPillProps = {
   label: string;
@@ -16,9 +16,9 @@ export function SelectedFilterPill({ label, onRemove, className }: SelectedFilte
         type="button"
         onClick={onRemove}
         aria-label={`Remove ${label} filter`}
-        className="-m-1 rounded-full p-1 text-brown/70 hover:text-brown focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brown"
+        className="rounded-full text-brown transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brown"
       >
-        <XMarkIcon size={10} />
+        <CloseIcon size={14} />
       </button>
     </span>
   );
