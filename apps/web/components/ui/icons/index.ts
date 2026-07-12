@@ -54,3 +54,4 @@ export { TwitterIcon } from "./twitter";
 export { UploadIcon } from "./upload";
 export { ViewIcon } from "./view";
 export { VisibilityIcon } from "./visibility";
+export { XMarkIcon } from "./x-mark";
