@@ -1,7 +1,7 @@
-import { CompanyCard } from "@/components/ui/company-card";
+import { OrganizationCard } from "@/components/ui/organization-card";
 import { PinterestIcon } from "@/components/ui/icons";
 
-const topCompanies = [
+const topOrganizations = [
   {
     name: "Pinterest",
     location: "Seoul, South Korea",
@@ -84,14 +84,14 @@ const topCompanies = [
   },
 ];
 
-export function TopCompanies() {
+export function TopOrganizations() {
   return (
     <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-      <h2 className="mb-8 text-h5 font-semibold text-teal">Top Companies</h2>
+      <h2 className="mb-8 text-h5 font-semibold text-teal">Top Organisations</h2>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {topCompanies.map((company) => (
-          <CompanyCard key={company.name} {...company} />
+        {topOrganizations.map((organization) => (
+          <OrganizationCard key={organization.name} {...organization} />
         ))}
       </div>
     </section>

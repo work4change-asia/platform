@@ -1,12 +1,12 @@
 import { Link } from "@/components/ui/link";
 
-export type CompanyInfoCardProps = {
+export type OrganizationInfoCardProps = {
   orgName: string;
   orgInitial: string;
   orgTagline: string;
   founded: string;
   orgType: string;
-  companySize: string;
+  orgSize: string;
   website: string;
 };
 
@@ -21,15 +21,15 @@ function InfoRow({ label, value }: InfoRowProps) {
   );
 }
 
-export function CompanyInfoCard({
+export function OrganizationInfoCard({
   orgName,
   orgInitial,
   orgTagline,
   founded,
   orgType,
-  companySize,
+  orgSize,
   website,
-}: CompanyInfoCardProps) {
+}: OrganizationInfoCardProps) {
   return (
     <div className="rounded-card border border-pale-blue bg-white p-6">
       <div className="mb-4 flex items-center gap-3">
@@ -45,7 +45,7 @@ export function CompanyInfoCard({
       <div>
         <InfoRow label="Founded in" value={founded} />
         <InfoRow label="Organisation type" value={orgType} />
-        <InfoRow label="Company size" value={companySize} />
+        <InfoRow label="Organisation size" value={orgSize} />
         <InfoRow
           label="Website"
           value={

@@ -3,14 +3,14 @@ import { twMerge } from "tailwind-merge";
 import { LocationIcon } from "@/components/ui/icons";
 import { buttonVariants } from "@/components/ui/button";
 
-export type CompanyCardProps = {
+export type OrganizationCardProps = {
   name: string;
   location: string;
   logo: React.ReactNode;
   href: string;
 };
 
-export function CompanyCard({ name, location, logo, href }: CompanyCardProps) {
+export function OrganizationCard({ name, location, logo, href }: OrganizationCardProps) {
   return (
     <div className="rounded-card border border-charcoal/30 bg-white p-5 transition-[box-shadow,border-color] hover:border-teal-light hover:shadow-card">
       <div className="mb-5 flex items-center gap-3">

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { CompanyHeader } from "./company-header";
+import { OrganizationHeader } from "./organization-header";
 
 const meta = {
-  title: "JobDetail/CompanyHeader",
-  component: CompanyHeader,
+  title: "JobDetail/OrganizationHeader",
+  component: OrganizationHeader,
   parameters: { layout: "padded" },
-} satisfies Meta<typeof CompanyHeader>;
+} satisfies Meta<typeof OrganizationHeader>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { CompanyInfoCard } from "./company-info-card";
+import { OrganizationInfoCard } from "./organization-info-card";
 
 const meta = {
-  title: "JobDetail/CompanyInfoCard",
-  component: CompanyInfoCard,
+  title: "JobDetail/OrganizationInfoCard",
+  component: OrganizationInfoCard,
   parameters: { layout: "padded" },
-} satisfies Meta<typeof CompanyInfoCard>;
+} satisfies Meta<typeof OrganizationInfoCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -17,7 +17,7 @@ export const Default: Story = {
     orgTagline: "Social networking service",
     founded: "March 21, 2006",
     orgType: "International Organisation",
-    companySize: "120-300 Employers",
+    orgSize: "120-300 Employees",
     website: "https://google.com",
   },
 };
@@ -29,7 +29,7 @@ export const LongName: Story = {
     orgTagline: "United Nations Development Programme",
     founded: "January 1, 1966",
     orgType: "United Nations Agency",
-    companySize: "8,000+ Staff",
+    orgSize: "8,000+ Staff",
     website: "https://asia.undp.org",
   },
 };
