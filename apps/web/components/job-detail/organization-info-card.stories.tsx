@@ -17,7 +17,7 @@ export const Default: Story = {
     orgTagline: "Social networking service",
     founded: "March 21, 2006",
     orgType: "International Organisation",
-    orgSize: "120-300 Employers",
+    orgSize: "120-300 Employees",
     website: "https://google.com",
   },
 };

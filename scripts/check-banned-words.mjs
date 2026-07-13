@@ -2,7 +2,10 @@
 // Guards against the word "company" creeping back into the codebase.
 // We serve non-profits, NGOs and international bodies, so the domain term is
 // "organisation" in user-facing copy and "organization"/"org*" in identifiers.
-// Scans every git-tracked file (contents and filename). Fails on any match.
+// Scans source files (contents and filename) under SCAN_DIRS. Fails on any match.
+// Scoped to source dirs on purpose: it keeps the lockfile and other generated
+// artefacts out, so a dependency that happens to contain "company" can't fail
+// the build for something no one can fix in source.
 //
 // The lookbehind means legitimate words like "accompany" are not flagged.
 import { execSync } from "node:child_process";
@@ -10,9 +13,15 @@ import { readFileSync } from "node:fs";
 
 const BANNED = /(?<![a-z])compan(y|ies)/i;
 const SELF = "scripts/check-banned-words.mjs";
+const SCAN_DIRS = ["apps", "packages", "scripts", "docs"];
 const SKIP_EXT = /\.(png|jpe?g|gif|webp|ico|woff2?|ttf|otf|eot|pdf|lock)$/i;
 
-const files = execSync("git ls-files --cached --others --exclude-standard", { encoding: "utf8" })
+const files = execSync(
+  `git ls-files --cached --others --exclude-standard -- ${SCAN_DIRS.join(" ")}`,
+  {
+    encoding: "utf8",
+  },
+)
   .split("\n")
   .filter(Boolean)
   .filter((file) => file !== SELF && !SKIP_EXT.test(file));
