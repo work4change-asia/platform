@@ -41,16 +41,18 @@ type ResultsToolbarProps = {
 Fully controlled — no internal state. This matches the project rule that filter/display state lives in URL query params, never component-only state. The component only renders and emits change events; the parent page owns the state.
 
 Defaults used by callers (not hardcoded in the component, since it's generic):
-- Sort options: Newest, Oldest, Most Relevant
+- Sort options: Latest, Oldest, Most Relevant
 - Per-page options: 12, 24, 48
 
 ## Visual details (design tokens only, no new colors)
 
-- Count: bold number in `text-teal`, label in a muted neutral (`text-charcoal` or nearest gray token) beside it
-- Dropdowns: native `<select>` elements styled like the existing `search-bar.tsx` pattern — white background, `border-gray-100`, `rounded-dropdown`, with `ChevronDownIcon` overlaid (native arrow hidden) since no shadcn Select is installed yet and native `<select>` keeps this accessible and simple
+- Count: bold number in `text-teal`, "Open Jobs"-style label beside it in `text-gray-700`
+- Spacing: `gap-4` (16px, via the token — no hardcoded pixel value) between the count block and the sort dropdown
+- Dropdowns: native `<select>` elements styled like the existing `search-bar.tsx` pattern — white background, `border-gray-100`, `rounded-dropdown`, text in `text-gray-700`, with a `ChevronDownIcon` in `text-gray-400` overlaid (native arrow hidden) since no shadcn Select is installed yet and native `<select>` keeps this accessible and simple
 - View toggle: bordered box (`border-gray-100`, `rounded-dropdown`) containing two icon buttons (`GridViewIcon`, `ListViewIcon`); the active button gets a `bg-gray-100` chip background
 - New icons: `GridViewIcon` and `ListViewIcon` added to `components/ui/icons/`, following the existing icon pattern (`currentColor`, shared `IconProps`, exported from `icons/index.ts`)
 - Section wrapper: `bg-cream` — the same "soft white" token already used for the search bar section in `JobSearchFilters`
+- Note: `gray-400`/`gray-700` aren't in `globals.css`'s custom palette (which only defines `gray-100`/`gray-200`/`gray-900`/`gray-950`/`gray-text`) — they resolve from Tailwind v4's bundled default gray scale, which coexists with the custom overrides. Confirmed via Storybook during implementation rather than assumed.
 
 ## Testing
 
