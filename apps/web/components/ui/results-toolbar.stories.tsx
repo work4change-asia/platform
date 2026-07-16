@@ -16,6 +16,13 @@ const meta = {
   component: ResultsToolbar,
   parameters: { layout: "padded" },
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <div className="bg-cream p-6">
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof ResultsToolbar>;
 
 export default meta;
