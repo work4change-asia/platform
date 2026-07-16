@@ -37,3 +37,9 @@ jobs:
 
       - name: Test (unit)
         run: pnpm vitest run --reporter=verbose --project=unit
+
+      - name: Install Playwright browsers
+        run: pnpm --filter web exec playwright install --with-deps chromium
+
+      - name: Test (storybook)
+        run: pnpm vitest run --reporter=verbose --project=storybook
