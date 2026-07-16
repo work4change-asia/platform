@@ -4,6 +4,7 @@ const DevConfig = v.object({
   NODE_ENV: v.literal("development"),
   DATABASE_URL: v.string(),
   PAYLOAD_SECRET: v.string(),
+  NEXT_DEV_ALLOWED_ORIGINS: v.optional(v.string()),
 });
 
 const TestConfig = v.object({
