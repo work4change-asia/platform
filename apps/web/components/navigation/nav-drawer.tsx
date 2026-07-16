@@ -15,7 +15,9 @@ export function NavDrawer({ onClose }: NavDrawerProps) {
   useEffect(() => {
     const prior = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
     document.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prior;

@@ -4,14 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 const CORNER_R = 36; // fixed px — same in both Figma variants
-const K = 0.5523;   // bezier constant approximating a quarter-circle arc
+const K = 0.5523; // bezier constant approximating a quarter-circle arc
 
 // ─── Shape configurations extracted from Figma exports ────────────────────────
 // All ratios are normalised to the element's own width / height.
 
 type CurveSeg = { type: "C"; cp1: [number, number]; cp2: [number, number]; end: [number, number] };
-type LineSeg  = { type: "L"; end: [number, number] };
-type StepSeg  = CurveSeg | LineSeg;
+type LineSeg = { type: "L"; end: [number, number] };
+type StepSeg = CurveSeg | LineSeg;
 
 type ShapeConfig = {
   /** Step height as a fraction of total element height (Figma: step_h / canvas_h) */
@@ -27,11 +27,11 @@ type ShapeConfig = {
 // Rectangle 9692 / 9694 — used for hero, cards, testimonial frame
 // Source dimensions: 710 × 309 (9692) and 875 × 320 (9694)
 const SHAPE_STANDARD: ShapeConfig = {
-  stepRatio: 31.851 / 309,     // 10.3%
-  stepStartRatio: 226 / 710,   // 31.8%
-  stepSpanRatio: 69 / 710,     // 9.7%
+  stepRatio: 31.851 / 309, // 10.3%
+  stepStartRatio: 226 / 710, // 31.8%
+  stepSpanRatio: 69 / 710, // 9.7%
   stepSegs: [
-    { type: "C", cp1: [0.181, 0],    cp2: [0.354, 0.151], end: [0.484, 0.422] },
+    { type: "C", cp1: [0.181, 0], cp2: [0.354, 0.151], end: [0.484, 0.422] },
     { type: "L", end: [0.582, 0.626] },
     { type: "C", cp1: [0.695, 0.862], cp2: [0.845, 0.994], end: [1, 1] },
   ],
@@ -40,11 +40,11 @@ const SHAPE_STANDARD: ShapeConfig = {
 // Rectangle 9700 — used for large taller panels
 // Source dimensions: 1180 × 652
 const SHAPE_LARGE: ShapeConfig = {
-  stepRatio: 53.978 / 652,       // 8.3%
+  stepRatio: 53.978 / 652, // 8.3%
   stepStartRatio: 339.867 / 1180, // 28.8%
-  stepSpanRatio: 93.581 / 1180,   // 7.9%
+  stepSpanRatio: 93.581 / 1180, // 7.9%
   stepSegs: [
-    { type: "C", cp1: [0.129, 0],    cp2: [0.253, 0.084], end: [0.348, 0.236] },
+    { type: "C", cp1: [0.129, 0], cp2: [0.253, 0.084], end: [0.348, 0.236] },
     { type: "L", end: [0.697, 0.793] },
     { type: "C", cp1: [0.779, 0.926], cp2: [0.887, 0.999], end: [1, 1] },
   ],
@@ -62,7 +62,7 @@ function buildPath(w: number, h: number, shape: ShapeConfig): string {
   const stepH = shape.stepRatio * h;
   const rh = h - stepH; // right-side height (shorter)
 
-  const stepX     = w * shape.stepStartRatio;
+  const stepX = w * shape.stepStartRatio;
   const stepSpanX = w * shape.stepSpanRatio;
 
   const sx = (t: number) => stepX + t * stepSpanX;
@@ -102,20 +102,22 @@ function buildPath(w: number, h: number, shape: ShapeConfig): string {
 
 export type BubbleVariant = "teal" | "orange" | "muted" | "cream" | "dark";
 
-const fillClass: Record<BubbleVariant, string> = {
-  teal:   "fill-teal",
-  orange: "fill-orange",
-  muted:  "fill-teal-muted",
-  cream:  "fill-cream",
-  dark:   "fill-gray-950",
+// Applied to the wrapper itself so the panel has a correct background before
+// hydration measures the bubble shape; `clipPath` then refines it in place.
+const bgClass: Record<BubbleVariant, string> = {
+  teal: "bg-teal",
+  orange: "bg-orange",
+  muted: "bg-teal-muted",
+  cream: "bg-cream",
+  dark: "bg-gray-950",
 };
 
 const textClass: Record<BubbleVariant, string> = {
-  teal:   "text-cream",
+  teal: "text-cream",
   orange: "text-cream",
-  muted:  "text-teal",
-  cream:  "text-teal",
-  dark:   "text-cream",
+  muted: "text-teal",
+  cream: "text-teal",
+  dark: "text-cream",
 };
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -166,19 +168,14 @@ export function BubblePanel({
     <div
       ref={wrapperRef}
       style={shapePath ? { clipPath: `path("${shapePath}")` } : undefined}
-      className={twMerge("relative", textClass[variant], className)}
+      className={twMerge(
+        "relative overflow-hidden rounded-[36px]",
+        bgClass[variant],
+        textClass[variant],
+        className,
+      )}
       {...props}
     >
-      {size && shapePath && (
-        <svg
-          viewBox={`0 0 ${size.w} ${size.h}`}
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full"
-        >
-          <path d={shapePath} className={fillClass[variant]} />
-        </svg>
-      )}
-
       {media && <div className="absolute inset-0 z-[1]">{media}</div>}
 
       <div className="relative z-10">{children}</div>

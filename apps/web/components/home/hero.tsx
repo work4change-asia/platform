@@ -25,9 +25,7 @@ export function Hero() {
       >
         <div className="max-w-xl pt-52 sm:pt-0">
           <h1 className="text-h5 font-semibold text-cream sm:text-h2">
-            Your gateway to{" "}
-            <span className="text-orange">purpose-driven careers</span>{" "}
-            across Asia
+            Your gateway to <span className="text-orange">purpose-driven careers</span> across Asia
           </h1>
           <div className="mt-5 flex flex-wrap gap-3">
             <NextLink

@@ -37,7 +37,10 @@ export const PartTime: Story = {
 
 export const Location: Story = {
   render: () => (
-    <Badge variant="location"><LocationIcon size={11} />Bangkok, Thailand</Badge>
+    <Badge variant="location">
+      <LocationIcon size={11} />
+      Bangkok, Thailand
+    </Badge>
   ),
 };
 
@@ -50,7 +53,10 @@ export const AllVariants: Story = {
     <div className="flex flex-wrap gap-3 items-center">
       <Badge variant="full-time">Full Time</Badge>
       <Badge variant="part-time">Part Time</Badge>
-      <Badge variant="location"><LocationIcon size={11} />Bangkok</Badge>
+      <Badge variant="location">
+        <LocationIcon size={11} />
+        Bangkok
+      </Badge>
       <Badge variant="filter">Remote ✕</Badge>
       <Badge variant="active">Active</Badge>
       <Badge variant="inactive">Inactive</Badge>

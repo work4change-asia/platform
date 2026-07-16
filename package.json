@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "pnpm --filter web dev",
     "typecheck": "tsc -b apps/web packages/domain",
-    "lint": "oxlint .",
+    "lint": "oxlint . && node scripts/check-banned-words.mjs",
+    "lint:banned-words": "node scripts/check-banned-words.mjs",
     "format": "oxfmt --write .",
     "test": "vitest run",
     "storybook": "pnpm --filter web storybook"

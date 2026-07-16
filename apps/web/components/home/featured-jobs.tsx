@@ -46,12 +46,6 @@ export function FeaturedJobs({ jobs }: FeaturedJobsProps) {
           <h2 className="text-h4 font-semibold text-teal">Fresh from the Field</h2>
         </div>
 
-        <div className="mb-8 flex justify-center gap-3">
-          <NextLink href="#" className={buttonVariants({ variant: "outline", size: "sm" })}>
-            Share An Opening
-          </NextLink>
-        </div>
-
         {/* Carousel arrows — mobile only */}
         <div className="mb-3 flex justify-end gap-2 sm:hidden">
           <button
@@ -79,7 +73,10 @@ export function FeaturedJobs({ jobs }: FeaturedJobsProps) {
             style={{ transform: `translateX(-${current * stepPx}px)`, gap: GAP_PX }}
           >
             {jobs.map((job) => (
-              <div key={job.id} style={{ minWidth: containerWidth > 0 ? cardWidth : "calc(100% - 32px)" }}>
+              <div
+                key={job.id}
+                style={{ minWidth: containerWidth > 0 ? cardWidth : "calc(100% - 32px)" }}
+              >
                 <JobCard {...job} />
               </div>
             ))}
@@ -93,9 +90,15 @@ export function FeaturedJobs({ jobs }: FeaturedJobsProps) {
           ))}
         </div>
 
-        <div className="mt-8 flex justify-center">
-          <NextLink href="/job-board" className={buttonVariants({ variant: "secondary", size: "sm" })}>
+        <div className="mt-8 flex justify-center gap-3">
+          <NextLink
+            href="/job-board"
+            className={buttonVariants({ variant: "secondary", size: "sm" })}
+          >
             See All Jobs
+          </NextLink>
+          <NextLink href="#" className={buttonVariants({ variant: "outline", size: "sm" })}>
+            Share An Opening
           </NextLink>
         </div>
       </div>

@@ -21,7 +21,13 @@ export const Default: Story = {
     tags: ["Mobility"],
     href: "/opportunities/1-digital-marketer-instagram",
   },
-  decorators: [(Story) => <div className="w-[640px]"><Story /></div>],
+  decorators: [
+    (Story) => (
+      <div className="w-[640px]">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const Grant: Story = {
@@ -34,7 +40,13 @@ export const Grant: Story = {
     tags: ["Grant"],
     href: "/opportunities/2-cfi-proposals-asia-foundation",
   },
-  decorators: [(Story) => <div className="w-[640px]"><Story /></div>],
+  decorators: [
+    (Story) => (
+      <div className="w-[640px]">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const Stack: Story = {

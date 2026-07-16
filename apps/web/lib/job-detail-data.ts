@@ -12,7 +12,7 @@ export type JobDetail = JobCardData & {
   orgTagline: string;
   founded: string;
   orgType: string;
-  companySize: string;
+  orgSize: string;
   website: string;
 };
 
@@ -50,7 +50,7 @@ const jobDetails: JobDetail[] = [
     orgTagline: "Social networking service",
     founded: "March 21, 2006",
     orgType: "International Organisation",
-    companySize: "120-300 Employers",
+    orgSize: "120-300 Employees",
     website: "https://google.com",
   },
   {
@@ -82,7 +82,7 @@ const jobDetails: JobDetail[] = [
     orgTagline: "United Nations Development Programme",
     founded: "January 1, 1966",
     orgType: "United Nations Agency",
-    companySize: "8,000+ Staff",
+    orgSize: "8,000+ Staff",
     website: "https://asia.undp.org",
   },
 ];

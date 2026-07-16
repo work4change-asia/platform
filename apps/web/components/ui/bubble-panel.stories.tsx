@@ -7,7 +7,7 @@ const meta = {
   parameters: { layout: "padded" },
   argTypes: {
     variant: { control: "select", options: ["teal", "orange", "muted", "cream", "dark"] },
-    shape:   { control: "select", options: ["standard", "large"] },
+    shape: { control: "select", options: ["standard", "large"] },
   },
   args: { variant: "teal", shape: "standard" },
 } satisfies Meta<typeof BubblePanel>;
@@ -25,9 +25,7 @@ function Frame({
   height: number;
   children: React.ReactNode;
 }) {
-  return (
-    <div style={{ width, height, position: "relative" }}>{children}</div>
-  );
+  return <div style={{ width, height, position: "relative" }}>{children}</div>;
 }
 
 // ─── Shapes (at source canvas dimensions) ──────────────────────────────────────
@@ -155,9 +153,7 @@ export const ContextHero: Story = {
       >
         <div className="max-w-xl">
           <h1 className="mb-5 text-h2 font-semibold text-cream">
-            Your gateway to{" "}
-            <span className="text-orange">purpose-driven careers</span>{" "}
-            across Asia
+            Your gateway to <span className="text-orange">purpose-driven careers</span> across Asia
           </h1>
           <div className="flex flex-wrap gap-3">
             <button className="rounded-pill bg-orange px-6 py-3 text-sm font-semibold text-cream">
@@ -263,8 +259,8 @@ export const ContextJoinUsCta: Story = {
           <div className="max-w-md">
             <h2 className="mb-2 text-h4 font-semibold text-teal">Join Us</h2>
             <p className="text-sm text-teal">
-              Curious about this content? Join our community and create your profile to explore
-              more opportunities!
+              Curious about this content? Join our community and create your profile to explore more
+              opportunities!
             </p>
           </div>
           <div className="flex w-full max-w-md gap-3 lg:shrink-0">
