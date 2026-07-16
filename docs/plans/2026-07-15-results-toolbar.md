@@ -33,7 +33,7 @@
 
 **Interfaces:**
 - Consumes: `ChevronDownIcon` from `@/components/ui/icons` (existing), `twMerge` from `tailwind-merge` (existing dependency).
-- Note: `ResultsToolbar` is a generic function component (`<TSort extends string = string>`). Storybook's `Meta<T>` type is designed for plain `ComponentType<Props>` and can be finicky with generics — after writing the stories file, run `pnpm typecheck` (not just the story test) to confirm `satisfies Meta<typeof ResultsToolbar>` actually compiles. If it doesn't, drop the `satisfies Meta<typeof ResultsToolbar>` constraint and type `meta` as `Meta<ResultsToolbarProps<(typeof SORT_OPTIONS)[number]["value"]>>` instead — don't reach for `as` to force it through.
+- Note: `ResultsToolbar` is a generic function component (`<TSort extends string = string>`). `satisfies Meta<typeof ResultsToolbar>` itself compiles fine — the actual gotcha (confirmed during implementation) is that Storybook's `StoryObj<Meta>` type requires every story to supply `args` even when it uses a custom `render` function instead. A story with only `render` and no `args` fails `pnpm typecheck` with "Property 'args' is missing." Give the `Default` story an explicit `args` object alongside its `render`, matching the pattern already used in `selected-filter-pill.stories.tsx`'s `SelectedFilters` story.
 - Produces (consumed by Task 3): from `@/components/ui/results-toolbar` — the `ResultsToolbar` component, and its exported types `SortOption<TSort extends string = string>` (`{ value: TSort; label: string }`) and `ResultsToolbarProps<TSort extends string = string>`:
   ```ts
   type ResultsToolbarProps<TSort extends string = string> = {
@@ -171,6 +171,18 @@ function StatefulToolbar() {
 }
 
 export const Default: Story = {
+  args: {
+    count: 23,
+    itemLabel: "Open Jobs",
+    sort: "latest",
+    sortOptions: SORT_OPTIONS,
+    onSortChange: () => {},
+    perPage: 12,
+    perPageOptions: PER_PAGE_OPTIONS,
+    onPerPageChange: () => {},
+    view: "grid",
+    onViewChange: () => {},
+  },
   render: () => <StatefulToolbar />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -354,7 +366,7 @@ Expected: PASS — all 3 stories render, `Default`'s play function assertions pa
 - [ ] **Step 8: Typecheck**
 
 Run: `pnpm typecheck`
-Expected: no errors. If `satisfies Meta<typeof ResultsToolbar>` fails here, apply the fallback from the Interfaces note above (retype `meta` instead of forcing it with `as`).
+Expected: no errors. If it complains that `args` is missing on the `Default` story, apply the fix from the Interfaces note above (add an explicit `args` object alongside `render`).
 
 - [ ] **Step 9: Commit**
 
