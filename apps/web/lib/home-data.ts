@@ -3,6 +3,7 @@ export type JobCardData = {
   title: string;
   organization: string;
   location: string;
+  workModality?: string;
   postedAt: string;
   href: string;
 };
@@ -54,7 +55,8 @@ export const featuredJobs: JobCardData[] = [
     id: "2",
     title: "Email Marketing Specialist",
     organization: "Spotify",
-    location: "Remote",
+    location: "Singapore",
+    workModality: "Remote",
     postedAt: "5h ago",
     href: "/job-board/2-email-marketing-specialist-spotify",
   },
@@ -70,7 +72,8 @@ export const featuredJobs: JobCardData[] = [
     id: "4",
     title: "Content Writer",
     organization: "WordPress",
-    location: "Remote",
+    location: "Philippines",
+    workModality: "Remote",
     postedAt: "1d ago",
     href: "/job-board/4-content-writer-wordpress",
   },
