@@ -68,18 +68,26 @@ export function JobCard({
       </h3>
 
       <div className="mt-auto">
-        {/* Organisation + timestamp */}
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex min-w-0 items-center gap-2">
-            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal-muted">
-              <span className="text-xs font-semibold text-teal">{getInitials(organization)}</span>
-            </div>
-            <span
-              className={`truncate text-sm font-medium ${featured ? "text-cream" : "text-gray-text"}`}
-            >
-              {organization}
-            </span>
+        {/* Organisation */}
+        <div className="flex min-w-0 items-start gap-2">
+          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal-muted">
+            <span className="text-xs font-semibold text-teal">{getInitials(organization)}</span>
           </div>
+          <span
+            className={`line-clamp-2 text-sm font-medium ${featured ? "text-cream" : "text-gray-text"}`}
+          >
+            {organization}
+          </span>
+        </div>
+
+        {/* More Details + timestamp */}
+        <div className="mt-3 flex items-center justify-between gap-2">
+          <span
+            className={`flex items-center gap-1 text-sm font-medium ${featured ? "text-teal-light" : "text-teal-dark"}`}
+          >
+            More Details
+            <ArrowUpRightIcon size={14} />
+          </span>
           <span
             className={`flex shrink-0 items-center gap-1 whitespace-nowrap text-xs ${featured ? "text-white/60" : "text-charcoal"}`}
           >
@@ -87,14 +95,6 @@ export function JobCard({
             {postedAt}
           </span>
         </div>
-
-        {/* More Details — visual label only, whole card is the link */}
-        <span
-          className={`mt-3 flex items-center gap-1 text-sm font-medium ${featured ? "text-teal-light" : "text-teal-dark"}`}
-        >
-          More Details
-          <ArrowUpRightIcon size={14} />
-        </span>
       </div>
     </NextLink>
   );

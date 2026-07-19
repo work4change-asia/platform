@@ -29,6 +29,25 @@ export const LongTitle: Story = {
   ],
 };
 
+export const LongOrgName: Story = {
+  args: {
+    id: "7",
+    title: "Programme Officer",
+    organization:
+      "United Nations Economic and Social Commission for Asia and the Pacific (UNESCAP)",
+    location: "Thailand",
+    postedAt: "6d ago",
+    href: "/job-board/7-programme-officer-unescap",
+  },
+  decorators: [
+    (Story) => (
+      <div className="w-72">
+        <Story />
+      </div>
+    ),
+  ],
+};
+
 export const WithWorkModality: Story = {
   args: {
     id: "4",
