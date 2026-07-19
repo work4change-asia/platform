@@ -11,62 +11,91 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const FullTime: Story = {
-  args: {
-    id: "1",
-    title: "Product Designer",
-    organization: "Google Inc",
-    contractType: "full-time",
-    contractLabel: "Full Time",
-    location: "Singapore",
-    description:
-      "Join our team as a Product Designer and help shape the future of digital experiences for millions of users across Asia.",
-    postedAt: "2h ago",
-    href: "/job-board/1-product-designer-google",
-  },
-  decorators: [
-    (Story) => (
-      <div className="w-72">
-        <Story />
-      </div>
-    ),
-  ],
-};
-
-export const PartTime: Story = {
-  args: {
-    id: "2",
-    title: "Content Writer",
-    organization: "WordPress",
-    contractType: "part-time",
-    contractLabel: "Part Time",
-    location: "Remote",
-    description:
-      "Create compelling content that helps millions of website owners get the most out of the world's most popular CMS.",
-    postedAt: "1d ago",
-    href: "/job-board/2-content-writer-wordpress",
-  },
-  decorators: [
-    (Story) => (
-      <div className="w-72">
-        <Story />
-      </div>
-    ),
-  ],
-};
-
 export const LongTitle: Story = {
   args: {
     id: "3",
     title: "Senior Communications and Advocacy Officer for Asia Pacific Region",
     organization: "Save the Children",
-    contractType: "full-time",
-    contractLabel: "Full Time",
-    location: "Bangkok, Thailand",
-    description:
-      "Lead communications strategy and advocacy campaigns that amplify the voices of children and communities across the Asia Pacific region.",
+    location: "Thailand",
     postedAt: "3d ago",
     href: "/job-board/3-communications-officer-stc",
+  },
+  decorators: [
+    (Story) => (
+      <div className="w-72">
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const LongOrgName: Story = {
+  args: {
+    id: "7",
+    title: "Programme Officer",
+    organization:
+      "United Nations Economic and Social Commission for Asia and the Pacific (UNESCAP)",
+    location: "Thailand",
+    postedAt: "6d ago",
+    href: "/job-board/7-programme-officer-unescap",
+  },
+  decorators: [
+    (Story) => (
+      <div className="w-72">
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const WithWorkModality: Story = {
+  args: {
+    id: "4",
+    title: "Senior Energy Analysts - IEA Regional Cooperation Centre",
+    organization: "Financial Action Task Force",
+    location: "Singapore",
+    workModality: "Remote",
+    postedAt: "8 Jul",
+    href: "#",
+  },
+  decorators: [
+    (Story) => (
+      <div className="w-72">
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const Featured: Story = {
+  args: {
+    id: "5",
+    title: "Regional Leader, East Asia (EAS)",
+    organization: "World Vision",
+    location: "Thailand",
+    postedAt: "8 Jul",
+    href: "#",
+    featured: true,
+  },
+  decorators: [
+    (Story) => (
+      <div className="w-72">
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const FeaturedWithWorkModality: Story = {
+  args: {
+    id: "6",
+    title: "Senior Energy Analysts - IEA Regional Cooperation Centre - Singapore",
+    organization: "Financial Action Task Force",
+    location: "Singapore",
+    workModality: "Remote",
+    postedAt: "8 Jul",
+    href: "#",
+    featured: true,
   },
   decorators: [
     (Story) => (
@@ -82,86 +111,80 @@ export const Grid: Story = {
     id: "",
     title: "",
     organization: "",
-    contractType: "full-time",
-    contractLabel: "",
     location: "",
-    description: "",
     postedAt: "",
     href: "",
   },
   render: () => (
-    <div className="grid grid-cols-3 gap-6 w-[900px]">
+    <div className="grid grid-cols-4 gap-6 w-[1200px] bg-cream p-6">
       {[
         {
           id: "1",
-          title: "Product Designer",
-          organization: "Google Inc",
-          contractType: "full-time" as const,
-          contractLabel: "Full Time",
+          title: "Senior Energy Analysts - IEA Regional Cooperation Centre - Singapore",
+          organization: "Financial Action Task Force",
           location: "Singapore",
-          description:
-            "Join our team as a Product Designer and help shape the future of digital experiences.",
-          postedAt: "2h ago",
+          workModality: "Remote",
+          postedAt: "8 Jul",
           href: "#",
+          featured: true,
         },
         {
           id: "2",
-          title: "Content Writer",
-          organization: "WordPress",
-          contractType: "part-time" as const,
-          contractLabel: "Part Time",
-          location: "Remote",
-          description:
-            "Create compelling content that helps millions of website owners get the most out of the world's most popular CMS.",
-          postedAt: "1d ago",
+          title: "Regional Leader, East Asia (EAS)",
+          organization: "World Vision",
+          location: "Thailand",
+          postedAt: "8 Jul",
           href: "#",
+          featured: true,
         },
         {
           id: "3",
-          title: "Programme Officer",
-          organization: "UNDP Asia",
-          contractType: "full-time" as const,
-          contractLabel: "Full Time",
-          location: "Bangkok, Thailand",
-          description:
-            "Support sustainable development programmes across Asia, working with governments and civil society to advance the SDGs.",
-          postedAt: "4d ago",
+          title: "Event Coordinator",
+          organization: "Team Everest",
+          location: "India",
+          postedAt: "8 Jul",
           href: "#",
+          featured: true,
         },
         {
           id: "4",
-          title: "Data Analyst",
-          organization: "Grab",
-          contractType: "full-time" as const,
-          contractLabel: "Full Time",
-          location: "Jakarta, Indonesia",
-          description:
-            "Turn data into insights that drive product decisions for Southeast Asia's leading superapp.",
-          postedAt: "3d ago",
+          title: "Part-time Intern",
+          organization: "PIInet",
+          location: "Hong Kong",
+          postedAt: "8 Jul",
           href: "#",
+          featured: true,
         },
         {
           id: "5",
-          title: "Research Fellow",
-          organization: "Asia Foundation",
-          contractType: "full-time" as const,
-          contractLabel: "Fellowship",
-          location: "Manila, Philippines",
-          description:
-            "Conduct policy research on governance, development, and civil society across the Asia-Pacific region.",
-          postedAt: "5d ago",
+          title: "Afghanistan Mission Development Manager",
+          organization: "WeWorld Onlus",
+          location: "Afghanistan",
+          postedAt: "8 Jul",
           href: "#",
         },
         {
           id: "6",
-          title: "Fundraising Manager",
-          organization: "Save the Children",
-          contractType: "full-time" as const,
-          contractLabel: "Full Time",
-          location: "Ho Chi Minh City",
-          description:
-            "Lead fundraising strategy and donor engagement to support life-changing programmes for children across Vietnam.",
-          postedAt: "5d ago",
+          title: "Administrative and Finance Officer",
+          organization: "Baan Dek Foundation",
+          location: "Thailand",
+          postedAt: "8 Jul",
+          href: "#",
+        },
+        {
+          id: "7",
+          title: "Senior Manager Board Secretariat",
+          organization: "Alliance for Financial Inclusion (AFI)",
+          location: "Malaysia",
+          postedAt: "8 Jul",
+          href: "#",
+        },
+        {
+          id: "8",
+          title: "Project Coordinator",
+          organization: "GreenViet",
+          location: "Vietnam",
+          postedAt: "8 Jul",
           href: "#",
         },
       ].map((job) => (

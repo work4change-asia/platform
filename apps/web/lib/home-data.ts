@@ -1,16 +1,9 @@
-import type { VariantProps } from "class-variance-authority";
-import type { badgeVariants } from "@/components/ui/badge";
-
-type BadgeVariant = NonNullable<VariantProps<typeof badgeVariants>["variant"]>;
-
 export type JobCardData = {
   id: string;
   title: string;
   organization: string;
-  contractType: BadgeVariant;
-  contractLabel: string;
   location: string;
-  description: string;
+  workModality?: string;
   postedAt: string;
   href: string;
 };
@@ -54,11 +47,7 @@ export const featuredJobs: JobCardData[] = [
     id: "1",
     title: "Product Designer",
     organization: "Google Inc",
-    contractType: "full-time",
-    contractLabel: "Full Time",
     location: "Singapore",
-    description:
-      "Join our team as a Product Designer and help shape the future of digital experiences for millions of users across Asia.",
     postedAt: "2h ago",
     href: "/job-board/1-product-designer-google",
   },
@@ -66,11 +55,8 @@ export const featuredJobs: JobCardData[] = [
     id: "2",
     title: "Email Marketing Specialist",
     organization: "Spotify",
-    contractType: "full-time",
-    contractLabel: "Full Time",
-    location: "Remote",
-    description:
-      "Join our team as an Email Marketing Specialist and lead our digital outreach efforts to engage music lovers worldwide.",
+    location: "Singapore",
+    workModality: "Remote",
     postedAt: "5h ago",
     href: "/job-board/2-email-marketing-specialist-spotify",
   },
@@ -78,11 +64,7 @@ export const featuredJobs: JobCardData[] = [
     id: "3",
     title: "Full-stack Developer",
     organization: "GitHub",
-    contractType: "full-time",
-    contractLabel: "Full Time",
     location: "Japan",
-    description:
-      "Build and maintain scalable web applications that power the world's leading developer platform.",
     postedAt: "1d ago",
     href: "/job-board/3-fullstack-developer-github",
   },
@@ -90,11 +72,8 @@ export const featuredJobs: JobCardData[] = [
     id: "4",
     title: "Content Writer",
     organization: "WordPress",
-    contractType: "part-time",
-    contractLabel: "Part Time",
-    location: "Remote",
-    description:
-      "Create compelling content that helps millions of website owners get the most out of the world's most popular CMS.",
+    location: "Philippines",
+    workModality: "Remote",
     postedAt: "1d ago",
     href: "/job-board/4-content-writer-wordpress",
   },
@@ -102,11 +81,7 @@ export const featuredJobs: JobCardData[] = [
     id: "5",
     title: "Front-end Developer",
     organization: "Pinterest",
-    contractType: "full-time",
-    contractLabel: "Full Time",
     location: "Philippines",
-    description:
-      "Craft beautiful, performant user interfaces that inspire people to discover and save ideas they love.",
     postedAt: "2d ago",
     href: "/job-board/5-frontend-developer-pinterest",
   },
@@ -114,11 +89,7 @@ export const featuredJobs: JobCardData[] = [
     id: "6",
     title: "Cloud Solutions Architect",
     organization: "Amazon",
-    contractType: "full-time",
-    contractLabel: "Full Time",
     location: "Malaysia",
-    description:
-      "Design and implement cloud architectures that help businesses across Southeast Asia scale with confidence.",
     postedAt: "2d ago",
     href: "/job-board/6-cloud-architect-amazon",
   },
@@ -126,11 +97,7 @@ export const featuredJobs: JobCardData[] = [
     id: "7",
     title: "Data Analyst",
     organization: "Grab",
-    contractType: "full-time",
-    contractLabel: "Full Time",
     location: "Indonesia",
-    description:
-      "Turn data into insights that drive product decisions for Southeast Asia's leading superapp.",
     postedAt: "3d ago",
     href: "/job-board/7-data-analyst-grab",
   },
@@ -138,11 +105,7 @@ export const featuredJobs: JobCardData[] = [
     id: "8",
     title: "Digital Marketing Manager",
     organization: "Airbnb",
-    contractType: "part-time",
-    contractLabel: "Part Time",
     location: "Thailand",
-    description:
-      "Lead digital marketing campaigns that connect travellers with unique stays and experiences across Asia.",
     postedAt: "3d ago",
     href: "/job-board/8-digital-marketing-airbnb",
   },
@@ -150,11 +113,7 @@ export const featuredJobs: JobCardData[] = [
     id: "9",
     title: "Programme Officer",
     organization: "UNDP Asia",
-    contractType: "full-time",
-    contractLabel: "Full Time",
     location: "Thailand",
-    description:
-      "Support sustainable development programmes across Asia, working with governments and civil society to advance the SDGs.",
     postedAt: "4d ago",
     href: "/job-board/9-programme-officer-undp",
   },
@@ -162,11 +121,7 @@ export const featuredJobs: JobCardData[] = [
     id: "10",
     title: "Communications Officer",
     organization: "Oxfam",
-    contractType: "full-time",
-    contractLabel: "Full Time",
     location: "Cambodia",
-    description:
-      "Tell the stories of communities overcoming poverty and injustice through compelling communications and advocacy.",
     postedAt: "4d ago",
     href: "/job-board/10-communications-officer-oxfam",
   },
@@ -174,11 +129,7 @@ export const featuredJobs: JobCardData[] = [
     id: "11",
     title: "Research Fellow",
     organization: "Asia Foundation",
-    contractType: "part-time",
-    contractLabel: "Fellowship",
     location: "Philippines",
-    description:
-      "Conduct policy research on governance, development, and civil society across the Asia-Pacific region.",
     postedAt: "5d ago",
     href: "/job-board/11-research-fellow-asia-foundation",
   },
@@ -186,11 +137,7 @@ export const featuredJobs: JobCardData[] = [
     id: "12",
     title: "Fundraising Manager",
     organization: "Save the Children",
-    contractType: "full-time",
-    contractLabel: "Full Time",
     location: "Vietnam",
-    description:
-      "Lead fundraising strategy and donor engagement to support life-changing programmes for children across Vietnam.",
     postedAt: "5d ago",
     href: "/job-board/12-fundraising-manager-save-the-children",
   },
