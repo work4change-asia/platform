@@ -1,7 +1,11 @@
 import { BubblePanel } from "@/components/ui/bubble-panel";
 import { JobSearchFilters } from "@/components/job-board/job-search-filters";
 import { JobResultsToolbar } from "@/components/job-board/job-results-toolbar";
-import { resolvePerPage, resolveSort, resolveView } from "@/components/job-board/results-toolbar-config";
+import {
+  resolvePerPage,
+  resolveSort,
+  resolveView,
+} from "@/components/job-board/results-toolbar-config";
 
 type JobBoardPageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;

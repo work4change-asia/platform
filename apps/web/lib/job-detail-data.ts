@@ -1,6 +1,13 @@
+import type { VariantProps } from "class-variance-authority";
+import type { badgeVariants } from "@/components/ui/badge";
 import type { JobCardData } from "@/lib/home-data";
 
+type BadgeVariant = NonNullable<VariantProps<typeof badgeVariants>["variant"]>;
+
 export type JobDetail = JobCardData & {
+  contractType: BadgeVariant;
+  contractLabel: string;
+  description: string;
   descriptionBody: string;
   responsibilities: string[];
   workMode: string;

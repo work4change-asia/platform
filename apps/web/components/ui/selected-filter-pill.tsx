@@ -10,7 +10,13 @@ export type SelectedFilterPillProps = {
 
 export function SelectedFilterPill({ label, onRemove, className }: SelectedFilterPillProps) {
   return (
-    <span className={twMerge(badgeVariants({ variant: "filter" }), "py-1.5 pr-2 pl-3 text-sm", className)}>
+    <span
+      className={twMerge(
+        badgeVariants({ variant: "filter" }),
+        "py-1.5 pr-2 pl-3 text-sm",
+        className,
+      )}
+    >
       {label}
       <button
         type="button"

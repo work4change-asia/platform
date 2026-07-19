@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { jobDetailsBySlug } from "@/lib/job-detail-data";
 import { featuredJobs } from "@/lib/home-data";
+import { getInitials } from "@/lib/avatar";
 import { BubblePanel } from "@/components/ui/bubble-panel";
 import { Link } from "@/components/ui/link";
 import { OrganizationHeader } from "@/components/job-detail/organization-header";
@@ -18,7 +19,7 @@ export default async function JobDetailPage({ params }: Props) {
   const job = jobDetailsBySlug[slug];
   if (!job) notFound();
 
-  const orgInitial = job.organization[0] ?? "O";
+  const orgInitial = getInitials(job.organization);
 
   return (
     <>
