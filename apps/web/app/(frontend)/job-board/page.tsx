@@ -1,11 +1,13 @@
 import { BubblePanel } from "@/components/ui/bubble-panel";
 import { JobSearchFilters } from "@/components/job-board/job-search-filters";
 import { JobResultsToolbar } from "@/components/job-board/job-results-toolbar";
+import { FeaturedRoles } from "@/components/job-board/featured-roles";
 import {
   resolvePerPage,
   resolveSort,
   resolveView,
 } from "@/components/job-board/results-toolbar-config";
+import { featuredJobs } from "@/lib/home-data";
 
 type JobBoardPageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -49,7 +51,7 @@ export default async function JobBoardPage({ searchParams }: JobBoardPageProps) 
             />
           }
         >
-          <h1 className="text-h3 font-normal text-cream">Featured Jobs</h1>
+          <h1 className="text-h3 font-normal text-cream">Job Board</h1>
         </BubblePanel>
       </div>
 
@@ -67,6 +69,8 @@ export default async function JobBoardPage({ searchParams }: JobBoardPageProps) 
           />
         </div>
       </div>
+
+      <FeaturedRoles jobs={featuredJobs} />
     </div>
   );
 }
