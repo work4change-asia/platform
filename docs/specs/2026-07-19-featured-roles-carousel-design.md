@@ -2,7 +2,7 @@
 
 ## Problem
 
-The job board page needs a "Featured Roles" section, shown directly under the results toolbar (below the results count), showcasing featured jobs on a `bg-teal-dark` background. A carousel already exists for this purpose on the home page (`FeaturedJobs`), but its carousel mechanics are inline in that component rather than reusable.
+The job board page needs a "Featured Roles" section, shown directly under the results toolbar (below the results count), showcasing featured jobs on a `bg-pale-blue` background. A carousel already exists for this purpose on the home page (`FeaturedJobs`), but its carousel mechanics are inline in that component rather than reusable.
 
 ## Approach
 
@@ -37,7 +37,7 @@ Accessibility, since this becomes the shared primitive:
 
 New file: `apps/web/components/job-board/featured-roles.tsx`.
 
-- `bg-teal-dark` background, heading in `text-cream` to read against it
+- `bg-pale-blue` background, heading in `text-gray-text` to read against it
 - "FEATURED ROLES" heading, no eyebrow/subtext
 - Wraps `JobCarousel` with `featured` set, fed the same mock `featuredJobs` data from `apps/web/lib/home-data.ts` (same data source as the home page, since the job board's real results grid is still out of scope)
 - Always a carousel, at every breakpoint — no desktop grid fallback here (unlike `FreshFromTheField`)
