@@ -43,7 +43,7 @@ export function JobCarousel({ jobs, featured = false }: JobCarouselProps) {
           onClick={prev}
           disabled={current === 0}
           aria-label="Previous"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-gray-400 transition-colors hover:border-teal-light hover:text-teal-light disabled:opacity-30"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-950 text-gray-950 transition-colors hover:border-teal-light hover:text-teal-light disabled:opacity-30"
         >
           <ArrowLeftIcon size={22} />
         </button>
@@ -51,7 +51,7 @@ export function JobCarousel({ jobs, featured = false }: JobCarouselProps) {
           onClick={next}
           disabled={current === jobs.length - 1}
           aria-label="Next"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-gray-400 transition-colors hover:border-teal-light hover:text-teal-light disabled:opacity-30"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-950 text-gray-950 transition-colors hover:border-teal-light hover:text-teal-light disabled:opacity-30"
         >
           <ArrowRightIcon size={22} />
         </button>
