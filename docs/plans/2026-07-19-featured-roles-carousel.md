@@ -261,7 +261,7 @@ git commit -m "feat(ui): extract JobCarousel as a reusable job-card carousel"
 - Consumes: `JobCarousel({ jobs, featured? })` from Task 1.
 - Produces: `FreshFromTheField` — `export function FreshFromTheField({ jobs }: { jobs: JobCardData[] })`. Used by `apps/web/app/(frontend)/page.tsx` in place of `FeaturedJobs`.
 
-This task has no new automated test — it is a refactor of already-visually-verified markup (Task 1's `JobCarousel` story already covers the carousel's own behavior). Verify by reading the diff carefully: the desktop grid markup and outer section markup must be byte-for-byte equivalent to the current `featured-jobs.tsx`, only the mobile carousel internals move to `JobCarousel`.
+This task has no new automated test — it is a refactor of already-visually-verified markup (Task 1's `JobCarousel` story already covers the carousel's own behavior). Verify by reading the diff carefully: the desktop grid markup, section chrome, eyebrow, and heading must be byte-for-byte equivalent to the current `featured-jobs.tsx`. The mobile carousel internals are the only intentional behavior change — they now come from `JobCarousel`, which adds `motion-reduce:transition-none` (a deliberate accessibility fix per the design spec, not a regression to flag).
 
 - [ ] **Step 1: Create the renamed component**
 
