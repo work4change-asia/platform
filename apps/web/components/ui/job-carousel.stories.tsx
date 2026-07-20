@@ -86,15 +86,15 @@ export const Default: Story = {
   },
 };
 
-export const FeaturedOnDark: Story = {
+export const FeaturedOnPaleBlue: Story = {
   args: {
     jobs: SAMPLE_JOBS,
     featured: true,
-    edgeFadeFrom: "from-gray-950",
+    edgeFadeFrom: "from-pale-blue",
   },
   decorators: [
     (Story) => (
-      <div className="w-[700px] bg-gray-950 p-6">
+      <div className="w-[700px] bg-pale-blue p-6">
         <Story />
       </div>
     ),
