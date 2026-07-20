@@ -21,7 +21,7 @@ export function FreshFromTheField({ jobs }: FreshFromTheFieldProps) {
 
         {/* Mobile carousel */}
         <div className="sm:hidden">
-          <JobCarousel jobs={jobs} />
+          <JobCarousel jobs={jobs} edgeFadeFrom="from-cream" />
         </div>
 
         {/* Desktop grid — fixed card-width columns so cards never stretch past their square size */}

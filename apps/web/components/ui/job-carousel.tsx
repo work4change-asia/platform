@@ -12,9 +12,11 @@ const MAX_CARD_WIDTH_PX = 288; // matches JobCard's max-w-72
 export type JobCarouselProps = {
   jobs: JobCardData[];
   featured?: boolean;
+  /** Tailwind gradient-from class matching the carousel's background, e.g. "from-cream" */
+  edgeFadeFrom: string;
 };
 
-export function JobCarousel({ jobs, featured = false }: JobCarouselProps) {
+export function JobCarousel({ jobs, featured = false, edgeFadeFrom }: JobCarouselProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = useState(0);
   const [current, setCurrent] = useState(0);
@@ -57,7 +59,7 @@ export function JobCarousel({ jobs, featured = false }: JobCarouselProps) {
         </button>
       </div>
 
-      <div ref={containerRef} className="overflow-hidden">
+      <div ref={containerRef} className="relative overflow-hidden">
         <div
           className="flex transition-transform duration-300 ease-in-out motion-reduce:transition-none"
           style={{ transform: `translateX(-${current * stepPx}px)`, gap: GAP_PX }}
@@ -71,6 +73,15 @@ export function JobCarousel({ jobs, featured = false }: JobCarouselProps) {
             </div>
           ))}
         </div>
+
+        <div
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r ${edgeFadeFrom} to-transparent transition-opacity duration-300 sm:w-12 ${current === 0 ? "opacity-0" : "opacity-100"}`}
+        />
+        <div
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l ${edgeFadeFrom} to-transparent transition-opacity duration-300 sm:w-12 ${current === jobs.length - 1 ? "opacity-0" : "opacity-100"}`}
+        />
       </div>
 
       <p aria-live="polite" className="sr-only">

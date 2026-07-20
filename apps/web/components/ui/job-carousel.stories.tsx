@@ -60,6 +60,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     jobs: SAMPLE_JOBS,
+    edgeFadeFrom: "from-cream",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -89,6 +90,7 @@ export const FeaturedOnDark: Story = {
   args: {
     jobs: SAMPLE_JOBS,
     featured: true,
+    edgeFadeFrom: "from-gray-950",
   },
   decorators: [
     (Story) => (
