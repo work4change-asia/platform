@@ -51,7 +51,7 @@ export default async function JobBoardPage({ searchParams }: JobBoardPageProps) 
             />
           }
         >
-          <h1 className="text-h3 font-normal text-cream">Featured Jobs</h1>
+          <h1 className="text-h3 font-normal text-cream">Job Board</h1>
         </BubblePanel>
       </div>
 
