@@ -17,14 +17,20 @@ Pulls the carousel mechanics out of the home page's `FeaturedJobs` component:
 - Prev/next arrow buttons with disabled-at-ends state
 - Sliding track (`translateX` transition)
 
-Props: `{ jobs: JobCardData[] }`. Renders `JobCard` per job — nothing about background, heading, or CTAs lives here. Carousel behavior applies at all breakpoints (no desktop grid fallback) — this becomes the shared default for both callers below.
+Props: `{ jobs: JobCardData[]; featured?: boolean }`. Renders `JobCard` per job, passing `featured` through to each card — variant is a presentation choice made by the caller, not data on `JobCardData`. Nothing about background, heading, or CTAs lives here. `JobCarousel` itself has no breakpoint logic — whether it's shown at all sizes or only below a breakpoint is entirely up to the caller (see below).
+
+Accessibility, since this becomes the shared primitive:
+
+- An `aria-live="polite"` region announces the current slide (e.g. "Slide 2 of 5") on change, for screen reader users.
+- The sliding `translateX` transition respects `prefers-reduced-motion` (e.g. via Tailwind's `motion-reduce:transition-none`), so it becomes an instant jump instead of an animated slide for users who've opted out of motion.
+- Touch/swipe drag on mobile is explicitly deferred — v1 stays button-driven only, matching current behavior. Not a regression, just not addressed in this pass.
 
 ### 2. Rename `FeaturedJobs` → `FreshFromTheField`
 
 - `apps/web/components/home/featured-jobs.tsx` → `apps/web/components/home/fresh-from-the-field.tsx`
 - Component renamed `FeaturedJobs` → `FreshFromTheField`
 - Keeps its existing cream background, eyebrow ("Start Here, Find Purpose"), "Fresh from the Field" heading, and CTA buttons ("See All Jobs", "Share An Opening")
-- Its sliding-cards rendering is delegated to `JobCarousel`; the existing desktop static-grid breakpoint is dropped in favor of the carousel at all sizes
+- Keeps its existing responsive split exactly as today: `JobCarousel` renders only below the `sm` breakpoint (mobile), the existing desktop static grid (`sm:grid sm:grid-cols-[repeat(auto-fill,18rem)]`) is unchanged and still kicks in at `sm:` and up. Extraction must not change what desktop users see.
 - Update import/usage in `apps/web/app/(frontend)/page.tsx`
 
 ### 3. New `FeaturedRoles` section
@@ -33,8 +39,8 @@ New file: `apps/web/components/job-board/featured-roles.tsx`.
 
 - Teal background
 - "FEATURED ROLES" heading, no eyebrow/subtext
-- Wraps `JobCarousel`, fed the same mock `featuredJobs` data from `apps/web/lib/home-data.ts` (same data source as the home page, since the job board's real results grid is still out of scope)
-- All jobs rendered with the `featured` JobCard variant
+- Wraps `JobCarousel` with `featured` set, fed the same mock `featuredJobs` data from `apps/web/lib/home-data.ts` (same data source as the home page, since the job board's real results grid is still out of scope)
+- Always a carousel, at every breakpoint — no desktop grid fallback here (unlike `FreshFromTheField`)
 - Rendered in `apps/web/app/(frontend)/job-board/page.tsx`, directly under `JobResultsToolbar`
 
 ## Storybook
