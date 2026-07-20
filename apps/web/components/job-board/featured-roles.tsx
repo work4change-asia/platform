@@ -7,9 +7,9 @@ type FeaturedRolesProps = {
 
 export function FeaturedRoles({ jobs }: FeaturedRolesProps) {
   return (
-    <section className="bg-teal-dark py-16 lg:py-20">
+    <section className="bg-pale-blue py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="mb-10 text-center text-h4 font-semibold text-cream">FEATURED ROLES</h2>
+        <h2 className="mb-10 text-center text-h4 font-semibold text-gray-text">FEATURED ROLES</h2>
         <JobCarousel jobs={jobs} featured />
       </div>
     </section>
