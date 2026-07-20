@@ -76,11 +76,11 @@ export function JobCarousel({ jobs, featured = false, edgeFadeFrom }: JobCarouse
 
         <div
           aria-hidden="true"
-          className={`pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r ${edgeFadeFrom} to-transparent transition-opacity duration-300 sm:w-12 ${current === 0 ? "opacity-0" : "opacity-100"}`}
+          className={`pointer-events-none absolute inset-y-0 left-0 w-6 bg-gradient-to-r ${edgeFadeFrom} to-transparent transition-opacity duration-300 sm:w-10 ${current === 0 ? "opacity-0" : "opacity-60"}`}
         />
         <div
           aria-hidden="true"
-          className={`pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l ${edgeFadeFrom} to-transparent transition-opacity duration-300 sm:w-12 ${current === jobs.length - 1 ? "opacity-0" : "opacity-100"}`}
+          className={`pointer-events-none absolute inset-y-0 right-0 w-6 bg-gradient-to-l ${edgeFadeFrom} to-transparent transition-opacity duration-300 sm:w-10 ${current === jobs.length - 1 ? "opacity-0" : "opacity-60"}`}
         />
       </div>
 
