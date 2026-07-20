@@ -85,14 +85,14 @@ export const Default: Story = {
   },
 };
 
-export const FeaturedOnTeal: Story = {
+export const FeaturedOnDark: Story = {
   args: {
     jobs: SAMPLE_JOBS,
     featured: true,
   },
   decorators: [
     (Story) => (
-      <div className="w-[700px] bg-teal p-6">
+      <div className="w-[700px] bg-gray-950 p-6">
         <Story />
       </div>
     ),
