@@ -34,7 +34,7 @@ h6 {
   --color-teal-muted: #c3e3e8;
   --color-orange: #ff8a42;
   --color-orange-light: #ffceaf;
-  --color-rust: #c45a23;
+  --color-caramel: #c45a23;
   --color-cream: #f4f1ec;
   --color-pale-blue: #a7bfc8;
   --color-brown: #d68a55;
@@ -69,6 +69,8 @@ h6 {
 
   /* ─── Shadows ──────────────────────────────────────── */
   --shadow-card: 0px 12px 28px rgba(10, 59, 68, 0.16);
+  --shadow-card-hover: 0px 12px 28px rgba(42, 181, 200, 0.35);
+  --shadow-card-hover-featured: 0px 16px 36px rgba(255, 138, 66, 0.45);
 }
 
 /* ─── Heading type scale ─────────────────────────────

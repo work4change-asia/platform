@@ -1,6 +1,14 @@
 import NextLink from "next/link";
-import { ArrowRightIcon } from "@/components/ui/icons";
+import { ArrowUpRightIcon } from "@/components/ui/icons";
 import type { OpportunityType } from "@/lib/home-data";
+import { Badge } from "./badge";
+
+export type OpportunityContractType = "full-time" | "part-time";
+
+const contractTypeLabels: Record<OpportunityContractType, string> = {
+  "full-time": "Full Time",
+  "part-time": "Part Time",
+};
 
 export type OpportunityCardProps = {
   id: string;
@@ -8,6 +16,7 @@ export type OpportunityCardProps = {
   organization: string;
   excerpt: string;
   tags: OpportunityType[];
+  contractType?: OpportunityContractType;
   href: string;
 };
 
@@ -16,19 +25,20 @@ export function OpportunityCard({
   organization,
   excerpt,
   tags,
+  contractType,
   href,
 }: OpportunityCardProps) {
   return (
     <div className="rounded-card border border-gray-100 bg-white p-6">
       <div className="mb-3 flex flex-wrap items-center gap-2">
         {tags.map((tag) => (
-          <span
-            key={tag}
-            className="inline-flex items-center rounded-pill bg-orange px-3 py-0.5 text-xs font-medium text-cream"
-          >
+          <Badge key={tag} variant="type">
             {tag}
-          </span>
+          </Badge>
         ))}
+        {contractType && (
+          <Badge variant={contractType}>{contractTypeLabels[contractType]}</Badge>
+        )}
       </div>
 
       <p className="mb-1 text-tiny font-medium text-pale-blue">{organization}</p>
@@ -37,10 +47,10 @@ export function OpportunityCard({
 
       <NextLink
         href={href}
-        className="inline-flex items-center gap-1 text-sm font-medium text-teal-light underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-light"
+        className="inline-flex items-center gap-1 text-sm font-normal text-teal-light transition-[font-weight] hover:font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-light"
       >
         More Details
-        <ArrowRightIcon size={16} />
+        <ArrowUpRightIcon size={14} />
       </NextLink>
     </div>
   );

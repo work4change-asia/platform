@@ -14,7 +14,7 @@ export function Testimonial({ data }: TestimonialProps) {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
           <BubblePanel
             variant="muted"
-            shape="large"
+            shape="photo"
             className="h-[480px] w-full lg:h-[560px]"
             media={
               <Image

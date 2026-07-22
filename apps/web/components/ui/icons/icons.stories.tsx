@@ -207,7 +207,7 @@ export const Colors: Story = {
     <div className="flex items-center gap-8">
       <CaseIcon size={32} className="text-teal" />
       <CaseIcon size={32} className="text-orange" />
-      <CaseIcon size={32} className="text-rust" />
+      <CaseIcon size={32} className="text-caramel" />
       <CaseIcon size={32} className="text-charcoal" />
       <HeartFilledIcon size={32} className="text-danger" />
     </div>

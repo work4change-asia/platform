@@ -9,6 +9,7 @@ export const badgeVariants = cva(
         "full-time": "bg-badge-teal-bg text-teal-light",
         "part-time": "bg-badge-yellow-bg text-badge-yellow-text",
         location: "bg-brown/20 text-brown gap-1",
+        type: "bg-orange-light text-caramel",
         filter: "bg-cream text-brown gap-1",
         active: "bg-orange text-cream",
         inactive: "bg-white text-charcoal border border-gray-100",

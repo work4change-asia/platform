@@ -7,7 +7,7 @@ const meta = {
   parameters: { layout: "padded" },
   argTypes: {
     variant: { control: "select", options: ["teal", "orange", "muted", "cream", "dark"] },
-    shape: { control: "select", options: ["standard", "large"] },
+    shape: { control: "select", options: ["standard", "large", "photo"] },
   },
   args: { variant: "teal", shape: "standard" },
 } satisfies Meta<typeof BubblePanel>;
@@ -64,6 +64,28 @@ export const ShapeLarge9700: Story = {
       <BubblePanel variant="teal" shape="large" className="h-full px-16 py-14">
         <p className="text-sm font-semibold">Large shape at source canvas size</p>
       </BubblePanel>
+    </Frame>
+  ),
+  args: {},
+};
+
+/** Vector 138 — photo shape, 380 × 305 */
+export const ShapePhoto138: Story = {
+  name: "Shape / Photo (Vector 138 · 380×305)",
+  render: () => (
+    <Frame width={380} height={305}>
+      <BubblePanel
+        variant="muted"
+        shape="photo"
+        className="h-full w-full"
+        media={
+          <img
+            src="/images/testimonial-photo.png"
+            alt="Professional reading at a desk"
+            className="absolute inset-0 h-full w-full object-cover [object-position:center_15%]"
+          />
+        }
+      />
     </Frame>
   ),
   args: {},
@@ -177,7 +199,7 @@ export const ContextTestimonial: Story = {
     <Frame width={560} height={560}>
       <BubblePanel
         variant="muted"
-        shape="large"
+        shape="photo"
         className="h-full w-full"
         media={
           <img

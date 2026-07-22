@@ -10,7 +10,7 @@ const brand: ColorEntry[] = [
   { name: "teal-muted", hex: "#c3e3e8", className: "bg-teal-muted" },
   { name: "orange", hex: "#ff8a42", className: "bg-orange" },
   { name: "orange-light", hex: "#ffceaf", className: "bg-orange-light" },
-  { name: "rust", hex: "#c45a23", className: "bg-rust" },
+  { name: "caramel", hex: "#c45a23", className: "bg-caramel" },
   { name: "cream", hex: "#f4f1ec", className: "bg-cream" },
   { name: "pale-blue", hex: "#a7bfc8", className: "bg-pale-blue" },
   { name: "brown", hex: "#d68a55", className: "bg-brown" },

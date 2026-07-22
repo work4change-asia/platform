@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-const CORNER_R = 36; // fixed px — same in both Figma variants
 const K = 0.5523; // bezier constant approximating a quarter-circle arc
 
 // ─── Shape configurations extracted from Figma exports ────────────────────────
@@ -14,6 +13,8 @@ type LineSeg = { type: "L"; end: [number, number] };
 type StepSeg = CurveSeg | LineSeg;
 
 type ShapeConfig = {
+  /** Fixed corner radius in px (does not scale with element size) */
+  cornerRadius: number;
   /** Step height as a fraction of total element height (Figma: step_h / canvas_h) */
   stepRatio: number;
   /** Step start x as a fraction of total element width */
@@ -27,6 +28,7 @@ type ShapeConfig = {
 // Rectangle 9692 / 9694 — used for hero, cards, testimonial frame
 // Source dimensions: 710 × 309 (9692) and 875 × 320 (9694)
 const SHAPE_STANDARD: ShapeConfig = {
+  cornerRadius: 36,
   stepRatio: 31.851 / 309, // 10.3%
   stepStartRatio: 226 / 710, // 31.8%
   stepSpanRatio: 69 / 710, // 9.7%
@@ -40,6 +42,7 @@ const SHAPE_STANDARD: ShapeConfig = {
 // Rectangle 9700 — used for large taller panels
 // Source dimensions: 1180 × 652
 const SHAPE_LARGE: ShapeConfig = {
+  cornerRadius: 36,
   stepRatio: 53.978 / 652, // 8.3%
   stepStartRatio: 339.867 / 1180, // 28.8%
   stepSpanRatio: 93.581 / 1180, // 7.9%
@@ -50,15 +53,31 @@ const SHAPE_LARGE: ShapeConfig = {
   ],
 };
 
-export type BubbleShape = "standard" | "large";
+// Vector 138 — the signature "photo frame" shape, used to mask images in the
+// mission / about sections. Flat notch (not an S-curve) in the bottom-left edge.
+// Source dimensions: 380 × 305
+const SHAPE_PHOTO: ShapeConfig = {
+  cornerRadius: 24,
+  stepRatio: 27 / 305, // 8.9%
+  stepStartRatio: 131.879 / 380, // 34.7%
+  stepSpanRatio: 56.772 / 380, // 14.9%
+  stepSegs: [
+    { type: "C", cp1: [0.08296, 0], cp2: [0.16406, 0.0513], end: [0.23325, 0.14748] },
+    { type: "L", end: [0.76684, 0.85252] },
+    { type: "C", cp1: [0.83593, 0.9487], cp2: [0.91708, 1], end: [1, 1] },
+  ],
+};
+
+export type BubbleShape = "standard" | "large" | "photo";
 
 const SHAPE_CONFIGS: Record<BubbleShape, ShapeConfig> = {
   standard: SHAPE_STANDARD,
   large: SHAPE_LARGE,
+  photo: SHAPE_PHOTO,
 };
 
 function buildPath(w: number, h: number, shape: ShapeConfig): string {
-  const r = CORNER_R;
+  const r = shape.cornerRadius;
   const stepH = shape.stepRatio * h;
   const rh = h - stepH; // right-side height (shorter)
 
@@ -128,6 +147,7 @@ type BubblePanelProps = React.HTMLAttributes<HTMLDivElement> & {
    * Which Figma shape to use.
    * "standard" (default) → Rectangle 9692/9694, for hero, cards, testimonial.
    * "large"              → Rectangle 9700, for tall/wider panels.
+   * "photo"              → Vector 138, the photo-frame shape for mission/about photos.
    */
   shape?: BubbleShape;
   /**
@@ -167,9 +187,12 @@ export function BubblePanel({
   return (
     <div
       ref={wrapperRef}
-      style={shapePath ? { clipPath: `path("${shapePath}")` } : undefined}
+      style={{
+        clipPath: shapePath ? `path("${shapePath}")` : undefined,
+        borderRadius: shapePath ? undefined : SHAPE_CONFIGS[shape].cornerRadius,
+      }}
       className={twMerge(
-        "relative overflow-hidden rounded-[36px]",
+        "relative overflow-hidden",
         bgClass[variant],
         textClass[variant],
         className,

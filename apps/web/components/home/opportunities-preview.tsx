@@ -13,7 +13,7 @@ export function OpportunitiesPreview({ opportunities }: OpportunitiesPreviewProp
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
           <p className="mb-2 text-tiny font-semibold uppercase tracking-widest text-orange">
-            What We Offer
+            Look Around, Level Up
           </p>
           <h2 className="text-h4 font-semibold text-teal">Opportunities</h2>
         </div>

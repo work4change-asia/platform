@@ -13,13 +13,13 @@ export function Stats({ stats }: StatsProps) {
   return (
     <section className="relative bg-gray-950 py-16 lg:py-20">
       <Image
-        src="/images/singapore.png"
+        src="/images/singapore.jpg"
         alt=""
         aria-hidden="true"
         fill
         sizes="100vw"
         loading="eager"
-        className="object-cover opacity-20"
+        className="object-contain"
       />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-20">

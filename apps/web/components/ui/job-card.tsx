@@ -1,3 +1,4 @@
+import NextImage from "next/image";
 import NextLink from "next/link";
 import {
   ArrowUpRightIcon,
@@ -7,6 +8,7 @@ import {
 } from "@/components/ui/icons";
 import { Badge } from "./badge";
 import { getInitials } from "@/lib/avatar";
+import { orgLogos } from "@/lib/org-logos";
 
 export type JobCardProps = {
   id: string;
@@ -33,8 +35,8 @@ export function JobCard({
       href={href}
       className={
         featured
-          ? "group relative flex aspect-square w-full max-w-72 flex-col overflow-hidden rounded-card border border-transparent bg-charcoal p-5 transition-[box-shadow,border-color] hover:border-orange hover:shadow-[0px_12px_28px_rgba(255,138,66,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-          : "group flex aspect-square w-full max-w-72 flex-col rounded-card bg-white p-5 border border-charcoal/30 transition-[box-shadow,border-color] hover:border-teal-light hover:shadow-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-light focus-visible:shadow-card"
+          ? "group relative flex aspect-square w-full max-w-72 flex-col overflow-hidden rounded-card border border-transparent bg-charcoal p-5 transition-[box-shadow,border-color] hover:border-2 hover:border-orange hover:shadow-card-hover-featured focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+          : "group flex aspect-square w-full max-w-72 flex-col rounded-card bg-white p-5 border border-charcoal/30 transition-[box-shadow,border-color] hover:border-2 hover:border-teal-light hover:shadow-card-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-light focus-visible:shadow-card-hover"
       }
     >
       {featured && (
@@ -60,31 +62,42 @@ export function JobCard({
         )}
       </div>
 
-      {/* Title */}
-      <h3
-        className={`mt-4 mb-2 text-base font-semibold line-clamp-3 ${featured ? "text-white" : "text-gray-text"}`}
-      >
-        {title}
-      </h3>
+      {/* Title + organisation: grows to fill the space between the badges and the footer */}
+      <div className="flex flex-1 flex-col justify-start gap-2">
+        <h3
+          className={`mt-3 min-h-[5.25rem] text-lg font-bold line-clamp-3 ${featured ? "text-white" : "text-gray-text"}`}
+        >
+          {title}
+        </h3>
 
-      <div className="mt-auto">
-        {/* Organisation */}
-        <div className="flex min-w-0 items-start gap-2">
-          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal-muted">
-            <span className="text-xs font-semibold text-teal">{getInitials(organization)}</span>
-          </div>
+        <div className="flex min-w-0 items-center gap-2">
+          {orgLogos[organization] ? (
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-white">
+              <NextImage
+                src={orgLogos[organization]}
+                alt=""
+                width={40}
+                height={40}
+                className="h-full w-full object-contain"
+              />
+            </div>
+          ) : (
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal-muted">
+              <span className="text-sm font-semibold text-teal">{getInitials(organization)}</span>
+            </div>
+          )}
           <span
-            className={`line-clamp-2 text-sm font-medium ${featured ? "text-cream" : "text-gray-text"}`}
+            className={`line-clamp-2 text-base font-semibold ${featured ? "text-cream" : "text-gray-text"}`}
           >
             {organization}
           </span>
         </div>
+      </div>
 
+      <div>
         {/* More Details + timestamp */}
-        <div className="mt-3 flex items-center justify-between gap-2">
-          <span
-            className={`flex items-center gap-1 text-sm font-medium ${featured ? "text-teal-light" : "text-teal-dark"}`}
-          >
+        <div className="flex items-center justify-between gap-2">
+          <span className="flex items-center gap-1 text-sm font-normal text-teal-light transition-[font-weight] group-hover:font-bold">
             More Details
             <ArrowUpRightIcon size={14} />
           </span>
